@@ -1,0 +1,441 @@
+<html>
+<head>
+</head>
+
+<body>
+    
+<!-- BEAMERZIMMER -->    
+<div class="gridster">
+ <ul>
+     <!-- Menü
+     <li data-row="1" data-col="1" data-sizex="1" data-sizey="5" data-template="menu.html"></li>
+     --> <li data-row="1" data-col="1" data-sizex="1" data-sizey="9" data-template="menu.html"></li>
+                <li data-row="3" data-col="2" data-sizex="7" data-sizey="3">
+                    <header class="blue">Schlafzimmer</header>
+                    <!-- Power on/off -->
+                    <div data-type="switch" 
+                         data-device="sb.schlafzimmer"
+                         data-states='["on","off"]'
+                         data-set-state='["off","on"]'
+                         data-background-icons='["none","none"]'
+                         data-icons='["fa-power-off","fa-power-off"]'
+                         data-on-colors='["white","blue"]'			
+                         data-background-colors='["#2a2a2a","#2a2a2a"]'
+                         class="left-align inline">
+                    </div>    
+ 		<div    data-type="switch"
+			data-device="sb.schlafzimmer"
+			data-get="synced"
+			data-get-on='["sb.schlafzimmer,sb.Wohnzimmer","sb.Wohnzimmer,sb.schlafzimmer","none"]'
+			data-icons='["fa-link","fa-link","fa-unlink"]'
+			data-set-on="sync sb.wohnzimmer asSlave"
+			data-set-off="unsync"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(208,208,208,.8)"
+			data-off-color="rgba(208,208,208,.8)"
+			class="cell small narrowss inline"
+			style="text-shadow:none;">
+		</div>
+                    <div data-type="select"
+                         data-device="sb.schlafzimmer"
+                         data-alias="ftuiPlaylistsAlias"
+                         data-list="ftuiPlaylistsItems"
+                         data-get="playlists"
+                         data-set="playlists" class="w1x">
+                    </div>
+                    <!-- Yamaha Mute
+                    <div data-type="switch"
+                    data-device="sb.schlafzimmer" 
+                    data-get="mute"
+                    data-set="mute"
+                    data-states='["on","off"]'
+                    data-set-states='["off","on"]'
+                    data-icons='["fa-volume-off","fa-volume-up"]'
+                    data-background-icons='["none","none"]'
+                    data-colors='["#ddd","#999"]'
+                    class="normal inline">
+                    </div>
+                    Cover 
+                    <div class="cell top-space-1x" style="max-height: 50; max-width: 50;">       
+                    <div data-type="image"
+                    data-device="sb.schlafzimmer" 
+                    data-get="coverarturl" 
+                    data-size="40%" 
+                    data-opacity="0.8">
+                    </div>
+                    </div>
+                    -->
+                    <!-- Artist,Title,Album -->
+                    <div class="cell inline">       
+                        <!-- Artist -->
+                        <div data-type="label" 
+                             data-device="sb.schlafzimmer" 
+                             data-get="currentArtist"
+                             class="large inline">
+                        </div> 
+                        <div class="large inline">-</div>
+                        <!-- Title -->
+                        <div data-type="label" 
+                             data-device="sb.schlafzimmer" 
+                             data-get="currentTitle"            
+                             class="large inline">
+                        </div>
+                    </div>
+                    <!-- Fortschrittsanzeige -->
+                    <div class="top-space-1x">
+                        <div data-type="label" 
+                             data-device="sb.schlafzimmer" 
+                             data-get="currentTrackPosition" 
+                             data-substitution="toMinFromSec()" 
+                             class="inline middle">
+                        </div>
+                        <div data-type="level" 
+                             data-device="sb.schlafzimmer" 
+                             data-get="currentTrackPosition"
+                             data-min="0"
+                             data-max="duration" 
+                             data-width="300"
+                             data-color="grey"
+                             class="horizontal inline">
+                        </div>
+                        <div data-type="label" 
+                             data-device="sb.schlafzimmer" 
+                             data-get="duration" 
+                             data-substitution="toMinFromSec()" 
+                             class="inline middle">
+                        </div>
+                    </div> 
+                    <!-- Player Controls -->
+                    <div class="inline top-space-1x">
+                        <!-- Shuffle -->
+                        <div data-type="multistatebutton"
+                             data-device="sb.schlafzimmer"
+                             data-get="shuffle"
+                             data-get-on='["off","song","album"]'
+                             data-set='["shuffle song","shuffle album","shuffle off"]'
+                             data-on-default="shuffle off"
+                             data-icons='["fa-random","fa-random","fa-list"]'
+                             data-colors='["grey","white","white"]'
+                             data-background-colors='["#2a2a2a","#2a2a2a","#2a2a2a"]'
+                             class="inline">
+                        </div>
+                        <!-- Next -->
+                        <div data-type="switch"
+                             data-device="sb.schlafzimmer"
+                             data-set-on="prev"
+                             data-set-off="prev"
+                             data-icon="fa-step-backward"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             class="inline">
+                        </div>
+                        <!-- Play/Pause -->   
+                        <div data-type="multistatebutton"
+                             data-device="sb.schlafzimmer"
+                             data-get="playStatus"
+                             data-get-on='["playing","paused","stopped"]'
+                             data-set='["pause","play"]'
+                             data-set-default="pause"
+                             data-icons='["fa-pause","fa-play"]'
+                             data-on-color="white"
+                             data-on-background-color="none"
+                             data-background-icon="none"
+                             class="inline">
+                        </div>
+                        <!-- Stop -->
+                        <div data-type="push" 
+                             data-device="sb.schlafzimmer"
+                             data-icon="fa-stop"
+                             data-background-icon="none"
+                             data-off-color="none"
+                             data-on-color="white"
+                             data-background-color="none"
+                             data-set-on="stop" 
+                             class="inline">
+                        </div>
+                        <!-- Back -->
+                        <div data-type="switch"
+                             data-device="sb.schlafzimmer"
+                             data-set-on="next"
+                             data-set-off="next"
+                             data-icon="fa-step-forward"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             class="inline">
+                        </div>
+                        <!-- Repeat -->
+                        <div data-type="multistatebutton"
+                             data-device="sb.schlafzimmer"
+                             data-get="repeat"
+                             data-get-on='["off","one","all"]'
+                             data-set='["repeat one","repeat all","repeat off"]'
+                             data-on-default="repeat off"
+                             data-icons='["fa-repeat","fa-repeat","fa-list"]'
+                             data-colors='["grey","white","white"]'
+                             data-background-colors='["#2a2a2a","#2a2a2a","#2a2a2a"]'
+                             class="inline">
+                        </div>        
+                    </div>
+                    <!-- Volume --> 
+                    <div class="">       
+                        <!-- VolumeDown 3steps -->
+                        <div class="inline small" 
+                             data-type="switch"
+                             data-device="sb.schlafzimmer"
+                             data-set-on="volumeDown"
+                             data-set-off="volumeDown"
+                             data-icon="fa-volume-down"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             data-background-icon="fa-square"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a">
+                        </div>
+                        <!-- Lautstärkeregler -->
+                        <div class ="inline horizontal mini"
+                             data-type="slider"
+                             data-device="sb.schlafzimmer"
+                             data-width="280"
+                             data-get="volume" 
+                             data-set="volume"
+                             data-color="grey">
+                        </div>
+                        <!-- VolumeUp 3steps -->
+                        <div class="small inline" 
+                             data-type="switch"
+                             data-device="sb.schlafzimmer"
+                             data-set-on="volumeUp"
+                             data-set-off="volumeUp"
+                             data-icon="fa-volume-up"
+                             data-background-icon="fa-circle"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             data-background-icon="fa-square"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a">
+                        </div>
+                    </div>
+                </li>
+                <li data-row="10" data-col="2" data-sizex="7" data-sizey="3">
+                    <header class="blue">Wohnzimmer</header>
+                    <!-- Power on/off -->
+                    <div data-type="switch" 
+                         data-device="sb.wohnzimmer"
+                         data-states='["on","off"]'
+                         data-set-state='["off","on"]'
+                         data-background-icons='["none","none"]'
+                         data-icons='["fa-power-off","fa-power-off"]'
+                         data-on-colors='["white","blue"]'			
+                         data-background-colors='["#2a2a2a","#2a2a2a"]'
+                         class="left-align inline">
+                    </div>
+ 		<div    data-type="switch"
+			data-device="sb.wohnzimmer"
+			data-get="synced"
+			data-get-on='["sb.schlafzimmer,sb.Wohnzimmer","sb.Wohnzimmer,sb.schlafzimmer","none"]'
+			data-icons='["fa-link","fa-link","fa-unlink"]'
+			data-set-on="sync sb.schlafzimmer asSlave"
+			data-set-off="unsync"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(208,208,208,.8)"
+			data-off-color="rgba(208,208,208,.8)"
+			class="cell small narrowss inline"
+			style="text-shadow:none;">
+		</div>       
+                    <div data-type="select"
+                         data-device="sb.wohnzimmer"
+                         data-alias="ftuiPlaylistsAlias"
+                         data-list="ftuiPlaylistsItems"
+                         data-get="playlists"
+                         data-set="playlists">
+                    </div>
+                    <!-- Yamaha Mute
+                    <div data-type="switch"
+                    data-device="sb.wohnzimmer" 
+                    data-get="mute"
+                    data-set="mute"
+                    data-states='["on","off"]'
+                    data-set-states='["off","on"]'
+                    data-icons='["fa-volume-off","fa-volume-up"]'
+                    data-background-icons='["none","none"]'
+                    data-colors='["#ddd","#999"]'
+                    class="normal inline">
+                    </div>
+                    Cover 
+                    <div class="cell top-space-1x" style="max-height: 50; max-width: 50;">       
+                    <div data-type="image"
+                    data-device="sb.wohnzimmer" 
+                    data-get="coverarturl" 
+                    data-size="40%" 
+                    data-opacity="0.8">
+                    </div>
+                    </div>
+                    -->
+                    <!-- Artist,Title,Album -->
+                    <div class="cell inline">       
+                        <!-- Artist -->
+                        <div data-type="label" 
+                             data-device="sb.wohnzimmer" 
+                             data-get="currentArtist"
+                             class="large inline">
+                        </div> 
+                        <div class="large inline">-</div>
+                        <!-- Title -->
+                        <div data-type="label" 
+                             data-device="sb.wohnzimmer" 
+                             data-get="currentTitle"            
+                             class="large inline">
+                        </div>
+                    </div>
+                    <!-- Fortschrittsanzeige -->
+                    <div class="top-space-1x">
+                        <div data-type="label" 
+                             data-device="sb.wohnzimmer" 
+                             data-get="currentTrackPosition" 
+                             data-substitution="toMinFromSec()" 
+                             class="inline middle">
+                        </div>
+                        <div data-type="level" 
+                             data-device="sb.wohnzimmer" 
+                             data-get="currentTrackPosition"
+                             data-min="0"
+                             data-max="duration" 
+                             data-width="300"
+                             data-color="grey"
+                             class="horizontal inline">
+                        </div>
+                        <div data-type="label" 
+                             data-device="sb.wohnzimmer" 
+                             data-get="duration" 
+                             data-substitution="toMinFromSec()" 
+                             class="inline middle">
+                        </div>
+                    </div> 
+                    <!-- Player Controls -->
+                    <div class="inline top-space-1x">
+                        <!-- Shuffle -->
+                        <div data-type="multistatebutton"
+                             data-device="sb.wohnzimmer"
+                             data-get="shuffle"
+                             data-get-on='["off","song","album"]'
+                             data-set='["shuffle song","shuffle album","shuffle off"]'
+                             data-on-default="shuffle off"
+                             data-icons='["fa-random","fa-random","fa-list"]'
+                             data-colors='["grey","white","white"]'
+                             data-background-colors='["#2a2a2a","#2a2a2a","#2a2a2a"]'
+                             class="inline">
+                        </div>
+                        <!-- Next -->
+                        <div data-type="switch"
+                             data-device="sb.wohnzimmer"
+                             data-set-on="prev"
+                             data-set-off="prev"
+                             data-icon="fa-step-backward"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             class="inline">
+                        </div>
+                        <!-- Play/Pause -->   
+                        <div data-type="multistatebutton"
+                             data-device="sb.wohnzimmer"
+                             data-get="playStatus"
+                             data-get-on='["playing","paused","stopped"]'
+                             data-set='["pause","play"]'
+                             data-set-default="pause"
+                             data-icons='["fa-pause","fa-play"]'
+                             data-on-color="white"
+                             data-on-background-color="none"
+                             data-background-icon="none"
+                             class="inline">
+                        </div>
+                        <!-- Stop -->
+                        <div data-type="push" 
+                             data-device="sb.wohnzimmer"
+                             data-icon="fa-stop"
+                             data-background-icon="none"
+                             data-off-color="none"
+                             data-on-color="white"
+                             data-background-color="none"
+                             data-set-on="stop" 
+                             class="inline">
+                        </div>
+                        <!-- Back -->
+                        <div data-type="switch"
+                             data-device="sb.wohnzimmer"
+                             data-set-on="next"
+                             data-set-off="next"
+                             data-icon="fa-step-forward"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             class="inline">
+                        </div>
+                        <!-- Repeat -->
+                        <div data-type="multistatebutton"
+                             data-device="sb.wohnzimmer"
+                             data-get="repeat"
+                             data-get-on='["off","one","all"]'
+                             data-set='["repeat one","repeat all","repeat off"]'
+                             data-on-default="repeat off"
+                             data-icons='["fa-repeat","fa-repeat","fa-list"]'
+                             data-colors='["grey","white","white"]'
+                             data-background-colors='["#2a2a2a","#2a2a2a","#2a2a2a"]'
+                             class="inline">
+                        </div>        
+                    </div>
+                    <!-- Volume --> 
+                    <div class="">       
+                        <!-- VolumeDown 3steps -->
+                        <div class="inline small" 
+                             data-type="switch"
+                             data-device="sb.wohnzimmer"
+                             data-set-on="volumeDown"
+                             data-set-off="volumeDown"
+                             data-icon="fa-volume-down"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             data-background-icon="fa-square"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a">
+                        </div>
+                        <!-- Lautstärkeregler -->
+                        <div class ="inline horizontal mini"
+                             data-type="slider"
+                             data-device="sb.wohnzimmer"
+                             data-width="280"
+                             data-get="volume" 
+                             data-set="volume"
+                             data-color="grey">
+                        </div>
+                        <!-- VolumeUp 3steps -->
+                        <div class="small inline" 
+                             data-type="switch"
+                             data-device="sb.wohnzimmer"
+                             data-set-on="volumeUp"
+                             data-set-off="volumeUp"
+                             data-icon="fa-volume-up"
+                             data-background-icon="fa-circle"
+                             data-on-color="white"
+                             data-off-color="grey"
+                             data-background-icon="fa-square"
+                             data-on-background-color="#2a2a2a"
+                             data-off-background-color="#2a2a2a">
+                        </div>
+                    </div>
+                </li>
+ </ul>    
+</div>    
+
+</body>
+
+</html>
+       

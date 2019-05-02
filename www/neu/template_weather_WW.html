@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Wunderground -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_title" data-substitution='["Montag","Mo","Dienstag","Di","Mittwoch","Mi","Donnerstag","Do","Freitag","Fr","Samstag","Sa","Sonntag","So"]'></div>
+		</div>
+		<div class="hdm-flexbox-item-15">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_icon" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_max" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_high_c" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_rain_daytime" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_frost" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_snow_daytime" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="cm"></div>
+		</div>
+		<div class="hdm-flexbox-item-15">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_icon_night" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_min" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_low_c" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_rain_night" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_frost" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_snow_night" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="cm"></div>
+		</div>
+	</div>
+</body>
+</html>

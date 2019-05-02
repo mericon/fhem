@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für fhem Tv-Programm -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div data-type="image" 
+			data-url="images/logos/var_name.png"
+			data-size="60%"
+			class="big compressed readonly"></div>
+		</div>
+		<div class="hdm-flexbox-item-45 left-align">
+			<div data-type="label" data-device="TV_Programme" data-pre-text="seit " data-get="var_name_Nowtime" class=""></div>
+			<div data-type="label" data-device="TV_Programme" data-get="var_name" class="large truncate"></div>
+		</div>
+		<div class="hdm-flexbox-item-45 left-align">
+			<div data-type="label" data-device="TV_Programme" data-pre-text="ab " data-get="var_name_Nexttime" class="flx_blue"></div>
+			<div data-type="label" data-device="TV_Programme" data-get="var_name_Next" class="large flx_blue truncate"></div>			
+		</div>
+	</div>
+</body>
+</html>

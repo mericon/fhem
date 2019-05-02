@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_home">
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Temperatur</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-10">
+								<div class="tall compressed top-space"
+								data-type="symbol"
+								data-icon="wi wi-thermometer"
+								data-off-color="flx_blue"></div>
+							</div>
+							<div class="hdm-flexbox-item">
+								<div class="grande"
+								data-type="label"
+								data-device="DarkSky"
+								data-get="temperature"
+								data-limits="[-50,-10,0,10,20,25,30]"
+								data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]'
+								data-fix="1"
+								data-unit="&deg;C" ></div>
+							<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="1" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="2" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="3" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div class="bigger"
+								data-type="label"
+								data-device="DarkSky"
+								data-get="apparentTemperature"
+								data-limits="[-50,-10,0,10,20,25,30]"
+								data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]'
+								data-pre-text="Gefühlt:&nbsp;"
+								data-fix="1"
+								data-unit="&deg;C" ></div>
+							</div>
+							<div class="hdm-flexbox-item-20 right-align">
+								<div data-type="link" data-url="#content_weather_now.html" data-load="#content_weather_now" data-fade-duration="0">
+									<div class="big inline white">Außen</div>
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed inline"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-10">
+								<div data-type="symbol" data-off-color="flx_blue" data-icon="wi wi-thermometer" class="tall compressed top-space"></div>
+							</div>
+							<div class="hdm-flexbox-item">
+								<div class="grande"
+								data-type="label"
+								data-device="wz_TempSensor"
+								data-get="temperature"
+								data-limits="[0,16,18,20,22,25,27]"
+								data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]'
+								data-fix="1"
+								data-unit="&deg;C" ></div>
+							<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline bigger top-space readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-20 right-align">
+								<div data-type="link" data-url="#content_clima.html" data-load="#content_clima" data-fade-duration="0">
+									<div class="big inline white">Innen</div>
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed inline"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+							<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-20">
+									<div class="bigger" data-type="label" data-device="Bad_TempSensor" data-get="temperature" data-limits="[0,16,18,20,22,25,27]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="%B0C%0A" ></div>
+									<div data-type="klimatrend" data-device="Bad_TempSensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Bad_TempSensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Bad_TempSensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div class="" data-type="label" data-device="Bad.Lueften" data-substitution='["oeffnen","Bad","opened","Bad","schliessen","Bad","closed","Bad"]'data-limits='[".*oeffnen.*",".*opened.*",".*schliessen.*",".*closed.*"]' data-classes='["blink","","blink",""]'></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="bigger" data-type="label" data-device="Buero_TempSensor" data-get="temperature" data-limits="[0,16,18,20,22,25,27]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="%B0C%0A" ></div>
+									<div data-type="klimatrend" data-device="Buero_TempSensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Buero_TempSensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Buero_TempSensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div class="" data-type="label" data-device="Buero.Lueften" data-substitution='["oeffnen","B&uuml;ro","opened","B&uuml;ro","schliessen","B&uuml;ro","closed","B&uuml;ro"]'data-limits='[".*oeffnen.*",".*opened.*",".*schliessen.*",".*closed.*"]' data-classes='["blink","","blink",""]'></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="bigger" data-type="label" data-device="sz_TempSensor" data-get="temperature" data-limits="[0,16,18,20,22,25,27]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="%B0C%0A" ></div>
+									<div data-type="klimatrend" data-device="sz_TempSensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="sz_TempSensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="sz_TempSensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div class="" data-type="label" data-device="SZ.Lueften" data-substitution='["oeffnen","Schlafen","opened","Schlafen","schliessen","Schlafen","closed","Schlafen"]'data-limits='[".*oeffnen.*",".*opened.*",".*schliessen.*",".*closed.*"]' data-classes='["blink","","blink",""]'></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="bigger" data-type="label" data-device="wz_TempSensor" data-get="temperature" data-limits="[0,16,18,20,22,25,27]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="%B0C%0A" ></div>
+									<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="wz_TempSensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div class="" data-type="label" data-device="WZ.Lueften" data-substitution='["oeffnen","Wohnen","opened","Wohnen","schliessen","Wohnen","closed","Wohnen"]'data-limits='[".*oeffnen.*",".*opened.*",".*schliessen.*",".*closed.*"]' data-classes='["blink","","blink",""]'></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="bigger" data-type="label" data-device="Temp_Abstellraum_Sensor" data-get="temperature" data-limits="[0,16,18,20,22,25,27]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="%B0C%0A" data-fix="1"></div>
+									<div data-type="klimatrend" data-device="Temp_Abstellraum_Sensor" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Temp_Abstellraum_Sensor" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div data-type="klimatrend" data-device="Temp_Abstellraum_Sensor" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+									<div class="">Abstellen</div>
+								</div>
+							</div>
+					</section>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" 
+									data-device="Bad_FensterSensor"
+									data-get-on='["closed","open"]' 
+									data-colors='["flx_blue","flx_orange"]' 
+									data-icons='["oa-fts_window_roof","oa-fts_window_roof_open_2"]' 
+									class="readonly big compressed"></div>
+									<div class="">Bad</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" 
+									data-device="Buero_FensterSensor" 
+									data-get-on='["closed","open"]' 
+									data-colors='["flx_blue","flx_orange"]' 
+									data-icons='["oa-fts_window_1w","oa-fts_window_1w_tilt"]' 
+									class="readonly big compressed"></div>
+									<div class="">B&uuml;ro</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" 
+									data-device="sz_FensterSensor" 
+									data-get-on='["closed","open"]' 
+									data-colors='["flx_blue","flx_orange"]' 
+									data-icons='["oa-fts_window_1w","oa-fts_window_1w_tilt"]' 
+									class="readonly big compressed"></div>
+									<div class="">Schlafzimmer</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" 
+									data-device="wz_FensterSensor" 
+									data-get-on='["closed","open"]' 
+									data-colors='["flx_blue","flx_orange"]' 
+									data-icons='["oa-fts_door","oa-fts_door_open"]' 
+									class="readonly big compressed"></div>
+									<div class="">Balkont&uuml;r</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol"
+									data-device="Wohnungstuer_Sensor"
+									data-get="state"
+									data-get-on='["closed","open"]'
+									data-colors='["flx_blue","flx_orange"]'
+									data-icons='["oa-fts_door","oa-fts_door_open"]'
+									class="readonly big compressed"></div>
+									<div class="">Wohnungst&uuml;r</div>
+								</div>
+							</div>
+					</section>
+					<header>Licht</header>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-20">
+									<div data-type="push" data-device="HUEGroup0" data-cmd="set" data-set-on="off" data-get="any_on" data-on-color="flx_orange" data-off-color="flx_orange" data-background-icon="" class="big compressed"></div>
+									<div class="inline">Alles aus</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="push" data-off-color="flx_blue" data-icon="fa-lightbulb-o" data-background-icon="" class="big compressed" data-fhem-cmd="set HUEBridge scene rQ5lhg7c9qmsR1a"></div>
+									<div class="">Fernsehen</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="push" data-off-color="flx_blue" data-icon="fa-lightbulb-o" data-background-icon="" class="big compressed" data-fhem-cmd="set HUEBridge scene m2xSVUPprsCwMIT"></div>
+									<div class="">Lesen</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="push" data-off-color="flx_blue" data-icon="fa-lightbulb-o" data-background-icon="" class="big compressed" data-fhem-cmd="set HUEBridge scene BoafysmkZEu4BI4"></div>
+									<div class="">Putzen</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="push" data-off-color="flx_blue" data-icon="fa-lightbulb-o" data-background-icon="" class="big compressed" data-fhem-cmd="set HUEBridge scene sUjedzy61RFOMUo"></div>
+									<div class="">K&uuml;che</div>
+								</div>
+								<div class="hdm-flexbox-item right-align">
+									<div data-type="link" data-url="#content_light.html" data-load="#content_light" data-fade-duration="0">
+										<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed inline"></div>
+									</div>
+								</div>
+							</div>
+					</section>
+					<header>Rollos</header>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-20">
+									<div class="small flx_blue"
+									data-type="checkbox"
+									data-device="alle_Rollos.hoch"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange" 
+									data-get-on="!inactive"
+									data-get-off="inactive"
+									data-set-on="active" 
+									data-set-off="inactive"></div>
+									<div class="compressed tiny"
+									data-type="symbol"
+									data-icon="fa-angle-double-up"
+									data-color="flx_blue"></div>
+									<div class=""
+									data-type="label"
+									data-device="alle_Rollos.hoch"
+									data-get="TRIGGERTIME_FMT"
+									data-substitution="toDate().hhmm()"
+									data-unit="Uhr"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="small flx_blue"
+									data-type="checkbox"
+									data-device="alle_Rollos.runter"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange"
+									data-get-on="!inactive"
+									data-get-off="inactive"
+									data-set-on="active" 
+									data-set-off="inactive"></div>
+									<div class="compressed tiny"
+									data-type="symbol"
+									data-icon="fa-angle-double-down"
+									data-color="flx_blue"></div>
+									<div class=""
+									data-type="label"
+									data-device="alle_Rollos.runter"
+									data-get="TRIGGERTIME_FMT"
+									data-substitution="toDate().hhmm()"
+									data-unit="Uhr"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="big compressed"
+									data-type="push"
+									data-device="alle_Rollos"
+									data-icon="fa-angle-double-up"
+									data-off-color="flx_blue"
+									data-background-icon=""
+									data-set-on="fav"></div>
+									<div class="">Auf</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="big compressed"
+									data-type="push"
+									data-device="alle_Rollos"
+									data-icon="fa-minus"
+									data-off-color="flx_orange"
+									data-background-icon=""
+									data-set-on="stop"></div>
+									<div class="">Stop</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="big compressed"
+									data-type="push"
+									data-device="alle_Rollos"
+									data-icon="fa-angle-double-down"
+									data-off-color="flx_blue"
+									data-background-icon=""
+									data-set-on="close"></div>
+									<div class="">Zu</div>
+								</div>
+								<div class="hdm-flexbox-item right-align">
+									<div data-type="link" data-url="#content_blinds.html" data-load="#content_blinds" data-fade-duration="0">
+										<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed inline"></div>
+									</div>
+								</div>
+							</div>
+					</section>
+				</div>
+			</div>
+		
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Wettervorhersage</header>
+					<section style="height: 175px;">
+						<div data-type="rotor" data-delay="3000" class="">
+							<ul>
+								<li>
+									<div class="hdm-flexbox-container">
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_WW" data-get="fc0_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc0_title" data-post-text=" - Station" data-substitution='["Montag","Mo","Dienstag","Di","Mittwoch","Mi","Donnerstag","Do","Freitag","Fr","Samstag","Sa","Sonntag","So"]' class=""></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc0_high_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc0_low_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_WW" data-get="fc1_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc1_title" data-post-text=" - Station" data-substitution='["Montag","Mo","Dienstag","Di","Mittwoch","Mi","Donnerstag","Do","Freitag","Fr","Samstag","Sa","Sonntag","So"]' class=""></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc1_high_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc1_low_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_WW" data-get="fc2_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc2_title" data-post-text=" - Station" data-substitution='["Montag","Mo","Dienstag","Di","Mittwoch","Mi","Donnerstag","Do","Freitag","Fr","Samstag","Sa","Sonntag","So"]' class=""></div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc2_high_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_WW" data-get="fc2_low_c" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="hdm-flexbox-container">
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_Pro" data-get="fc0_weatherDayIcon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc0_date" data-post-text=" - Proplanta" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc0_tempMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc0_tempMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_Pro" data-get="fc1_weatherDayIcon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc1_date" data-post-text=" - Proplanta" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc1_tempMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc1_tempMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="Wetter_Pro" data-get="fc2_weatherDayIcon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc2_date" data-post-text=" - Proplanta" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc2_tempMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="Wetter_Pro" data-get="fc2_tempMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' class="bigger inline"></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="hdm-flexbox-container">
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DWD" data-get="fc0_4_wwd" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DWD" data-get="fc0_weekday" data-post-text=" - DWD" class=""></div>
+											<div data-type="label" data-device="DWD" data-get="fc0_Tx" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DWD" data-get="fc0_Tn" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DWD" data-get="fc1_4_wwd" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DWD" data-get="fc1_weekday" data-post-text=" - DWD" class=""></div>
+											<div data-type="label" data-device="DWD" data-get="fc1_Tx" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DWD" data-get="fc1_Tn" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DWD" data-get="fc2_4_wwd" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DWD" data-get="fc2_weekday" data-post-text=" - DWD" class=""></div>
+											<div data-type="label" data-device="DWD" data-get="fc2_Tx" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DWD" data-get="fc2_Tn" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="hdm-flexbox-container">
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DarkSky" data-get="fc0_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc0_time" data-post-text=" - DarkSky" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc0_temperatureMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DarkSky" data-get="fc0_temperatureMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DarkSky" data-get="fc1_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc1_time" data-post-text=" - DarkSky" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc1_temperatureMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DarkSky" data-get="fc1_temperatureMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+										<div class="hdm-flexbox-item-33">
+											<div data-type="weather" data-device="DarkSky" data-get="fc2_icon" data-imageset="kleinklima" class="compressed readonly"></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc2_time" data-post-text=" - DarkSky" data-substitution="toDate().ee()" class=""></div>
+											<div data-type="label" data-device="DarkSky" data-get="fc2_temperatureMax" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+											<div class="big inline">|</div>
+											<div data-type="label" data-device="DarkSky" data-get="fc2_temperatureMin" data-unit="&deg;C" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="0" class="bigger inline"></div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+					<header>Spiegel News</header>
+					<section>
+						<div data-type="scrolllabel" data-device="spiegelNews" data-get="tickerToast" data-orientation="horizontal" data-scrollspeed="slow" class="big">
+						</div>
+					</section>
+					<header>Receiver</header>
+					<section style="height: 100px;">
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-20">
+									<div class="big compressed" 
+									data-type="switch" 
+									data-device="AV_Receiver"
+									data-get-on="on.*"
+									data-set-on="on"
+									data-set-off="off"
+									data-on-color="flx_blue" 
+									data-off-color="flx_orange" 
+									data-icon="fa-power-off"
+									data-background-icon=""></div>
+									<div class="inline">Power</div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div class="big compressed"
+									data-type="push"
+									data-device="AV_Receiver"
+									data-icon="mi-radio"
+									data-off-color="flx_blue"
+									data-background-icon=""
+									data-set-on="scene scene4"></div>
+									<div class="">DAB+</div>
+								</div>
+								<div class="hdm-flexbox-item-60">
+									<div class="valueonly center"
+									data-type="spinner" 
+									data-device="AV_Receiver"
+									data-get="volumeStraight"
+									data-set="volumeStraight"
+									data-icon-left="fa-volume-down"
+									data-icon-left-color="white"
+									data-icon-right="fa-volume-up"
+									data-icon-right-color="white"
+									data-height="22"
+									data-width="150"
+									data-step="0.5"
+									data-unit="db"
+									data-min="-70"
+									data-max="-20"
+									data-longdelay="200"
+									data-shortdelay="50"></div>
+									<div class="big inline"
+									data-type="label"
+									data-device="AV_Receiver"
+									data-get="currentTitle"></div>
+								</div>
+								<div class="hdm-flexbox-item right-align">
+									<div data-type="link" data-url="#content_av_receiver.html" data-load="#content_av_receiver" data-fade-duration="0">
+										<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed inline"></div>
+									</div>
+								</div>
+							</div>
+					</section>
+					<header>Weiteres</header>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+									<div data-type="symbol"
+									data-device="Fritz_Box"
+									data-states='["",""]' data-colors='["",""]' 
+									data-icon="mi-phone"
+									data-color="flx_blue"
+									data-warn="tam1_newMsg"
+									data-warn-color="white" 
+									data-warn-background-color="#E17000"
+									class="big compressed"></div>							
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_phone.html" data-load="#content_phone" data-fade-duration="0">
+									<div class="big white left-align">Anrufe</div>
+								</div>								
+								<div data-type="label" class="inline">Letzter:&nbsp;</div>
+								<div data-type="label" data-device="Fritzboxanrufeliste" data-get="1-number" class="inline"></div>
+								<div data-type="label" data-device="Fritzboxanrufeliste" data-get="1-name" class="inline"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_phone.html" data-load="#content_phone" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-device="Geburtstagskalender" 
+								data-get="t_001_daysleft"
+								data-states='["0","1","2"]'
+								data-get-warn='([0|1|2])'
+								data-warn-color="white" 
+								data-warn-background-color="#E17000"
+								data-colors='["flx_blue","flx_blue","flx_blue"]'
+								class="big warn compressed"
+								data-icons='["fa-birthday-cake fa-spin","fa-birthday-cake shake","fa-birthday-cake"]'>
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_birthday.html" data-load="#content_birthday" data-fade-duration="0">
+									<div class="big white left-align">Geburtstage</div>
+								</div>
+								<div data-type="label" class="inline">N&auml;chster:&nbsp;</div>
+								<div data-type="label" data-device="Geburtstagskalender" data-get="t_001_bdate" class="inline"></div>
+								<div data-type="label" data-device="Geburtstagskalender" data-get="t_001_summary" class="inline"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_birthday.html" data-load="#content_birthday" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-device="myAbfall" 
+								data-get="ftui_next"
+								data-states='["Abfall_Biomuell_0","Abfall_Biomuell_1","Abfall_Biomuell_.*","Abfall_GelberSack_0","Abfall_GelberSack_1","Abfall_GelberSack_.*","Abfall_Altpapier_0","Abfall_Altpapier_1","Abfall_Altpapier_.*","Abfall_Restmuell_0","Abfall_Restmuell_1","Abfall_Restmuell_.*"]'
+								data-get-warn=".*([0|1|2]).*"
+								data-warn-color="white" 
+								data-warn-background-color="#E17000"
+								data-colors='["flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue","flx_blue"]'
+								class="big warn compressed"
+								data-icons='["fa-trash-o fa-spin","fa-trash-o shake","fa-trash-o","fa-trash-o fa-spin","fa-trash-o shake","fa-trash-o","fa-trash-o fa-spin","fa-trash-o shake","fa-trash-o","fa-trash-o fa-spin","fa-trash-o shake","fa-trash-o"]'>
+								</div>
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_trash.html" data-load="#content_trash" data-fade-duration="0">
+									<div class="big white left-align">Abfall</div>
+								</div>
+								<div data-type="label" class="inline">N&auml;chster:&nbsp;</div>
+								<div data-type="label" data-device="myAbfall" data-get="next_date" class="inline"></div>
+								<div data-type="label" data-device="myAbfall" data-get="next_text" class="inline"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_trash.html" data-load="#content_trash" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+							</div>
+							</div>
+						</div>
+					</section>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" data-device="Handy_1" data-icons='["fa-female","fa-female"]' data-colors='["flx_blue","flx_orange"]' data-get-on='["present","absent"]' class="big compressed"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" data-device="Handy_2" data-icons='["fa-male","fa-male"]' data-colors='["flx_blue","flx_orange"]' data-get-on='["present","absent"]' class="big compressed"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" data-device="CUL1" data-icons='["fs-cul_868","fs-cul_868 shake"]' data-colors='["flx_blue","flx_orange"]' data-get-on='["Initialized","init|disconnected"]' class="big compressed"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" data-device="mySIGNALduino" data-icons='["fs-cul_usb","fs-cul_usb shake"]' data-colors='["flx_blue","flx_orange"]' data-get-on='["opened","closed|reset|disconnected"]' class="big compressed"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" 
+										data-device="HUEBridge"
+										data-warn="HUEBridge:updatestate"
+										data-warn-on="!0"  
+										data-warn-off="0"
+										data-warn-icon="fa-info"
+										data-warn-color="white" 
+										data-warn-background-color="#E17000"
+										data-icons='["fs-hue_filled_bridge_v2","fs-hue_filled_bridge_v2 shake"]' 
+										data-colors='["flx_blue","flx_orange"]' 
+										data-get-on='["connected|update done","init|disconnected"]' 
+										class="big compressed"></div>
+								</div>
+								<div class="hdm-flexbox-item-20">
+									<div data-type="symbol" data-device="Internet_status" data-icons='["oa-it_internet","oa-it_internet shake"]' data-colors='["flx_blue","flx_orange"]' data-get-on='["present","absent"]' class="big compressed"></div>
+								</div>
+							</div>
+					</section>
+					<!--
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_device":"overview_blinds","var_link":"content_blinds","var_name":"Jalousien","var_state1":"on","var_text1":"alle offen","var_state2":"off","var_text2":"alle geschlossen","var_state3":"undefined","var_text3":"teilweise geschlossen","var_icon":"mi-line_weight"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_device":"overview_smokedetect","var_link":"content_smoke","var_name":"Rauchmelder","var_state1":"Alarm_B0","var_text1":"Alarm!","var_state2":"off","var_text2":"Melder bereit","var_icon":"oa-secur_smoke_detector"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_device":"","var_link":"content_cam","var_name":"Kameras","var_icon":"mi-videocam"}'></div>
+					</section>
+					-->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

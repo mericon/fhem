@@ -1,0 +1,61 @@
+<html>
+
+    <head></head>
+
+    <body>
+<div class="gridster">
+        <ul>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="9" data-template="menu.html"></li>
+           <li data-row="8" data-col="2" data-sizex="8" data-sizey="3">
+    <header class="blue">ANRUFE</header>
+    <table width="100%" border="1">
+        <tr>
+            <td>
+                <!-- Zuordnung des Status zu entsprechendem Icon -->
+                <div class="narrow" data-type="symbol" data-device="calls"
+                     data-get="1-state" data-states='["=>","=> X","=> ((o))","=> [=]","=> O_O"]'
+                     data-icons='["oa-phone_call_end_in","oa-phone_missed_in","oa-phone_ring fa-blink","oa-phone_ring_in fa-blink","oa-phone_answersing"]'
+                     data-colors='["green","firebrick","firebrick","green","#aa6900"]'></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="1-timestamp" data-part="5" class=""></div>
+                <div data-type="label" data-device="calls" data-get="1-timestamp" data-part="1" class="inline"></div>
+                <div data-type="label" data-device="calls" data-get="1-timestamp" data-part="2" class="inline"></div>
+                <div data-type="label" data-device="calls" data-get="1-timestamp" data-part="3" class="inline"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="1-name"></div>
+                <div data-type="label" data-device="calls" data-get="1-number"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="1-duration"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="narrow" data-type="symbol" data-device="calls"
+                     data-get="2-state" data-states='["=>","=> X","=> ((o))","=> [=]","=> O_O"]'
+                     data-icons='["oa-phone_call_end_in","oa-phone_missed_in","oa-phone_ring fa-blink","oa-phone_ring_in fa-blink","oa-phone_answersing"]'
+                     data-colors='["green","firebrick","firebrick","green","#aa6900"]'></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="2-timestamp" data-part="5" class=""></div>
+                <div data-type="label" data-device="calls" data-get="2-timestamp" data-part="1" class="inline"></div>
+                <div data-type="label" data-device="calls" data-get="2-timestamp" data-part="2" class="inline"></div>
+                <div data-type="label" data-device="calls" data-get="2-timestamp" data-part="3" class="inline"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="2-name"></div>
+                <div data-type="label" data-device="calls" data-get="2-number"></div>
+            </td>
+            <td>
+                <div data-type="label" data-device="calls" data-get="2-duration"></div>
+            </td>
+        </tr>
+    </table>
+</li>
+        </ul>
+</div>    
+</body>
+
+</html>

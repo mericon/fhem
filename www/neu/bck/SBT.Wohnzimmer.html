@@ -1,0 +1,463 @@
+﻿<html>
+<body>
+<!-- ----------------------- SqueezeTouch MediaPlayer by FHEM 2005 (Eberhard)------------------------  
+
+Diese Variante ist 482px x 275px groß-->
+
+<!-- die folgende Zeile ruft dieses Template auf:
+<li data-row="8" data-col="4" data-sizex="5" data-sizey="3" data-template="SBT.Wohnzimmer.html"></li>
+Die Größe des FTUI-Containers muss individuell festgelegt werden. Ich arbeite mit 
+	<meta name="widget_base_width" content="60">
+	<meta name="widget_base_height" content="60">
+im header. 
+
+Die Position der Steuerung innerhalb des FTUI-Containers kann durch die beiden Werte "top" und "left" frei positioniert werden. Siehe unter 'Rahmen mit Hintergrundbild' . 
+-->
+<!-- Mediaplayer -->
+<style>
+.range-bar {
+    background-color: rgb(0, 0, 0) !important;
+    display: block !important;
+    height: 10px !important;
+    width: 100% !important;
+    position: relative !important;
+    border-radius: 15px !important;
+    border: 1px solid #4B4A4A !important;
+}
+
+
+
+.range-container {
+width: 162px !important;
+max-width: 162px !important;
+}
+
+.range-handle {
+    background-color: rgb(119, 118, 118) !important;
+    width: 31px !important;
+    top: -1px !important;
+    position: absolute !important;
+    height: 12px !important;
+    border-radius: 10px !important;
+    box-shadow: -2px 0px 1px rgb(0, 0, 0) !important;
+    left: 20px;
+}
+.range-quantity {
+    background-color: rgb(149, 167, 164) !important;
+    border-radius: 15px !important;
+    display: block !important;
+	height: 10px !important; 
+}
+
+
+.select > select:nth-child(1) {
+    border-radius: 10px !important;
+    width: 100% !important;
+    padding: 6px 30px 6px 6px !important;
+    -moz-appearance: none !important;
+    font-size: 18px !important;
+    color: #EEEEEE;
+    background: transparent none repeat scroll 0% 0% !important;
+    border: 2px solid rgba(150, 150, 150, 0) !important;
+    font-weight: bold  !important;
+    text-align: center  !important;
+}
+ 
+.select::after {
+font-size: 100%;
+top: 6px !important;
+}
+
+
+
+</style>
+
+<header>Media SBT.Wohnzimmer</header>
+<div class="container">
+
+		<!-- Rahmen mit Hintergundbild -->
+<!-- die Steuerung kann im folgenden div-Container mit 'top' und 'left' innerhalb des FTUI-Containers verschoben werden -->
+
+<div class="left" 
+	style= "width: 482px;			
+		height: 275px;
+		border: 1px solid;
+				position:absolute;
+				top:31px;
+				left:26px;
+		margin: 0px;
+		background-image: url('images/squeezebox/wallpaper/fab4_sonata.png');" > 
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_allegro.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_black.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_encore.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_harmony.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_nocturne.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_quartet.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_vibrato.png');" > -->
+<!--			background-image: url('images/squeezebox/wallpaper/fab4_symphony.png');" > -->
+
+
+			<!-- Kopfleiste Hintergrund -->
+		<div style = "width:480px;
+				height:40px;
+				background-color:none;
+				margin: 0px 0px 5px 0px;
+				position:absolute;
+				top:4px;
+				left:0px;
+				opacity:.8;">
+				<img src="images/squeezebox/header.png"  width="475" height="40" alt="Computers Hope">
+			</div>
+
+			<!-- Fußleiste Hintergrund -->
+		<div 
+			style = "width:480px;
+				height:40px;  
+				background-color:black;
+				position:absolute;
+				top:233px;
+				left:0px;
+				margin: 0px 0px 5px 0px;
+				opacity:.8;">
+				<img src="images/squeezebox/footerOhneLautst.png"  width="480" height="40" alt="Habe keine Lust">
+			</div>			
+
+
+			<!-- Coverart -->
+		<div data-type="popup" 
+			data-height="500px"  
+			data-width="500px"
+			style="position:absolute;
+				top: 47px !important;
+				left: 0px	!important;">
+			<div data-type="image"
+				style = "margin: 0px 10px 0px 5px;
+					position:absolute;
+					top:2px;
+					left:2px;
+					cursor:pointer;
+					background-color:none;"
+				data-device="SBT.Wohnzimmer" 
+				data-get="coverarturl" 
+				data-size="100%" 
+				data-height="182px"
+				data-width="182px"
+				data-opacity = "1"
+				class="left" >
+			</div>
+			<div class="dialog"
+				style="border: 1px solid;">
+				<div data-type="image"
+				style = "margin: 0px;
+					background-color:none;"
+				data-device="SBT.Wohnzimmer" 
+				data-get="coverarturl" 
+				data-size="100%" 
+				data-height="495px"
+				data-width="498px"
+				data-opacity = "1"
+				class="left" >
+			</div>
+
+			</div>
+		</div>
+		<!-- Title, Artist, Album ----->
+		<div style= "position:absolute;
+			top:48px;
+			left:200px;
+			text-align:left;
+			text-shadow: black 1px 1px 0px;
+			height:181px; 
+			width:275px;
+			overflow:hidden;
+			line-height:36px;">
+
+
+
+
+			<!-- Title -->
+			<div data-type="label" 
+				data-device="SBT.Wohnzimmer" 
+				data-get="currentTitle" 
+				style=" font-size:25px;
+					font-weight:bold;
+					vertical-align:text-bottom;">
+			</div>	
+
+
+
+			<!-- Artist -->
+			<div data-type="label" 
+				data-device="SBT.Wohnzimmer" 
+				data-get="currentArtist" 
+				style ="font-size:23px;">
+			</div>
+
+			<!-- Album 
+			<div class="item" data-type="label" 
+				data-device="SBT.Wohnzimmer" 
+				data-get="currentAlbum" 
+				style ="font-size:23px;">
+			</div>-->
+
+			<div data-type="joinedlabel" 
+				data-device="SBT.Wohnzimmer" 
+				data-get='["SBT.Wohnzimmer:currentAlbum"]' 
+				data-mask="[$1]"
+				style ="font-size:23px;">
+			</div>
+
+		</div>
+
+
+<!-- PlayerControls Kopfleiste -->
+
+		<!-- Powerbutton in Kopfleite -->
+		<div data-type="switch" 
+			data-device="SBT.Wohnzimmer" 
+			data-icon="fa-power-off"
+			data-background-icon="fa-square-o"
+			data-on-color="#FFFF00"
+			data-off-color="rgba(180, 180, 180, 0.82)" 
+			data-off-background-color= "rgba(147, 147, 147, 0)"
+			data-on-background-color= "rgba(147, 147, 147, 0)"
+			style="text-align:left;
+				font-size:24px; 
+				position:absolute;
+				top: 0px; 
+				left: 14px;">
+		</div>
+
+		<!-- Pulldown - Stationstasten 	--->
+			<div data-type="select"
+			data-device="SBT.Wohnzimmer"
+			data-list="FAVSTR_FTUI"
+			data-get="playlists"
+			data-set="favorites"
+			data-cmd="set"
+			data-alias='["Sendername1","Sendername2","Sendername3","Sendername4","Sendername5","Sendername6","Sendername7","Sendername8","Sendername9","Sendername10","Sendername11","Sendername12","Sendername13","Sendername14","Sendername15", "Sendername16"]'
+			style="width:340px;
+				position: absolute;
+				top: -5px;
+				left: 70px;
+				font-size: 0px;
+				font-weight:bold;
+			    color:none;
+				overflow:hidden;">
+		</div>
+		
+
+		<!-- Synchronisatio mit anderen Playern  
+Das pop-up Fenster erscheint immer zentriert in der Fenstermitte.-->
+		<div data-type="popup" 
+			data-height="125px"  
+			data-width="435px"
+			style="position:absolute;
+				top: -36px !important;
+				left: 78px	!important;">
+ 			<div data-type="symbol"
+				data-device ="SBT.Wohnzimmer"
+				data-get="synced_FTUI"
+				data-get-on='["SB","no"]'
+				data-icons='["fa-link","fa-unlink"]'
+				data-background-icon="fa-square-o"
+				data-on-background-color="rgba(147, 147, 147, 0)"
+				data-off-background-color="rgba(147, 147, 147, 0)"
+				data-on-color="rgba(208,208,208,.8)"
+				data-off-color="rgba(208,208,208,.8)"				
+		 		style= "position:absolute;
+					font-size: 21px;
+					top: 40px;
+					left: 346px;
+					cursor:pointer;">
+			</div>	
+			<div class="dialog"
+				style="background-image: url('images/squeezebox/wallpaper/fab4_sonata.png'); 
+						border: 1px solid;
+						font-size:17px;
+						text-shadow: black 1px 1px 0px;">
+					<header style="background-color:rgba(147, 147, 147, 0);font-size:17px;color:white;" >SBT.Wohnzimmer &uuml;bernimmt von:</header>
+						
+							<div class="left">
+						
+
+								<div data-type="label" 
+									class="cell">Schlafzimmer
+								</div>
+								<div data-type="switch"
+									data-device="SBT.Wohnzimmer"
+									data-get="SB3.Kueche"
+									data-get-on='["synced","not synced"]'
+									data-icons='["fa-link","fa-unlink"]'
+									data-set-on="sync SBT.Schlafzimmer asSlave"
+									data-set-off="unsync"
+									data-set-off="unsync"
+									data-background-icon="fa-square-o"
+									data-on-background-color="rgba(147, 147, 147, 0)"
+									data-off-background-color="rgba(147, 147, 147, 0)"
+									data-on-color="rgba(208,208,208,.8)"
+									data-off-color="rgba(208,208,208,.8)"
+									class="cell small narrow"
+									style="text-shadow:none;">
+								</div>
+							</div>
+
+							
+					</div>
+				</div> 
+				
+<!-- PlayerControls Fußleiste -->
+<div>
+		<!-- Rückwärts -->
+		<div data-type="switch"
+			data-device="SBT.Wohnzimmer"
+			data-set-on="prev"
+			data-set-off="prev"
+			data-icon="fa-forward"
+			data-background-icon="fa-square-o"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(255,255,255,0)"
+			data-off-color="rgba(255,255,255,0)"
+			class="cell small"
+			style= "position: absolute;
+				top: 234px;
+				left: 1px;
+				font-size: 13px;
+				margin:0px !important;">
+		</div>
+
+		<!-- Pausentaste -->
+		<div data-type="switch"
+			data-device="SBT.Wohnzimmer"
+			data-get="playStatus"
+			data-set-on="play"
+			data-set-off="pause 1"
+			data-get-on='["playing","paused","stopped"]'
+			data-icons='["fa-pause","fa-play","fa-play"]'
+			data-background-icon="fa-square-o"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(208,208,208,.8)"
+			data-off-color="rgba(208,208,208,.8)"
+			class="cell small"
+			style= "position: absolute;
+				top: 236px;
+				left: 53px;
+				margin: 0px !important;
+				font-size: 19px !important;">
+		</div>
+
+		<!-- Vorwärts -->		
+		<div data-type="switch"
+			data-device="SBT.Wohnzimmer"
+			data-set-on="next"
+			data-set-off="next"
+			data-icon="fa-foreward"
+			data-background-icon="fa-square-o"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(255,255,255,0)"
+			data-off-color="rgba(255,255,255,0)"
+			class="cell small"
+			style= "margin:0px !important;
+				position: absolute;
+				top: 234px;
+				left: 99px;
+				font-size: 19px;">
+		</div>
+
+		<!-- Repeat -->
+		<div data-type="multistatebutton"
+			data-device="SBT.Wohnzimmer"
+			data-get="repeat"
+			data-get-on='["off","one","all"]'
+			data-set='["repeat one","repeat all","repeat off"]'
+			data-on-default="repeat off"
+			data-icons='["fa-repeat","fa-repeat","fa-repeat"}'
+			data-background-icons='["fa-square-o","fa-square-o","fa-square-o"]'
+			data-background-colors='["rgba(147, 147, 147, 0)","rgba(147, 147, 147,.3)","rgba(147, 147, 147, .8)"]'
+			style="position: absolute;
+				top: 232px;
+				left: 141px;
+				font-size: 23px !important;
+				margin:0px !important;"						
+			class="cell small">
+		</div>
+
+		<!-- Shuffle -->
+		<div data-type="multistatebutton"
+			data-device="SBT.Wohnzimmer"
+			data-get="shuffle"
+			data-get-on='["off","song","album"]'
+			data-set='["shuffle song","shuffle album","shuffle off"]'
+			data-on-default="shuffle off"
+			data-icons='["fa-repeat","fa-repeat","fa-repeat"}'
+			data-background-icons='["fa-square-o","fa-square-o","fa-square-o"]'
+			data-background-colors='["rgba(147, 147, 147, 0)","rgba(147, 147, 147,.3)","rgba(147, 147, 147,.8)"]'
+			style="position: absolute;
+				top: 232px;
+				left: 188px;
+				font-size: 23px !important;
+				margin:0px !important;"						
+			class="cell small">
+		</div>
+
+		<!-- VolumeDown 3steps -->
+		<div data-type="switch"
+			data-device="SBT.Wohnzimmer"
+			data-set-on="volumeDown"
+			data-set-off="volumeDown"
+			data-icon="fa-forward"
+			data-background-icon="fa-square-o"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(255,255,255,0)"
+			data-off-color="rgba(255,255,255,0)"
+			class="cell"
+			style="position:absolute;
+				top: 234px;
+				left: 232px;
+				font-size: 19px;
+				margin:0px !important;">
+		</div>
+ 		
+		<!-- Lautstärkeregler -->
+		<div class ="horizontal large"
+			data-type="slider" 
+			data-device="SBT.Wohnzimmer" 
+			data-get="volume" 
+			data-set="volume"
+			style ="position: absolute;
+					top: 249px;
+					left: 276px;
+					width: 162px;
+					max-width:162px;
+					height: 10px;">
+		</div>		
+
+		<!-- VolumeUp 3steps -->
+		<div data-type="switch"
+			data-device="SBT.Wohnzimmer"
+			data-set-on="volumeUp"
+			data-set-off="volumeUp"
+			data-icon="fa-forward"
+			data-background-icon="fa-square-o"
+			data-on-background-color="rgba(147, 147, 147, 0)"
+			data-off-background-color="rgba(147, 147, 147, 0)"
+			data-on-color="rgba(255,255,255,0)"
+			data-off-color="rgba(255,255,255,0)"
+			class="cell"
+			style="position:absolute;
+				top: 235px;
+				left: 442px;
+				font-size: 19px;
+				margin: 0px !important">
+		</div>
+</div>
+</div>
+	
+
+	</div>
+</body>
+</html>

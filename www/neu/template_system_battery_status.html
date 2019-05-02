@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Batteriestatus -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div class="compressed big"
+			data-type="symbol"
+			data-device="var_device"
+			data-get="battery"
+			data-states='["var_full","[456789][0123456789]","[3][0123456789]","[12][0123456789]|low"]' 
+			data-colors='["flx_green","flx_green","flx_yellow","flx_orange"]' 
+			data-icons='["oa-measure_battery_100","oa-measure_battery_75","oa-measure_battery_50","oa-measure_battery_25 fa-blink"]'></div>
+		</div>
+		<div class="hdm-flexbox-item-20 left-align">
+			<div class="timestamp" data-type="label" data-device="var_device" data-get="battery" data-pre-text="vor&nbsp;" data-substitution="toDate().ago('dd')" data-post-text="&nbsp;Tag(en)"></div>
+		</div>
+		<div class="hdm-flexbox-item-70 left-align left-space">
+			<div class="big left-align" data-type="label">var_name</div>
+		</div>
+	</div>
+</body>
+</html>

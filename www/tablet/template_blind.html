@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template ffür Homematic Funk Jalousieaktur Unterputz HM-LC-Bl1PBU-FM -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="symbol" data-device="var_device" data-get="position" data-states='["1","0","2"]' data-colors='["red","green", "yellow"]'  data-icon="mi-line_weight" class="big compressed"></div>
+		</div>
+		<div class="cell-40 left-align">
+			<div class="big">var_name</div>
+	
+		</div>
+		<div class="cell-40 center-align">
+			<div class="big center-align" data-type="label" data-device="var_device" data-get="lvl" data-unit="%"></div>
+		</div>
+		<div class="cell">
+			<div data-type="circlemenu" class="tiny" data-direction="vertical">
+				<ul>
+					<li><div data-type="push" data-icon="fa-arrows-alt-v"></div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 99" data-icon="">99</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 85" data-icon="">85</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 70" data-icon="">75</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 50" data-icon="">65</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 10" data-icon="">55</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 50" data-icon="">45</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 10" data-icon="">35</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 50" data-icon="">25</div></li>
+					<li><div data-type="push" data-device="var_device" data-set-on="dim 10" data-icon="">15</div></li>					
+				</ul>	
+			</div>
+		</div>
+
+		<div class="cell right-align">
+			<div data-type="switch" data-device="var_device" data-get="motor" data-get-on="!stop.*" data-get-off="stop.*" data-set-on="down" data-set-off="stop" data-background-icon="mi-arrow_drop_down" data-icon="" class="small"></div>
+		</div>
+		<div class="cell right-space">
+			<div data-type="switch" data-device="var_device" data-get="motor" data-get-on="!stop.*" data-get-off="stop.*" data-set-on="up" data-set-off="stop" data-background-icon="mi-arrow_drop_up" data-icon="" class="small"></div>
+		</div>
+	</div>
+</body>
+</html>

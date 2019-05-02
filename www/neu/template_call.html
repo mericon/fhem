@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für fhem Phone Modul -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div data-type="symbol" data-device="var_device" data-get="var_call-state"
+			data-icons='["mi-call_missed","mi-call_missed_outgoing","mi-call_received","mi-call_made","mi-call_made","mi-call_received","mi-voicemail"]'
+			data-get-on='["=> X","<= X","=> ((o))","<= ((o))","<=","=>","=> O_O"]'
+			data-colors='["flx_orange","flx_orange","flx_blue","flx_blue","flx_blue","flx_blue","flx_orange"]' class="big compressed"></div>
+		</div>
+		<div class="hdm-flexbox-item-50 left-align">
+			<div data-type="label" data-device="var_device" data-get="var_call-name" class="big"></div>
+			<div data-type="label" data-device="var_device" data-pre-text="(" data-post-text=")" data-get="var_call-number" class="inline"></div>
+			<div data-type="label" data-device="var_device" data-get="var_call-timestamp" class="inline"></div>
+		</div>
+		<div class="hdm-flexbox-item-33 right-space right-align">
+			<div data-type="label" data-device="var_device" data-get="var_call-connection" class="big"></div>
+			<div data-type="label" data-device="var_device" data-get="var_call-duration" class=""></div>			
+		</div>
+	</div>
+</body>
+</html>

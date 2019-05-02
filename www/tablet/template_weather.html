@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für fhem Weather Modul -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="weather" data-device="var_device" data-get="fcvar_day_condition" class="big compressed"></div>
+		</div>
+		<div class="cell-80 left-align">
+			<div data-type="label" data-device="var_device" data-get="fcvar_day_high_c" data-unit="&deg;C max." class="large inline"></div>
+			<div data-type="label" data-device="var_device" data-get="fcvar_day_low_c" data-unit="&deg;C min." class="large inline"></div>
+			<div data-type="label" data-device="var_device" data-get="fcvar_day_condition" class="large"></div>
+		</div>
+		<div class="cell">
+		</div>
+		<div class="cell right-align right-space">
+			<div data-type="label" data-device="var_device" data-get="fcvar_day_day_of_week" class="big"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Created by FHEM/98_SVG.pm, 2018-02-12 10:30:55
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics nomirror
+set y2tics 
+set grid y2tics
+set ylabel ""
+set y2label "Temperature in C"
+set y2range [-10:40] 
+
+#FileLog_NC_WS_95 4:temperature:10:
+
+plot "<IN>" using 1:2 axes x1y2 title 'Measured temperature' ls l0 lw 1.5 with lines

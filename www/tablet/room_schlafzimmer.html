@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="room_schlafzimmer">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_home.html" data-load="#content_home" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Licht</header>
+					<section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"S_Schlafzimmerlicht","var_doif":"","var_symbol":"mi-lightbulb_outline","var_name":"Deckenlicht"}'></div>
+					</section><section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"SchrankSchlauch","var_doif":"","var_symbol":"mi-lightbulb_outline","var_name":"Schlauch"}'></div>
+					</section>
+
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Ventilator</header>
+					<section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"Vent_Stufe_low","var_doif":"","var_symbol":"fa-dot-circle-o","var_name":"Ventilator Stufe 1"}'></div>
+					</section>
+					<section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"Vent_Stufe_med","var_doif":"","var_symbol":"fa-dot-circle-o","var_name":"Ventilator Stufe 2"}'></div>
+					</section>
+					<section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"Vent_Stufe_hi","var_doif":"","var_symbol":"fa-dot-circle-o","var_name":"Ventilator Stufe 3"}'></div>
+					</section>
+					<section>
+					<div data-template="template_switch.html" data-parameter='{"var_device":"VentNacht","var_doif":"","var_symbol":"fa-dot-circle-o","var_name":"Ventilator Nacht"}'></div>
+					</section>
+				</div>
+			</div> 
+		</div>
+	</div>
+</body>
+</html>

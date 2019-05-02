@@ -1,0 +1,6 @@
+http://fhem.de/fhemupdate/controls_fhem.txt
+https://raw.githubusercontent.com/uniqueck/fhem-abfall/master/controls_fhemabfall.txt
+https://raw.githubusercontent.com/knowthelist/fhem-tablet-ui/master/controls_fhemtabletui.txt
+https://raw.githubusercontent.com/ChrisD70/FHEM-Modules/master/autoupdate/sb/controls_squeezebox.txt
+https://raw.githubusercontent.com/klein0r/fhem-tasmota/master/controls_tasmota.txt
+https://raw.githubusercontent.com/ThorstenPferdekaemper/FHEM-FUIP/master/controls_fuip.txt

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Homematic Funk Schaltaktoren HM-LC-Sw1PBU-FM und HM-LC-SW2-FM und HM-LC-SW1-FM -->
+	<!-- Kombination mit schaltbaren DOIF Funktionen z.B. Zeitschaltung -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="symbol" data-device="var_device" data-states='["off","on"]' data-colors='["blue","red"]'  data-icon="var_symbol" class="big compressed"></div>
+		</div>
+		<div class="cell-80 left-align">
+			<div class="big">var_name</div>
+			<div data-type="label" data-device="var_device" data-substitution='["on","an","off","aus"]' class="inline"></div>
+			<div data-type="label" data-device="var_doif" data-get="mode" data-substitution='["enable","(automatisch)","disabled",""]' class="inline"></div>
+		</div>
+		<div class="cell">
+		</div>
+		<div class="cell right-space">
+			<div data-type="checkbox" data-device="var_device" class="small blue"></div>
+		</div>
+	</div>
+</body>
+</html>

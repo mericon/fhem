@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_system">
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card">
+					<header>Auswahl</header>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-device="Update.Counter" 
+								data-warn="ALL"
+								data-warn-background-color="#E17000"
+								data-warn-color="white" 
+								class="big warn compressed"
+								data-off-color="flx_blue"
+								data-icon="fs-system_fhem">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_system_FTUI_status.html" data-load="#content_system_FTUI_status" data-fade-duration="0">
+									<div class="big white left-align">FTUI Status</div>
+								</div>
+							</div>
+							<div class="cell">
+							</div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_system_FTUI_status.html" data-load="#content_system_FTUI_status" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_network_status","var_name":"Netzwerk Status","var_description":"","var_icon":"oa-it_network"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_fritzbox_status","var_name":"Fritz!Box Status","var_description":"","var_icon":"oa-it_router"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_qnap_status","var_name":"QNAP Status","var_description":"","var_icon":"oa-it_nas"}'></div>
+					</section>					
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card">
+					<header>weitere Auswahl</header>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_battery_status","var_name":"Batterie Status","var_description":"","var_icon":"mi-battery_charging_full"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_printer_status","var_name":"Drucker Status","var_description":"","var_icon":"mi-print"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_system_homematic_status","var_name":"Homematic Status","var_description":"","var_icon":"mi-network_check"}'></div>
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								class="big compressed"
+								data-off-color="flx_blue"
+								data-icon="mi-library_books">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="icons_table.html" data-fade-duration="0">
+									<div class="big white left-align">Icon Bibliothek</div>
+								</div>
+							</div>
+							<div class="cell">
+							</div>
+							<div class="cell">
+								<div data-type="link" data-url="icons_table.html" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

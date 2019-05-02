@@ -1,0 +1,22 @@
+# Created by FHEM/98_SVG.pm, 2018-02-07 01:03:29
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title 'Speedtest'
+set ytics 
+set y2tics 
+set grid
+set ylabel "Mbit/s"
+set y2label "Mbit/s"
+set yrange [0:30]
+set y2range [50:130]
+
+#logdb speed:download
+#logdb speed:upload
+#logdb speed:ping
+
+plot "<IN>" using 1:2 axes x1y2 title 'download (Mbit/s)' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'upload (Mbit/s)' ls l1 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 notitle ls l3 lw 1 with lines

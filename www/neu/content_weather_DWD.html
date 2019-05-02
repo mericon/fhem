@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_weather_DWD">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_weather.html" data-load="#content_weather" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>DWD Karten</header>
+					<section>
+						<div class="row">
+							<div data-type="swiper" data-height="700px" data-width="800px" data-autoplay="10000" class="navbuttons">
+								<ul>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/aktuell/deutschland/bilder/wx_brd_akt.jpg" data-height="650px" data-width="702px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Bayern aktuell</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/radar/rad_bay_akt.jpg" data-height="650px" data-width="702px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Bayern Radar</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="https://www.dwd.de/DWD/warnungen/warnstatus/SchilderMS.jpg" data-height="450px" data-width="800px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Bayern Wetterwarnung</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/wv_allg/deutschland/bilder/vhs_bay_morgenspaet.jpg" data-height="650px" data-width="702px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Bayern Morgen</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/aktuell/deutschland/bilder/wx_deutschland.jpg" data-height="521px" data-width="800px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Deutschland aktuell</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="https://www.dwd.de/DWD/warnungen/warnapp_gemeinden/json/warnungen_gemeinde_map_de.png" data-height="650px" data-width="520px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Deutschland Wetterwarnung</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/aktuell/deutschland/bilder/pic_schnee.jpg" data-height="650px" data-width="702px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Deutschland Schnee</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/sat/bilder/meteosat/satbild_hrvir_akt.png" data-height="600px" data-width="800px" data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="big">Satellitenbild</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+					<section>
+						<div class="row">
+							<div data-type="swiper" data-height="250px" data-width="250px" data-autoplay="4000" class="">
+								<ul>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/aktuell/deutschland/bilder/wx_brd_akt.jpg"  data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="">Bayern</div>
+									</li>
+									<li>
+										<div data-type="image" data-url="http://www.dwd.de/DWD/wetter/aktuell/deutschland/bilder/wx_brd_akt.jpg"  data-refresh="60" class="nocache"></div>
+										<div data-type="label" class="">Test2</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+    <div data-type="swiper" data-height="220px" data-width="500px" class="top-space-2x">
+        <ul>
+            <li>
+               <div class="left">
+                  <div data-type="label" data-device="AgroWeather" data-get="fc0_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                  <div class="inline">
+                     <div data-type="label" data-device="AgroWeather" data-get="fc0_weatherDay" class="large cell"></div>
+                     <div data-type="weather" data-device="AgroWeather" data-get="fc0_weatherDay" class="bigplus thin"></div>
+                     min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc0_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                  </div>
+               </div><div class="row"></div>
+               <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc0_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                   <div data-type="label" data-device="AgroWeather" data-get="fc0_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+               </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc1_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc1_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc1_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc1_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc1_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc1_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc2_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc2_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc2_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc2_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc2_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc2_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc3_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc3_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc3_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc3_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc3_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc3_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc4_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc4_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc4_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc4_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc4_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc4_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc5_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc5_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc5_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc5_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc5_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc5_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+            <li>
+                <div class="left">
+                   <div data-type="label" data-device="AgroWeather" data-get="fc6_tempMax" data-unit="°C&nbsp;" class="bottom gigantic inline verticalLine"></div>
+                   <div class="inline">
+                      <div data-type="label" data-device="AgroWeather" data-get="fc6_weatherDay" class="large cell"></div>
+                      <div data-type="weather" data-device="AgroWeather" data-get="fc6_weatherDay" class="bigplus thin"></div>
+                      min:&nbsp;<div data-type="label" data-device="AgroWeather" data-get="fc6_tempMin" data-unit="%B0C%0A" class="inline medium"></div>
+                   </div>
+                </div><div class="row"></div>
+                <div class="left">
+                    <div data-type="label" data-device="AgroWeather" data-get="fc6_date" data-substitution="toDate().eeee()+','" class="left large cell darker"></div>
+                    <div data-type="label" data-device="AgroWeather" data-get="fc6_date" data-substitution="toDate().ddmm()" class="left large cell darker"></div>
+                </div>
+            </li>
+        </ul>
+    </div>

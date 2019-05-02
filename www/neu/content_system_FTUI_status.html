@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_system_FTUI_status">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_system.html" data-load="#content_system" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>FTUI Status</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Uptime:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="VM" data-get="fhemuptime_text"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div data-template="template_system_FTUI_status.html" data-parameter='{"var_data":"Version","var_content":"ftui.version"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_FTUI_status.html" data-parameter='{"var_data":"Language","var_content":"ftui.config.lang"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_FTUI_status.html" data-parameter='{"var_data":"Debug Level","var_content":"ftui.config.debuglevel"}'></div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">FHEM longpoll:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-bind="ftui.deviceStates['WEB'].longpoll.val"></div>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Server Status</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Uptime:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="VM" data-get="uptime_text"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Upload:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="VM" data-get="eth0" data-part="2" data-fix="0" data-unit=" MB"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Download:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="VM" data-get="eth0" data-part="5" data-fix="0" data-unit=" MB"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="VM"
+									data-get="stat_cpu_percent"
+									data-part="1"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">CPU</div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="VM"
+									data-get="ram"
+									data-part="7"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">RAM</div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="VM"
+									data-get="swap"
+									data-part="7"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">Swap</div>
+							</div>
+						</div>	
+					</section>
+					<header>Updates</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-25">
+								<div class="warn large"
+								data-type="button" 
+								data-device="Update.Counter"
+								data-get="FHEM"
+								data-fhem-cmd=""
+								data-background-icon="fs-system_fhem_update"
+								data-on-background-color="flx_blue"
+								data-off-background-color="flx_blue"
+								data-warn-background-color="#E17000"
+								data-warn-color="white" 
+								data-icon="warn"></div>
+								<div data-type="label" class="big">FHEM</div>
+							</div>
+							<div class="hdm-flexbox-item-25">
+								<div class="warn large"
+								data-type="button" 
+								data-device="Update.Counter"
+								data-get="FTUI"
+								data-fhem-cmd=""
+								data-background-icon="fs-system_fhem_update"
+								data-on-background-color="flx_blue"
+								data-off-background-color="flx_blue"
+								data-warn-background-color="#E17000"
+								data-warn-color="white" 
+								data-icon="warn"></div>
+								<div data-type="label" class="big">FTUI</div>
+							</div>
+							<div class="hdm-flexbox-item-25">
+								<div class="warn large"
+								data-type="switch"
+								data-device="Update.Dummy" 
+								data-states='["idle","update","run","done"]'
+								data-set-states='["idle","start","idle","idle"]'
+								data-icons='["fa-refresh","fa-refresh","fa-refresh fa-spin","fa-refresh fa-blink"]'
+								data-background-icons='["-","-","-","-"]' 
+								data-colors='["#505050","flx_blue","flx_blue","flx_orange"]'
+								data-background-colors='["#505050","flx_blue","flx_blue","flx_orange"]'></div>
+								<div data-type="label" class="big">Status/Start</div>
+							</div>
+							<div class="hdm-flexbox-item-25">
+								<div data-type="popup" data-draggable="true" data-height="100px" data-width="100px" class="">
+									<div data-type="button" data-icon="fs-system_fhem_reboot" background-icon="" data-off-background-color="flx_blue" data-on-background-color="flx_blue" class="large"></div>
+										<div class="dialog dialogTransparent">
+											<div data-type="button" data-fhem-cmd="shutdown restart" data-icon="fa-check" background-icon="fa-circle" data-off-background-color="flx_orange" data-on-background-color="flx_orange" class=""></div>
+											<div data-type="label" class="">Sicher?</div>
+										</div>
+								</div>	
+								<div data-type="label" class="big">Restart</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_system_fritzbox_status">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_system.html" data-load="#content_system" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>&Uuml;berblick - FRITZ!Box</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Modell:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="MODEL"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Firmware:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_fwVersion"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Status:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="lastReadout"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Interne Adresse:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="HOST"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Externe Adresse:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_ipExtern"></div>
+							</div>
+						</div>	
+					</section>
+					<header>Auslastung</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_cpuTemp" data-unit="&deg;C"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="Fritz_Box"
+									data-get="box_cpuTemp"
+									data-min="0"
+									data-max="100"
+									data-limits="[0,65,80]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="2"
+									data-extra-tick="20"></div>
+								<div data-type="label" class="big">CPU Temperatur</div>
+							</div>
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_powerRate" data-unit="%"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="Fritz_Box"
+									data-get="box_powerRate"
+									data-min="0"
+									data-max="100"
+									data-limits="[0,55,80]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="2"
+									data-extra-tick="20"></div>
+								<div data-type="label" class="big">Energieverbrauch</div>
+							</div>
+						</div>	
+					</section>
+					<header>Internet</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_rateDown" data-fix="0" data-unit="kB/s"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="Fritz_Box"
+									data-get="box_rateDown"
+									data-min="0"
+									data-max="12000"
+									data-limits="[0,8000,9000]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="300"
+									data-extra-tick="3000"></div>
+								<div data-type="label" class="big">Downloadrate</div>
+							</div>
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="Fritz_Box" data-get="box_rateUp" data-fix="0" data-unit="kB/s"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="Fritz_Box"
+									data-get="box_rateUp"
+									data-min="0"
+									data-max="1600"
+									data-limits="[0,1000,1300]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="40"
+									data-extra-tick="400"></div>
+								<div data-type="label" class="big">Uploadrate</div>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>&Uuml;berblick - FRITZ!WLAN Repeater</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Modell:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="MODEL"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Firmware:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="box_fwVersion"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Status:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="lastReadout"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">Interne Adresse:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="HOST"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-align left-space">
+								<div class="big flx_blue">WLAN Ger&auml;te:</div>
+							</div>
+							<div class="hdm-flexbox-item left-align">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="box_wlanCount"></div>
+							</div>
+						</div>	
+					</section>
+					<header>Auslastung</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="FritzRepeater" data-get="box_powerRate" data-unit="%"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="FritzRepeater"
+									data-get="box_powerRate"
+									data-min="0"
+									data-max="100"
+									data-limits="[0,80,95]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="2"
+									data-extra-tick="20"></div>
+								<div data-type="label" class="big">Energieverbrauch</div>
+							</div>
+						</div>	
+					</section>
+					<header>WLAN Mesh</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-33">
+								<div class="warn bigger readonly" 
+									data-type="switch"
+									data-device="Fritz_Box"
+									data-get="box_wlan_5GHz"
+									data-warn="box_wlanCount"
+									data-warn-background-color="#E17000"
+									data-warn-color="white" 
+									data-set="wlan5"
+									data-icon="-"
+									data-background-icon="mi-wifi"
+									data-on-background-color="flx_blue"></div>
+								<div data-type="label" class="big">2.4 GHz</div>
+							</div>
+							<div class="hdm-flexbox-item-33">
+								<div class="warn bigger readonly" 
+									data-type="switch"
+									data-device="Fritz_Box"
+									data-get="box_wlan_2.4GHz"
+									data-warn="box_wlanCount"
+									data-warn-background-color="#E17000"
+									data-warn-color="white" 
+									data-set="wlan2.4"
+									data-icon="-"
+									data-background-icon="mi-wifi"
+									data-on-background-color="flx_blue"></div>
+								<div data-type="label" class="big">5 GHz</div>
+							</div>
+							<div class="hdm-flexbox-item-33">
+								<div class="warn bigger" 
+									data-type="switch"
+									data-device="Fritz_Box"
+									data-get="box_guestWlan"
+									data-get-on="on"
+									data-get-off="off"
+									data-warn="box_guestWlanCount"
+									data-warn-background-color="#E17000"
+									data-warn-color="white" 
+									data-set="guestWlan"
+									data-set-on="on"
+									data-set-off="off"
+									data-icon="-"
+									data-background-icon="mi-wifi"
+									data-on-background-color="flx_blue"></div>
+								<div data-type="label" class="big">G&auml;ste</div>
+								<div id="guest_wlan">
+									<div data-type="label" class="big">PW: 12345678</div>
+									<div data-type="label" class="big" data-device="Fritz_Box" data-get="box_guestWlanRemain" data-pre-text="noch&nbsp;" data-post-text="min aktiv" data-hide="box_guestWlan" data-hide-on="off" data-hide-off="on" data-hideparents="#guest_wlan"></div>
+								</div>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

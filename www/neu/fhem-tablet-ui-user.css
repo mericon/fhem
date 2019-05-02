@@ -1,0 +1,389 @@
+/* FHEM Tablet UI 2.6 - eigene Anpassungen */
+
+/* Apple-like Scroll und Google Font mit reference in index.html*/
+body {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+    font-family: -apple-system, 'Open Sans', 'Roboto', Arial;
+    font-weight: 300;
+}
+
+/* zusätzliche Rahmenfarben */
+.border-flx_blue {
+    border: 3px solid #00A1DE;
+}
+
+
+/* Phone-Header und Phone-Backbutton Definition */
+.phone-header {
+	display: none;
+}
+
+.phone-back-btn {
+	display: none;
+}
+
+/* Menübreite und Zeilenabstand der Menüpunkte korrigiert*/
+@media screen and (max-width: 900px) and (min-width: 480px) {
+	.menu {
+		width: 90px !important;
+	}
+}
+
+/* Menüleiste oben auf Bildschirmbreite angepasst, damit keine Elemente mehr überdeckt werden */
+@media screen and (max-width: 480px) {
+	.menu ~ main > .page {
+		padding-left: 0px;
+		padding-top: 40px;
+	}
+	.phone-header {
+        top: 0px;
+        left: 0px;
+		height: 40px;
+		width: 100%;
+		position: absolute;
+		background: #1D1F20;
+		z-index: 4;
+		display: block;
+	}
+	.phone-back-btn {
+        top: 0px;
+        left: 0px;
+		height: 39px;
+		width: 39px;
+        position: absolute;
+        background: #1D1F20;
+		padding-top: 0.31em;
+		z-index: 5;
+		display: block;
+	}
+}
+
+/* Header Hintergrundfarbe und Schriftgröße korrigiert */
+.card > header {
+    background-color: #e6e6e6;
+	font-size: 125%;
+	font-weight: 500;
+}
+
+/* Weather Iconfarbe korrektur */
+.weather:before {
+    color: #337ab7;
+}
+/* Swiper Farben Korrekturen */
+/* Definition unterer Bereich */
+.swiper-pagination-bullet-active {
+	background:#00A1DE !important;
+}
+/* Definition seitlicher Bereich */
+.swiper-pagination-progress {
+	background:#00A1DE !important;
+}
+.swiper-pagination-progressbar {
+	background:#00A1DE !important;
+}
+
+/* FullCalendar Farben und Text Korrekturen */
+/* Definition aktueller Tag - Hintergrundfarbe */
+.fc-unthemed td.fc-today {
+	background: #000000 !important;
+}
+/* Definition des Zellenrandes */
+.fc-unthemed th,
+.fc-unthemed td,
+.fc-unthemed thead,
+.fc-unthemed tbody,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-row,
+.fc-unthemed .fc-content, /* for gutter border */
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td {
+	border-color: #00A1DE !important;
+}
+
+/* Chart Farben und Text Korrekturen */
+/* Definition of the chart background area */
+.chart-background {
+	fill: #ffffff;
+	fill-opacity: 0.1;
+}
+/* Definition of the axes generally*/
+.text.axes {
+    fill: #ffffff;
+	font-size: 12px;
+    font-family: -apple-system, 'Open Sans', 'Roboto', Arial;
+    -webkit-font-smoothing: antialiased;
+}
+/* Definition of the gridlines generally */
+.gridlines {
+   stroke: #222222;
+}
+/* Definition for crosshair cursor */
+.crosshair {
+	font-size: 18px;
+}
+/* Definition of size etc. for the buttons */
+.buttons {
+	font-size: 36px;
+	fill: #00A1DE;
+}
+/* Definition for activated texts ('legend' and 'cursor') */
+.caption.active {
+	fill: #00A1DE;
+}
+/* Definition for caption texts ('legend' and 'cursor') */
+.caption {
+	font-size: 18px;
+	font-weight: normal;
+    font-family: -apple-system, 'Open Sans', 'Roboto', Arial;
+    -webkit-font-smoothing: antialiased;
+}
+/* Definition for legend window */
+.legend {
+	font-size: 14px;
+    font-family: -apple-system, 'Open Sans', 'Roboto', Arial;
+    -webkit-font-smoothing: antialiased;
+	fill: #ffffff;
+	fill-opacity: 0.0;
+}
+/* Definition for styles to be used for graphs (as alternative to the standard FHEM plot styles (l10=flx-blue, l11=flx-darkblue, l12=flx-green, l13=flx-yellow, l14=flx-orange, l15=flx-gray,) */
+/* normal lines */
+.ftui.l10		{ stroke:#00A1DE; stroke-width:2px; fill:none; }
+.ftui.l11		{ stroke:#00549F; stroke-width:2px; fill:none; }
+.ftui.l12		{ stroke:#69BE28; stroke-width:2px; fill:none; }
+.ftui.l13		{ stroke:#ECC200; stroke-width:2px; fill:none; }
+.ftui.l14		{ stroke:#E17000; stroke-width:2px; fill:none; }
+.ftui.l15		{ stroke:#DFD2CA; stroke-width:2px; fill:none; }
+
+/* Symbol lines */
+.ftui.l10sym	{ stroke:#00A1DE; stroke-width:12px; fill:none; }
+.ftui.l11sym	{ stroke:#00549F; stroke-width:12px; fill:none; }
+.ftui.l12sym	{ stroke:#69BE28; stroke-width:12px; fill:none; }
+.ftui.l13sym	{ stroke:#ECC200; stroke-width:12px; fill:none; }
+.ftui.l14sym	{ stroke:#E17000; stroke-width:12px; fill:none; }
+.ftui.l15sym	{ stroke:#DFD2CA; stroke-width:12px; fill:none; }
+
+/* icon lines */
+.ftui.l10icon	{ stroke:#00A1DE; stroke-width:48px; fill:none; }
+.ftui.l11icon	{ stroke:#00549F; stroke-width:48px; fill:none; }
+.ftui.l12icon	{ stroke:#69BE28; stroke-width:48px; fill:none; }
+.ftui.l13icon	{ stroke:#ECC200; stroke-width:48px; fill:none; }
+.ftui.l14icon	{ stroke:#E17000; stroke-width:48px; fill:none; }
+.ftui.l15icon	{ stroke:#DFD2CA; stroke-width:48px; fill:none; }
+
+/* Dashed lines */
+.ftui.l10dash	{ stroke:#00A1DE; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+.ftui.l11dash	{ stroke:#00549F; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+.ftui.l12dash	{ stroke:#69BE28; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+.ftui.l13dash	{ stroke:#ECC200; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+.ftui.l14dash	{ stroke:#E17000; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+.ftui.l15dash	{ stroke:#DFD2CA; stroke-width:2px; fill:none; stroke-dasharray:5px,3px; }
+
+/* Dotted lines */
+.ftui.l10dot	{ stroke:#00A1DE; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+.ftui.l11dot	{ stroke:#00549F; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+.ftui.l12dot	{ stroke:#69BE28; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+.ftui.l13dot	{ stroke:#ECC200; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+.ftui.l14dot	{ stroke:#E17000; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+.ftui.l15dot	{ stroke:#DFD2CA; stroke-width:2px; fill:none; stroke-dasharray:2px,2px; }
+
+/* Filled graphs */
+.ftui.l10fill	{ stroke:#00A1DE; fill:#00A1DE; stroke-width:2px; fill-opacity:0.3; }
+.ftui.l11fill	{ stroke:#00549F; fill:#00549F; stroke-width:2px; fill-opacity:0.3; }
+.ftui.l12fill	{ stroke:#69BE28; fill:#69BE28; stroke-width:2px; fill-opacity:0.3; }
+.ftui.l13fill	{ stroke:#ECC200; fill:#ECC200; stroke-width:2px; fill-opacity:0.3; }
+.ftui.l14fill	{ stroke:#E17000; fill:#E17000; stroke-width:2px; fill-opacity:0.3; }
+.ftui.l15fill	{ stroke:#DFD2CA; fill:#DFD2CA; stroke-width:2px; fill-opacity:0.3; }
+
+/* additional settings for the text (mainly for legend window) */
+text.ftui.l10, text.ftui.l10sym, text.ftui.l10dot, text.ftui.l10dash, text.ftui.l10fill, text.ftui.l10icon { stroke:none; fill:#00A1DE; } 
+text.ftui.l11, text.ftui.l11sym, text.ftui.l11dot, text.ftui.l11dash, text.ftui.l11fill, text.ftui.l11icon { stroke:none; fill:#00549F; } 
+text.ftui.l12, text.ftui.l12sym, text.ftui.l12dot, text.ftui.l12dash, text.ftui.l12fill, text.ftui.l12icon { stroke:none; fill:#69BE28; } 
+text.ftui.l13, text.ftui.l13sym, text.ftui.l13dot, text.ftui.l13dash, text.ftui.l13fill, text.ftui.l13icon { stroke:none; fill:#ECC200; } 
+text.ftui.l14, text.ftui.l14sym, text.ftui.l14dot, text.ftui.l14dash, text.ftui.l14fill, text.ftui.l14icon { stroke:none; fill:#E17000; } 
+text.ftui.l15, text.ftui.l15sym, text.ftui.l15dot, text.ftui.l15dash, text.ftui.l15fill, text.ftui.l15icon { stroke:none; fill:#DFD2CA; } 
+
+/* Section Korrektur für die Höhen */
+section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1.6em;
+}
+
+/* Korrektur rechte Seite nicht vollständig */
+.page .vbox { 
+    justify-content: initial;
+}
+
+
+/* Header Anpassung (dunkler) */
+.gridster li header,
+.dialog > header,
+.card > header {
+    background: #ffffff;
+    color: #262626;
+}
+
+/* Google Maps Widget */
+.gm-style-iw-parent {
+	opacity: 0.85;
+}
+.map_infowindow {
+    color: #8C8C8C;
+	text-align: left;
+}
+.firstHeading {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.bodyContent > p {
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+/* Workaround für Zellenverteilung mit hdm flexbox */
+.hdm-flexbox-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
+
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+.hdm-flexbox-item {
+	-webkit-box-flex: 1 1 auto;
+	-moz-box-flex: 1 1 auto;
+	width: auto;
+	-webkit-flex: 1 1 auto;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+}
+.hdm-flexbox-item-5 {
+	-webkit-box-flex: 1 1 5%;
+	-moz-box-flex: 1 1 5%;
+	width: 5%;
+	-webkit-flex: 1 1 5%;
+	-ms-flex: 1 1 5%;
+	flex: 1 1 5%;
+}
+.hdm-flexbox-item-10 {
+	-webkit-box-flex: 1 1 10%;
+	-moz-box-flex: 1 1 10%;
+	width: 10%;
+	-webkit-flex: 1 1 10%;
+	-ms-flex: 1 1 10%;
+	flex: 1 1 10%;
+}
+.hdm-flexbox-item-13 {
+	-webkit-box-flex: 1 1 13%;
+	-moz-box-flex: 1 1 13%;
+	width: 13%;
+	-webkit-flex: 1 1 13%;
+	-ms-flex: 1 1 13%;
+	flex: 1 1 13%;
+}
+.hdm-flexbox-item-15 {
+	-webkit-box-flex: 1 1 15%;
+	-moz-box-flex: 1 1 15%;
+	width: 15%;
+	-webkit-flex: 1 1 15%;
+	-ms-flex: 1 1 15%;
+	flex: 1 1 15%;
+}
+.hdm-flexbox-item-20 {
+	-webkit-box-flex: 1 1 20%;
+	-moz-box-flex: 1 1 20%;
+	width: 20%;
+	-webkit-flex: 1 1 20%;
+	-ms-flex: 1 1 20%;
+	flex: 1 1 20%;
+}
+.hdm-flexbox-item-25 {
+	-webkit-box-flex: 1 1 25%;
+	-moz-box-flex: 1 1 25%;
+	width: 25%;
+	-webkit-flex: 1 1 25%;
+	-ms-flex: 1 1 25%;
+	flex: 1 1 25%;
+}
+.hdm-flexbox-item-30 {
+	-webkit-box-flex: 1 1 30%;
+	-moz-box-flex: 1 1 30%;
+	width: 30%;
+	-webkit-flex: 1 1 30%;
+	-ms-flex: 1 1 30%;
+	flex: 1 1 30%;
+}
+.hdm-flexbox-item-33 {
+	-webkit-box-flex: 1 1 33%;
+	-moz-box-flex: 1 1 33%;
+	width: 33%;
+	-webkit-flex: 1 1 33%;
+	-ms-flex: 1 1 33%;
+	flex: 1 1 33%;
+}
+.hdm-flexbox-item-40 {
+	-webkit-box-flex: 1 1 40%;
+	-moz-box-flex: 1 1 40%;
+	width: 40%;
+	-webkit-flex: 1 1 40%;
+	-ms-flex: 1 1 40%;
+	flex: 1 1 40%;
+}
+.hdm-flexbox-item-45 {
+	-webkit-box-flex: 1 1 45%;
+	-moz-box-flex: 1 1 45%;
+	width: 45%;
+	-webkit-flex: 1 1 45%;
+	-ms-flex: 1 1 45%;
+	flex: 1 1 45%;
+}
+.hdm-flexbox-item-50 {
+	-webkit-box-flex: 1 1 50%;
+	-moz-box-flex: 1 1 50%;
+	width: 50%;
+	-webkit-flex: 1 1 50%;
+	-ms-flex: 1 1 50%;
+	flex: 1 1 50%;
+}
+.hdm-flexbox-item-60 {
+	-webkit-box-flex: 1 1 60%;
+	-moz-box-flex: 1 1 60%;
+	width: 60%;
+	-webkit-flex: 1 1 60%;
+	-ms-flex: 1 1 60%;
+	flex: 1 1 60%;
+}
+.hdm-flexbox-item-70 {
+	-webkit-box-flex: 1 1 70%;
+	-moz-box-flex: 1 1 70%;
+	width: 70%;
+	-webkit-flex: 1 1 70%;
+	-ms-flex: 1 1 70%;
+	flex: 1 1 70%;
+}
+.hdm-flexbox-item-80 {
+	-webkit-box-flex: 1 1 80%;
+	-moz-box-flex: 1 1 80%;
+	width: 80%;
+	-webkit-flex: 1 1 80%;
+	-ms-flex: 1 1 80%;
+	flex: 1 1 80%;
+}
+
+
+
+
+
+
+

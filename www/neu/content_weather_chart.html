@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_weather_chart">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_weather.html" data-load="#content_weather" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Wetterr&uuml;ckblick Wetterstation</header>
+					<section>
+						<div class="fullsize showbusy"
+						data-type="chart"
+						data-device="Wetter_WW"
+						data-logdevice="FileLog_Wetter_WW"
+						data-columnspec='["4:temp_c\\x3a:","4:humidity\\x3a:"]'
+						data-style='["ftui l14","ftui l15"]'
+						data-ptype='["lines","lines"]'
+						data-legend='["Temperatur","Luftfeuchte"]'
+						data-legendpos='["behind","top"]'
+						data-showlegend="true"
+						data-uaxis='["primary","secondary"]'
+						data-xticks="auto"
+						data-xticks_round="auto"
+						data-yticks="auto"
+						data-yticks_prio="primary"
+						data-show_both_axes="false"
+						data-ytext="Temperatur"
+						data-yunit="°C"
+						data-ytext_sec="Luftfeuchte"
+						data-yunit_sec="%"
+						data-y_margin="20"
+						data-y_margin_sec="20"
+						data-width="100%"
+						data-height="310px"
+						data-nofulldays="true"
+						data-daysago_start="78h"
+						data-daysago_end="0h"
+						data-timeformat="hh:mm\LF\ee dd.MM.."
+						></div>
+					</section>
+					<header>Wetterr&uuml;ckblick DarkSky</header>
+					<section>
+						<div class="fullsize showbusy"
+						data-type="chart"
+						data-device="DarkSky"
+						data-logdevice="FileLog_DarkSky"
+						data-columnspec='["4:temperature\\x3a:","4:humidity\\x3a:"]'
+						data-style='["ftui l14","ftui l15"]'
+						data-ptype='["lines","lines"]'
+						data-legend='["Temperatur","Luftfeuchte"]'
+						data-legendpos='["behind","top"]'
+						data-showlegend="true"
+						data-uaxis='["primary","secondary"]'
+						data-xticks="auto"
+						data-xticks_round="auto"
+						data-yticks="auto"
+						data-yticks_prio="primary"
+						data-show_both_axes="false"
+						data-ytext="Temperatur"
+						data-yunit="°C"
+						data-ytext_sec="Luftfeuchte"
+						data-yunit_sec="%"
+						data-y_margin="20"
+						data-y_margin_sec="20"
+						data-width="100%"
+						data-height="310px"
+						data-nofulldays="true"
+						data-daysago_start="78h"
+						data-daysago_end="0h"
+						data-timeformat="hh:mm\LF\ee dd.MM.."
+						></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

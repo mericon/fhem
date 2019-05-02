@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Homematic Schaltaktor 4-fach HM-LC-SW4-DR zur Schaltung des Heizkreises (Fußbodenheizung) in Verbindung mit Wandthermostat HM-TC-IT-WM-W-EU -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="symbol" data-device="var_device2" data-states='["off","on"]' data-colors='["blue","red"]'  data-icon="fa-thermometer-3" class="big compressed"></div>
+		</div>
+		<div class="cell-80 left-align">
+			<div class="big">var_name</div>
+			<div data-type="label" data-device="var_device1_Climate" data-get="measured-temp" data-unit="&deg;C" class="inline"></div>
+			<div data-type="label" data-device="var_device1_Climate" data-get="humidity" data-unit="%" class="inline"></div>
+		</div>
+		<div class="cell">
+			<div data-type="symbol" data-device="var_device1" data-get="desired-temp" data-states='["var_temp_night","var_temp_day"]' data-icons='["fa-moon-o","mi-wb_sunny"]' data-colors='["gray","blue"]' class="small"></div>
+			<div data-type="label" data-device="var_device1" data-get="desired-temp" data-unit="&deg;C" class="small"></div>
+		</div>
+		<div class="cell right-space">
+			<div data-type="checkbox" data-device="var_device1_Climate" data-get="desired-temp" data-set="desired-temp" data-get-on="var_temp_day" data-get-off="var_temp_night" data-set-on="var_temp_day" data-set-off="var_temp_night" class="small blue"></div>
+		</div>
+	</div>
+</body>
+</html>

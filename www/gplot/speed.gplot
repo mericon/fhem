@@ -1,0 +1,20 @@
+# Created by FHEM/98_SVG.pm, 2017-04-20 18:19:10
+set terminal png transparent size <SIZE> crop
+set output '<OUT>.png'
+set xdata time
+set timefmt "%Y-%m-%d_%H:%M:%S"
+set xlabel " "
+set title '<L1>'
+set ytics 
+set y2tics 
+set grid
+set ylabel "Mbit/s"
+set y2label "Mbit/s"
+
+#flspeed 3:speed.download\x3a::
+#flspeed 3:speed.upload\x3a::
+#flspeed 3:speed.ping\x3a::
+
+plot "<IN>" using 1:2 axes x1y2 title 'download (Mbit/s)' ls l0 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'upload (Mbit/s)' ls l1 lw 1 with lines,\
+     "<IN>" using 1:2 axes x1y1 title 'ping (ms)' ls l2 lw 1 with lines

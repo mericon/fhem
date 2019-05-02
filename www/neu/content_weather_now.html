@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_weather_now">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_home.html" data-load="#content_home" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header><div data-type="label" data-device="DarkSky" data-get="time" data-pre-text="Daten vom "></div></header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-space">
+								<div class="large compressed readonly" data-type="weather" data-device="DarkSky" data-get="icon" data-imageset="kleinklima"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="big" data-type="label" data-device="DarkSky" data-get="summary"></div>
+							</div>
+							<div class="hdm-flexbox-item-30 right-space">
+								<div class="compressed" data-type="symbol" data-icon="wi wi-sunrise" data-off-color="flx_blue"></div>
+								<div class="large" data-type="label" data-device="DarkSky" data-get="fc0_sunriseTime" data-substitution="toDate().hhmm()"></div>
+								<div class="compressed top-space" data-type="symbol" data-icon="wi wi-sunset" data-off-color="flx_blue"></div>
+								<div class="large" data-type="label" data-device="DarkSky" data-get="fc0_sunsetTime" data-substitution="toDate().hhmm()"></div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-space">
+								<div class="large compressed" data-type="symbol" data-icon="oa-temp_temperature" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="temperature" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-fix="1" data-unit="%B0C%0A" ></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statTemperatureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="large compressed" data-type="symbol" data-icon="wi wi-humidity" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-color="white" data-get="humidity" data-unit="%"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statHumidityTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statHumidityTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statHumidityTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30 right-space">
+								<div class="large compressed" data-type="symbol" data-icon="wi wi-barometer" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="pressure" data-part="1" data-color="white" data-fix="0" data-unit="hPa"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statPressureTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statPressureTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statPressureTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-space">
+								<div class="large compressed" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="Wetter_WW" data-get="rain_day" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm" ></div>
+								<div data-type="klimatrend" data-device="Wetter_WW" data-get="statRain_dayTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="Wetter_WW" data-get="statRain_dayTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="Wetter_WW" data-get="statRain_dayTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="large compressed" data-type="symbol" data-icon="fa-eye-slash" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="visibility" data-limits="[0,1,4,10,20,40]" data-colors='["flx_red","flx_light_red","flx_orange","flx_yellow","flx_green_yellow","flx_green"]' data-fix="1" data-unit="km"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statVisibilityTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statVisibilityTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statVisibilityTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30 right-space">
+								<div class="large compressed" data-type="symbol" data-icon="oa-message_light_intensity" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="uvIndex" data-limits="[0,2,5,7,10]" data-colors='["flx_green","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-part="1" data-fix="1" data-unit="UVI"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statUvIndexTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statUvIndexTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statUvIndexTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-space">
+								<div class="large compressed" data-type="symbol" data-icon="wi wi-strong-wind" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="windSpeed" data-limits="[0,5,10,30,50,100]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-part="1" data-fix="0" data-unit="km/h"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindSpeedTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindSpeedTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindSpeedTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="large compressed" data-type="symbol" data-icon="wi wi-sandstorm" data-off-color="flx_blue"></div>
+								<div class="bigger" data-type="label" data-device="DarkSky" data-get="windGust" data-limits="[0,5,10,30,50,100]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-part="1" data-fix="0" data-unit="km/h"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindGustTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindGustTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="DarkSky" data-get="statWindGustTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30 right-space">
+								<div class="small" data-type="wind_direction" data-device="DarkSky" data-direction="windBearing" data-speed="windSpeed" data-calm="~" data-tickstep="45" data-angleoffset="0" data-hdcolor="#00A1DE"></div>
+							</div>
+						</div>
+					</section>
+				</div>
+				<div class="card lift">
+					<header><div data-type="label" data-device="DarkSky" data-get="fc0_time" data-substitution="toDate().eeee()" data-pre-text="Vorhersage f&uuml;r "></div></header>
+					<section>
+						<div class="row">
+							<div class="big" data-type="label" data-device="DarkSky" data-get="fc0_summary"></div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Mond</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30 left-space">
+								<div class="compressed" data-type="symbol" data-icon="wi wi-moonrise" data-off-color="flx_blue"></div>
+								<div class="large" data-type="label" data-device="mondphasen" data-get="Mondaufgang"></div>
+								<div class="compressed top-space" data-type="symbol" data-icon="wi wi-moonset" data-off-color="flx_blue"></div>
+								<div class="large" data-type="label" data-device="mondphasen" data-get="Monduntergang"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="big" data-type="label" data-device="mondphasen" data-get="STATE"></div>
+							</div>
+							<div class="hdm-flexbox-item-30 left-space right-space">
+								<div data-type="popup" data-height="400px" data-width="400px">
+									<div class="compressed" data-type="image" data-device="mondphasen" data-get="ftui" data-size="65%"></div>
+									<div class="dialog">
+										<div class="center" data-type="image" data-device="mondphasen" data-get="ftui" data-size="350px"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<header>Ozon</header>
+					<section>
+						<div class="row">
+							<div class="bigger inline" data-type="label" data-device="UVOZON"	data-get="Ozon"	data-unit="µg/m3" data-limits='[0,80,110,180,200,360]' data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]'></div>
+							<div class="big inline" data-type="label" data-device="UVOZON" data-get="OzonDesc"></div>
+						</div>
+					</section>
+					<header>UV</header>
+					<section>
+						<div class="row">
+							<div class="bigger inline" data-type="label" data-device="UVOZON"	data-get="UV" data-unit="min" data-limits='[0,19,29,39,59,79]' data-colors='["flx_red","flx_light_red","flx_orange","flx_yellow","flx_green_yellow","flx_green"]'></div>
+							<div class="big inline" data-type="label" data-device="UVOZON" data-get="UVDesc"></div>
+						</div>
+					</section>
+					<header>Regenradar</header>
+					<section>
+						<div class="row">
+							<div class="center" data-type="image" data-url="http://www.dwd.de/DWD/wetter/radar/radfilm_bay_akt.gif" data-size="85%"></div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

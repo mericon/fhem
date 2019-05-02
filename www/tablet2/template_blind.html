@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template ffür Homematic Funk Jalousieaktur Unterputz HM-LC-Bl1PBU-FM -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="symbol" data-device="var_device" data-get="pct" data-states='["0","1"]' data-colors='["blue","red"]'  data-icon="mi-line_weight" class="big compressed"></div>
+		</div>
+		<div class="cell-80 left-align">
+			<div class="big">var_name</div>
+			<div data-type="label" data-device="var_device" data-get="pct" data-unit="%"></div>
+		</div>
+		<div class="cell right-align">
+			<div data-type="switch" data-device="var_device" data-get="motor" data-get-on="!stop.*" data-get-off="stop.*" data-set-on="down 100" data-set-off="stop" data-background-icon="mi-arrow_drop_down" data-icon="" class="small"></div>
+		</div>
+		<div class="cell right-space">
+			<div data-type="switch" data-device="var_device" data-get="motor" data-get-on="!stop.*" data-get-off="stop.*" data-set-on="up 100" data-set-off="stop" data-background-icon="mi-arrow_drop_up" data-icon="" class="small"></div>
+		</div>
+	</div>
+</body>
+</html>

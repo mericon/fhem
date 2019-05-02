@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_system_qnap_status">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_system.html" data-load="#content_system" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Temperatur</header>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"System","var_content":"system_temp","var_stat":"System_temp"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"CPU","var_content":"cpu_temp","var_stat":"Cpu_temp"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"HDD 1","var_content":"hdd1_temp","var_stat":"Hdd1_temp"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"HDD 2","var_content":"hdd2_temp","var_stat":"Hdd2_temp"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"HDD 3","var_content":"hdd3_temp","var_stat":"Hdd3_temp"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_qnap_temperature.html" data-parameter='{"var_data":"HDD 4","var_content":"hdd4_temp","var_stat":"Hdd4_temp"}'></div>
+					</section>
+					<header>Lüfter</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="nas_qnap"
+									data-get="fan_rpm"
+									data-part="1"
+									data-min="0"
+									data-max="1250"
+									data-limits="[0,700,900]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="25"
+									data-extra-tick="250"></div>
+								<div class="bigger" data-type="label" data-device="nas_qnap" data-get="fan_rpm" data-part="1" data-unit="RPM"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statFan_rpmTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statFan_rpmTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statFan_rpmTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+						</div>	
+					</section>
+					<header>Festplattenstatus</header>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-25">
+									<div data-type="symbol" 
+									data-device="nas_qnap"
+									data-get="hdd1_status"
+									data-get-on="GOOD" 
+									data-get-off="!GOOD" 
+									data-on-color="flx_blue"
+									data-off-color="flx_orange" 
+									data-icon="fa-hdd-o" 
+									class="readonly big compressed"></div>
+									<div class="">HDD 1</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div data-type="symbol" 
+									data-device="nas_qnap"
+									data-get="hdd2_status"
+									data-get-on="GOOD" 
+									data-get-off="!GOOD" 
+									data-on-color="flx_blue"
+									data-off-color="flx_orange" 
+									data-icon="fa-hdd-o" 
+									class="readonly big compressed"></div>
+									<div class="">HDD 2</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div data-type="symbol" 
+									data-device="nas_qnap"
+									data-get="hdd3_status"
+									data-get-on="GOOD" 
+									data-get-off="!GOOD" 
+									data-on-color="flx_blue"
+									data-off-color="flx_orange" 
+									data-icon="fa-hdd-o" 
+									class="readonly big compressed"></div>
+									<div class="">HDD 3</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div data-type="symbol" 
+									data-device="nas_qnap"
+									data-get="hdd4_status"
+									data-get-on="GOOD" 
+									data-get-off="!GOOD" 
+									data-on-color="flx_blue"
+									data-off-color="flx_orange" 
+									data-icon="fa-hdd-o" 
+									class="readonly big compressed"></div>
+									<div class="">HDD 4</div>
+								</div>
+							</div>
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Auslastung</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="nas_qnap"
+									data-get="cpu_usage"
+									data-fix="0"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">CPU</div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statCpu_usageTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statCpu_usageTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statCpu_usageTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="nas_qnap"
+									data-get="memory_usage"
+									data-fix="0"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">RAM</div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statMemory_usageTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statMemory_usageTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statMemory_usageTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+							<div class="hdm-flexbox-item-30">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="nas_qnap"
+									data-get="hdd_usage"
+									data-fix="0"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#E17000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">HDD</div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statHdd_usageTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statHdd_usageTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+								<div data-type="klimatrend" data-device="nas_qnap" data-get="statHdd_usageTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+							</div>
+						</div>	
+					</section>
+					<header>Verlauf</header>
+					<section>
+						<div class="fullsize showbusy"
+						data-type="chart"
+						data-device="nas_qnap"
+						data-logdevice='["FileLog_nas_qnap","FileLog_nas_qnap","FileLog_nas_qnap","FileLog_nas_qnap"]'
+						data-columnspec='["4:cpu_temp\\x3a:","4:cpu_usage\\x3a:","4:system_temp\\x3a:","4:fan_rpm\\x3a:"]'
+						data-style='["ftui l14","ftui l12","ftui l15","ftui l10"]'
+						data-ptype='["lines","lines","lines","lines"]'
+						data-legend='["CPU Temp","CPU Usage","System Temp","Fan"]'
+						data-legendpos='["behind","top"]'
+						data-showlegend="true"
+						data-uaxis='["primary","primary","primary","secondary"]'
+						data-minvalue="auto"
+						data-maxvalue="auto"
+						data-minvalue_sec="0"
+						data-maxvalue_sec="1300"
+						data-xticks="auto"
+						data-xticks_round="auto"
+						data-yticks="auto"
+						data-yticks_prio="primary"
+						data-show_both_axes="true"
+						data-ytext="Temp bzw. Usage"
+						data-ytext_sec="RPM"
+						data-y_margin="20"
+						data-y_margin_sec="20"
+						data-width="100%"
+						data-height="420px"
+						data-nofulldays="true"
+						data-daysago_start="24h"
+						data-daysago_end="0h"
+						data-timeformat="hh:mm\LF\dd.MM.."
+						></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

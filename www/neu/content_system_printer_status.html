@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_system_printer_status">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_system.html" data-load="#content_system" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Status</header>
+					<section>
+						<div class="bigger flx_blue" data-type="label" data-device="Druckerstatus" data-get="Status"></div>
+					</section>
+					<header>Eigenschaften</header>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckereigenschaften","var_data":"Modell","var_content":"Model"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckereigenschaften","var_data":"Seriennummer","var_content":"Serial_Number"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckereigenschaften","var_data":"Firmware-Datum","var_content":"Firmware_Date"}'></div>
+					</section>
+					<header>Toner Status</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="Druckerpatronenstatus"
+									data-get="Black"
+									data-part="1"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#000000"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">Schwarz (CF400A)</div>
+							</div>
+							<div class="hdm-flexbox-item-50">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="Druckerpatronenstatus"
+									data-get="Cyan"
+									data-part="1"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#00FFFF"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">Zyan (CF401A)</div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="Druckerpatronenstatus"
+									data-get="Yellow"
+									data-part="1"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#FFFF00"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">Gelb (CF402A)</div>
+							</div>
+							<div class="hdm-flexbox-item-50">
+								<div class="small readonly" 
+									data-type="knob"
+									data-device="Druckerpatronenstatus"
+									data-get="Magenta"
+									data-part="1"
+									data-anglearc="360"
+									data-angleoffset="0"
+									data-min="0"
+									data-max="100"
+									data-nomcolor="#FFFFFF"
+									data-fgcolor="#FF00FF"
+									data-bgcolor="#00A1DE"
+									data-unit="%"></div>
+								<div data-type="label" class="big">Magenta (CF403A)</div>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Drucker Statistik</header>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Seiten Gesamt","var_content":"Pages_Total"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Seiten Schwarz/Weiß","var_content":"Pages_Monochrome"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Seiten Farbe","var_content":"Pages_Color"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Seiten Duplex","var_content":"Pages_Duplex"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Papierstau","var_content":"Jam_Events"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Systemfehler","var_content":"Mispick_Events"}'></div>
+					</section>
+					<header>Scanner Statistik</header>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Einzug-Scans","var_content":"ADF_Image_Scans"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_printer.html" data-parameter='{"var_device":"Druckerstatistik","var_data":"Flachbett-Scans","var_content":"Flatbed_Image_Scans"}'></div>
+					</section>
+					<header>Auslastung</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="big" data-type="label" data-device="Druckereigenschaften" data-get="Memory_Usage" data-fix="0" data-unit="%"></div>
+								<div class="notext readonly" 
+									data-type="scale"
+									data-device="Druckereigenschaften"
+									data-get="Memory_Usage"
+									data-min="0"
+									data-max="100"
+									data-limits="[0,120,220]"
+									data-colors='["flx_green","flx_yellow","flx_orange"]'
+									data-orientation="horizontal"
+									data-tick="2"
+									data-extra-tick="20"></div>
+								<div data-type="label" class="big">Arbeitsspeicher</div>
+							</div>
+						</div>	
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

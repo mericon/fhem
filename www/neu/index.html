@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<!-- FHEM Tablet UI 2.6 -->
+
+<head>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/fhem/tablet/icon/apple-touch-icon.png" />
+	<!--FONTS-->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type='text/css'>
+	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+<!--	<meta name="longpoll_type" content="1"> <!-- 1=longpoll;0=shortpoll every 30sec; "ajax" -> HTTP AJAX; websocket-->
+    <meta name="debug" content="3"> <!-- verbose level 1-6 = output to console;0 = not output -->
+	<meta name='toast' content='0'> <!-- keine Ausgabe von Protokollmeldungen -->
+	<meta name="GoogleMapsApiKey" content="xxxxxxxxxxxxxxxxxxxxxxxxxx"> <!-- für GoogleMaps Widget -->
+<!--	<link rel="stylesheet" href="css/fhem-mobil-ui.css" />      -->
+	<link rel="stylesheet" href="fhem-tablet-ui-user.css" />
+	<link rel="stylesheet" href="fhem-tablet-ui-usercolors-ui.css" />
+
+
+
+	<script src="js/fhem-tablet-ui.js" defer></script>
+
+ 	
+    <title>FTUI</title>
+</head>
+
+<body>
+	<div class="phone-header"></div>
+
+	<nav class="menu">
+		<div class="menu-trigger"></div>
+		<header></header>
+        <ul>
+			<li>
+				<div data-type="clock"
+				data-format="l"
+				class="bigger left-space"></div>
+				<div data-type="clock"
+				data-format="j.n.Y"
+				class="bigger left-space"></div>
+				<div data-type="analogclock"
+				data-size="130"
+				data-body="round"
+				data-body-color="#FFFFFF"
+				data-stroke-color="#111111"
+				data-dial="austria"
+				data-dial-color="#111111"
+				data-hour="swiss"
+				data-hour-color="#111111"
+				data-minute="swiss"
+				data-minute-color="#111111"
+				data-second="swiss"
+				data-second-color="#ad3333"
+				data-mbehave="ebounce"
+				data-sbehave="creep"
+				class="compressed readonly left-space"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_home.html"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_home"
+				data-active-pattern="(.*index.html|.*#content_home.html)"
+				data-icon="fa-home" class="bigger compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_weather.html"
+				data-fade-duration="100"
+				data-device="DWD"
+				data-warn="a_count"
+				data-warn-icon="fa-exclamation"
+				data-warn-color="white" 
+				data-warn-background-color="#E17000"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_weather"
+				data-active-pattern=".*#content_weather.html"
+				data-icon="fa-mixcloud" class="bigger warn compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_news.html"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_news"
+				data-active-pattern=".*(#content_news.html)"
+				data-icon="fa-globe" class="bigger compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_traffic.html"
+				data-device="Spritpreis"
+				data-warn="Spritpreis:state"
+				data-warn-on="ok"  
+				data-warn-off="too_high"
+				data-warn-icon="mi-local_gas_station"
+				data-warn-color="white" 
+				data-warn-background-color="#00A1DE"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_traffic"
+				data-active-pattern=".*(#content_traffic.html)"
+				data-icon="fa-car" class="bigger warn compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_calendar.html"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_calendar"
+				data-active-pattern=".*(#content_calendar.html)"
+				data-icon="fa-calendar" class="bigger compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_chart.html"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_chart"
+				data-active-pattern=".*(#content_chart.html)"
+				data-icon="fa-line-chart" class="bigger compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_radio.html"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_radio"
+				data-active-pattern=".*(#content_radio.html)"
+				data-icon="mi-radio" class="bigger compressed left-space-2x"></div>
+			</li>
+			<li>
+				<div data-type="pagebutton" data-url="#content_system.html"
+				data-device="Update.Counter"
+				data-warn="FTUI"
+				data-warn-icon="fa-info"
+				data-warn-color="white" 
+				data-warn-background-color="#00A1DE"
+				data-fade-duration="100"
+				data-off-color="white"
+				data-off-background-color="transparent" 
+				data-on-color="flx_blue"
+				data-on-background-color="transparent"
+				data-load="#content_system"
+				data-active-pattern=".*(#content_system.html)"
+				data-icon="fa-cogs" class="bigger warn compressed left-space-2x"></div>
+			</li>
+		</ul>
+	</nav>
+	
+	<main>
+		<div class="page" id="content_av_receiver"></div>	
+		<div class="page" id="content_birthday"></div>	
+		<div class="page" id="content_blinds"></div>
+		<div class="page" id="content_calendar"></div>				
+		<div class="page" id="content_chart"></div>				
+		<div class="page" id="content_clima"></div>
+		<div class="page" id="content_home"></div>
+		<div class="page" id="content_light"></div>
+		<div class="page" id="content_news"></div>
+		<div class="page" id="content_news_nachtmagazin"></div>
+		<div class="page" id="content_news_rss_spiegel"></div>
+		<div class="page" id="content_news_tagesschau"></div>
+		<div class="page" id="content_news_tagesschau100"></div>
+		<div class="page" id="content_news_tagesthemen"></div>
+		<div class="page" id="content_news_tv_program"></div>
+		<div class="page" id="content_phone"></div>				
+		<div class="page" id="content_radio"></div>		
+		<div class="page" id="content_system"></div>
+		<div class="page" id="content_system_battery_status"></div>
+		<div class="page" id="content_system_fritzbox_status"></div>
+		<div class="page" id="content_system_homematic_status"></div>
+		<div class="page" id="content_system_FTUI_status"></div>
+		<div class="page" id="content_system_network_status"></div>
+		<div class="page" id="content_system_printer_status"></div>
+		<div class="page" id="content_system_qnap_status"></div>
+		<div class="page" id="content_traffic"></div>	
+		<div class="page" id="content_traffic_blitzer"></div>
+		<div class="page" id="content_traffic_gasoline"></div>
+		<div class="page" id="content_traffic_messages"></div>	
+		<div class="page" id="content_traffic_public"></div>	
+		<div class="page" id="content_traffic_route_1"></div>	
+		<div class="page" id="content_traffic_route_2"></div>	
+		<div class="page" id="content_traffic_route_3"></div>	
+		<div class="page" id="content_trash"></div>	
+		<div class="page" id="content_weather"></div>
+		<div class="page" id="content_weather_chart"></div>
+		<div class="page" id="content_weather_DarkSky"></div>
+		<div class="page" id="content_weather_DWD"></div>
+		<div class="page" id="content_weather_DWD_new"></div>
+		<div class="page" id="content_weather_Foreca"></div>		
+		<div class="page" id="content_weather_meteogram"></div>
+		<div class="page" id="content_weather_now"></div>
+		<div class="page" id="content_weather_pollen"></div>
+		<div class="page" id="content_weather_Proplanta"></div>
+		<div class="page" id="content_weather_Proplanta_day_after_tomorrow"></div>
+		<div class="page" id="content_weather_Proplanta_meteogram"></div>
+		<div class="page" id="content_weather_Proplanta_today"></div>
+		<div class="page" id="content_weather_Proplanta_tomorrow"></div>
+		<div class="page" id="content_weather_rain"></div>
+		<div class="page" id="content_weather_warning_DWD"></div>
+		<div class="page" id="content_weather_warning_UWZ"></div>
+		<div class="page" id="content_weather_WW"></div>
+		<div class="page" id="content_weather_yrno"></div>
+		<div class="page" id="content_weather_wind"></div>
+	</main>
+</body>
+</html>

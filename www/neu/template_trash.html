@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Abfall -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-30">
+			<div data-type="symbol"
+			data-device="myAbfall"
+			data-get='var_days'
+			data-warn-background-color="#E17000"
+			data-warn-color="white"
+			data-off-color="flex_green"
+			data-states='["off","^[01]$","^[1-9][0-9]|[2-9]$"]'
+			data-icons='["fs-dustbin warn","fs-dustbin warn blink","fs-dustbin warn"]'
+			data-colors='["","",""]'
+			class="bigger">
+			</div>
+		</div>
+		<div class="hdm-flexbox-item-30">
+			<div data-type="label" data-device="myAbfall" data-get="var_name" class="big flx_blue"></div>
+		</div>
+		<div class="hdm-flexbox-item-30">
+			<div data-type="label" data-device="myAbfall" data-get="var_weekday" class="big"></div>
+			<div data-type="label" data-device="myAbfall" data-get="var_date" class="big"></div>
+		</div>
+	</div>
+</body>
+</html>

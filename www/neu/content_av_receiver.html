@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_av_receiver">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_home.html" data-load="#content_home" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Steuerung</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-20">
+								<div class="big compressed" 
+								data-type="switch" 
+								data-device="AV_Receiver"
+								data-get-on="on.*"
+								data-set-on="on"
+								data-set-off="off"
+								data-on-color="flx_blue" 
+								data-off-color="flx_orange" 
+								data-icon="fa-power-off"
+								data-background-icon=""></div>
+							</div>
+							<div class="hdm-flexbox-item-60">
+								<div class="valueonly center"
+								data-type="spinner" 
+								data-device="AV_Receiver"
+								data-get="volumeStraight"
+								data-set="volumeStraight"
+								data-icon-left="fa-volume-down"
+								data-icon-left-color="white"
+								data-icon-right="fa-volume-up"
+								data-icon-right-color="white"
+								data-height="40"
+								data-width="200"
+								data-step="0.5"
+								data-unit="db"
+								data-min="-70"
+								data-max="-20"
+								data-longdelay="200"
+								data-shortdelay="50"></div>
+							</div>
+							<div class="hdm-flexbox-item-20">
+								<div class="compressed" 
+								data-type="switch" 
+								data-device="AV_Receiver"
+								data-get="mute"
+								data-set="mute"
+								data-get-on="on"
+								data-get-off="off"
+								data-set-on="on"
+								data-set-off="off"
+								data-on-color="flx_orange" 
+								data-off-color="white" 
+								data-icon="mi-volume_off"
+								data-background-icon=""></div>
+							</div>	
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50">
+								<div class="">Höhen</div>
+								<div class="center"
+								data-type="spinner" 
+								data-device="AV_Receiver"
+								data-get="treble"
+								data-set="treble"
+								data-icon-left="fa-angle-down"
+								data-icon-left-color="white"
+								data-icon-right="fa-angle-up"
+								data-icon-right-color="white"
+								data-color="#00A1DE"
+								data-height="30"
+								data-width="150"
+								data-step="1"
+								data-min="-6"
+								data-max="6"
+								data-longdelay="200"
+								data-shortdelay="50"></div>
+							</div>
+							<div class="hdm-flexbox-item-50">
+								<div class="">Tiefen</div>
+								<div class="center"
+								data-type="spinner" 
+								data-device="AV_Receiver"
+								data-get="bass"
+								data-set="bass"
+								data-icon-left="fa-angle-down"
+								data-icon-left-color="white"
+								data-icon-right="fa-angle-up"
+								data-icon-right-color="white"
+								data-color="#00A1DE"
+								data-height="30"
+								data-width="150"
+								data-step="1"
+								data-min="-6"
+								data-max="6"
+								data-longdelay="200"
+								data-shortdelay="50"></div>
+							</div>
+						</div>	
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-33 center left-space">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-fhem-cmd="set AV_Receiver remoteControl setup">SETUP</div>
+							</div>
+							<div class="hdm-flexbox-item-33 left-narrow-2x">
+									<div data-type="circlemenu" data-item-width="100" data-item-height="100" data-circle-radius="120" data-border="round" class="left-narrow-3x">
+									<ul>
+									  <li><div class="big white" data-type="label" data-device="AV_Receiver" data-get="inputName"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_av_s.png" data-fhem-cmd="set AV_Receiver input audio1"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_tuner_s.png" data-fhem-cmd="set AV_Receiver input tuner"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_netradio_s.png" data-fhem-cmd="set AV_Receiver input netradio"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_cable_sat_s.png" data-fhem-cmd="set AV_Receiver input hdmi1"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_dvd_movie_s.png" data-fhem-cmd="set AV_Receiver input hdmi2"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_bluetooth.png" data-fhem-cmd="set AV_Receiver input bluetooth"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_spotify.png" data-fhem-cmd="set AV_Receiver input spotify"></div></li>
+									  <li><div class="" data-type="image" data-url="images/logos_yamaha/ic_input_airplay.png" data-fhem-cmd="set AV_Receiver input airplay"></div></li>
+									</ul>
+								  </div>
+							</div>
+							<div class="hdm-flexbox-item-33">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-fhem-cmd="set AV_Receiver remoteControl option">OPTION</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-33 large right-narrow-3x">
+								<div class=""
+								data-type="push"
+								data-icon="fa-angle-double-left"
+								data-background-icon=""
+								data-off-color="white"
+								data-on-color="flx_blue"
+								data-fhem-cmd="set AV_Receiver remoteControl left"></div>
+							</div>
+							<div class="hdm-flexbox-item-33 large">
+								<div class=""
+								data-type="push"
+								data-icon="fa-angle-double-up"
+								data-background-icon=""
+								data-off-color="white"
+								data-on-color="flx_blue"
+								data-fhem-cmd="set AV_Receiver remoteControl up"></div>
+								<div class="bigger top-space" 
+								data-type="link"
+								data-color="white"
+								data-border-color="transparent"
+								data-fhem-cmd="set AV_Receiver remoteControl enter">ENTER</div>
+								<div class="top-space-2x"
+								data-type="push"
+								data-icon="fa-angle-double-down"
+								data-background-icon=""
+								data-off-color="white"
+								data-on-color="flx_blue"
+								data-fhem-cmd="set AV_Receiver remoteControl down"></div>
+							</div>
+							<div class="hdm-flexbox-item-33 large left-narrow-3x">
+								<div class=""
+								data-type="push"
+								data-icon="fa-angle-double-right"
+								data-background-icon=""
+								data-off-color="white"
+								data-on-color="flx_blue"
+								data-fhem-cmd="set AV_Receiver remoteControl right"></div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50 center">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-fhem-cmd="set AV_Receiver remoteControl return">RETURN</div>
+							</div>
+							<div class="hdm-flexbox-item-50 center">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-fhem-cmd="set AV_Receiver remoteControl display">DISPLAY</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item-50 center">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-icon-left="fa-angle-left"
+								data-fhem-cmd="set AV_Receiver presetDown">PRESET</div>
+							</div>
+							<div class="hdm-flexbox-item-50 center">
+								<div class="compressed round" 
+								data-type="link"
+								data-width="100"
+								data-color="white"
+								data-border-color="white"
+								data-icon-right="fa-angle-right"
+								data-fhem-cmd="set AV_Receiver presetUp">PRESET</div>
+							</div>
+						</div>
+					</section>
+					<header>Infos</header>
+					<section>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item left-align left-space">
+								<div class="big"
+								data-type="label"
+								data-device="AV_Receiver"
+								data-get="currentStation"
+								data-hide="currentStation"
+								data-hide-on=""
+								data-pre-text="SENDER: "></div>
+							</div>
+						</div>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item left-align left-space">
+								<div class="big"
+								data-type="label"
+								data-device="AV_Receiver"
+								data-get="currentAlbum"
+								data-hide="currentAlbum"
+								data-hide-on=""
+								data-pre-text="ALBUM: "></div>
+							</div>
+						</div>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item left-align left-space">
+								<div class="big"
+								data-type="label"
+								data-device="AV_Receiver"
+								data-get="currentArtist"
+								data-hide="currentArtist"
+								data-hide-on=""
+								data-pre-text="ARTIST: "></div>
+							</div>
+						</div>
+						<div class="hdm-flexbox-container">
+							<div class="hdm-flexbox-item left-align left-space">
+								<div class="big"
+								data-type="label"
+								data-device="AV_Receiver"
+								data-get="currentTitle"
+								data-hide="currentTitle"
+								data-hide-on=""
+								data-pre-text="TITEL: "></div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Szenen</header>
+					<section>
+						<div data-template="template_av_receiver_scene.html" data-parameter='{"var_name_a":"Blu-ray","var_set_a":"scene1","var_name_b":"TV","var_set_b":"scene2","var_name_c":"Internet Radio","var_set_c":"scene3","var_name_d":"DAB+ Radio","var_set_d":"scene4"}'></div>
+					</section>
+					<header>3D Schallfelder</header>
+					<section>
+						<div data-template="template_av_receiver_dsp.html" data-parameter='{"var_name_a":"Hall in Munich","var_set_a":"hallinmunich","var_name_b":"Hall in Vienna","var_set_b":"hallinvienna","var_name_c":"Chamber","var_set_c":"chamber","var_name_d":"Cellar Club","var_set_d":"cellarclub"}'></div>
+					</section>
+					<section>
+						<div data-template="template_av_receiver_dsp.html" data-parameter='{"var_name_a":"The Roxy Theatre","var_set_a":"theroxytheatre","var_name_b":"The Bottom Line","var_set_b":"thebottomline","var_name_c":"Sports","var_set_c":"sports","var_name_d":"Action Game","var_set_d":"actiongame"}'></div>
+					</section>
+					<section>
+						<div data-template="template_av_receiver_dsp.html" data-parameter='{"var_name_a":"Roleplaying Game","var_set_a":"roleplayinggame","var_name_b":"Music Video","var_set_b":"musicvideo","var_name_c":"Spectacle","var_set_c":"spectacle","var_name_d":"Sci-Fi","var_set_d":"sci-fi"}'></div>
+					</section>
+					<section>
+						<div data-template="template_av_receiver_dsp.html" data-parameter='{"var_name_a":"Adventure","var_set_a":"adventure","var_name_b":"Drama","var_set_b":"drama","var_name_c":"Surround Decoder","var_set_c":"surrounddecoder","var_name_d":"7ch Stereo","var_set_d":"7chstereo"}'></div>
+					</section>
+					<header>Digital Sound Processor</header>
+					<section>
+							<div class="hdm-flexbox-container">
+								<div class="hdm-flexbox-item-25">
+									<div class="flx_blue" 
+									data-type="checkbox" 
+									data-device="AV_Receiver"
+									data-get="straight"
+									data-set="straight"
+									data-get-on="on.*"
+									data-set-on="on"
+									data-set-off="off"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange"></div>
+									<div class="inline">Straight</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div class="flx_blue" 
+									data-type="checkbox" 
+									data-device="AV_Receiver"
+									data-get="direct"
+									data-set="direct"
+									data-get-on="on.*"
+									data-set-on="on"
+									data-set-off="off"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange"></div>
+									<div class="inline">Direct</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div class="flx_blue" 
+									data-type="checkbox" 
+									data-device="AV_Receiver"
+									data-get="enhancer"
+									data-set="enhancer"
+									data-get-on="on.*"
+									data-set-on="on"
+									data-set-off="off"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange"></div>
+									<div class="inline">Enhancer</div>
+								</div>
+								<div class="hdm-flexbox-item-25">
+									<div class="flx_blue" 
+									data-type="checkbox" 
+									data-device="AV_Receiver"
+									data-get="extraBass"
+									data-set="extraBass"
+									data-get-on="auto"
+									data-set-on="auto"
+									data-set-off="off"
+									data-on-background-color="flx_blue"
+									data-off-background-color="flx_orange"></div>
+									<div class="inline">Extra Bass</div>
+								</div>
+							</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

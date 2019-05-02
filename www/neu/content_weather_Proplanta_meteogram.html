@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_weather_Proplanta_meteogram">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_weather.html" data-load="#content_weather" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Vorhersage in xxx</header>
+					<section>
+						<div class="nobuttons fullsize"
+						data-type="chart"
+						data-device="Wetter_Pro"
+						data-logdevice='[
+										"myLogProxy",
+										"myLogProxy",
+										"myLogProxy"
+										]'
+						data-columnspec='[
+										"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro\\x22,\\x22weatherIcon\\x22,$from,$to,12,\\x22day\\x22)",
+										[
+											"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro\\x22,\\x22tempMax\\x22,$from,$to,12,\\x22day\\x22)",
+											"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro\\x22,\\x22tempMin\\x22,$from,$to,12,\\x22day\\x22)"
+										],
+										"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro\\x22,\\x22rain_\\x22,$from,$to,12,\\x22day\\x22)"
+										]'
+						data-style='[
+										"ftui l12icon",
+										["fill",["-40","#00A1DE","1.0"],["0","#00A1DE","0"],["0","#E17000","0"],["400","#E17000","1.0"]],
+										"ftui l5fill"
+										]'
+						data-ptype='[
+										"icons:1",
+										"cubic",
+										"steps"
+										]'
+						data-uaxis='[
+										"primary",
+										"primary",
+										"secondary"
+										]'
+						data-legend='[
+										"Wetterbedingung",
+										"Temperatur",
+										"Niederschlag"
+										]'
+						data-legendpos='["behind","top"]'
+						data-showlegend="true"
+						data-minvalue="auto"
+						data-maxvalue="auto"
+						data-minvalue_sec="0"
+						data-maxvalue_sec="20"
+						data-xticks="1440"
+						data-yticks="auto"
+						data-yunit="°C"
+						data-yunit_sec="mm"
+						data-y_margin="20"
+						data-width="100%"
+						data-height="310px"
+						data-daysago_start = "-1w"
+						data-daysago_end = "-7d"
+						data-timeformat="ee\LF\dd.MM.."
+						></div>
+					</section>
+					<header>Vorhersage in xxx</header>
+					<section>
+						<div class="nobuttons fullsize"
+						data-type="chart"
+						data-device="Wetter_Pro_xxxx"
+						data-logdevice='[
+										"myLogProxy",
+										"myLogProxy",
+										"myLogProxy"
+										]'
+						data-columnspec='[
+										"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro_xxx\\x22,\\x22weatherIcon\\x22,$from,$to,12,\\x22day\\x22)",
+										[
+											"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro_xxx\\x22,\\x22tempMax\\x22,$from,$to,12,\\x22day\\x22)",
+											"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro_xxx\\x22,\\x22tempMin\\x22,$from,$to,12,\\x22day\\x22)"
+										],
+										"Func:logProxy_proplanta2Plot(\\x22Wetter_Pro_xxx\\x22,\\x22rain_\\x22,$from,$to,12,\\x22day\\x22)"
+										]'
+						data-style='[
+										"ftui l12icon",
+										["fill",["-40","#00A1DE","1.0"],["0","#00A1DE","0"],["0","#E17000","0"],["400","#E17000","1.0"]],
+										"ftui l5fill"
+										]'
+						data-ptype='[
+										"icons:1",
+										"cubic",
+										"steps"
+										]'
+						data-uaxis='[
+										"primary",
+										"primary",
+										"secondary"
+										]'
+						data-legend='[
+										"Wetterbedingung",
+										"Temperatur",
+										"Niederschlag"
+										]'
+						data-legendpos='["behind","top"]'
+						data-showlegend="true"
+						data-minvalue="auto"
+						data-maxvalue="auto"
+						data-minvalue_sec="0"
+						data-maxvalue_sec="20"
+						data-xticks="1440"
+						data-yticks="auto"
+						data-yunit="°C"
+						data-yunit_sec="mm"
+						data-y_margin="20"
+						data-width="100%"
+						data-height="310px"
+						data-daysago_start = "-1w"
+						data-daysago_end = "-7d"
+						data-timeformat="ee\LF\dd.MM.."
+						></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

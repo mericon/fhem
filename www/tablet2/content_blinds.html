@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_blinds">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_home.html" data-load="#content_home" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Jalousien Szenarien</header>
+					<section>
+						<div data-template="template_blind_scene.html" data-parameter='{"var_device":"Scn_Jalousien","var_state":"alle_offen","var_name":"alle offen"}'></div>
+					</section>
+					<section>
+						<div data-template="template_blind_scene.html" data-parameter='{"var_device":"Scn_Jalousien","var_state":"alle_geschlossen","var_name":"alle geschlossen"}'></div>
+					</section>
+					<section>
+						<div data-template="template_blind_scene.html" data-parameter='{"var_device":"Scn_Jalousien","var_state":"oben_schatten","var_name":"nur oben abdunkeln"}'></div>
+					</section>
+					<section>
+						<div data-template="template_blind_scene.html" data-parameter='{"var_device":"Scn_Jalousien","var_state":"unten_schatten","var_name":"nur unten abdunkeln"}'></div>
+					</section>
+					<section>
+						<div data-template="template_blind_scene.html" data-parameter='{"var_device":"Scn_Jalousien","var_state":"alle_schatten","var_name":"alle abdunkeln"}'></div>
+					</section>
+				</div>
+			</div>
+			
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Jalousien einzeln</header>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_device":"overview_blinds","var_link":"content_blinds_detail","var_name":"einzeln schalten","var_state1":"on","var_text1":"alle offen","var_state2":"off","var_text2":"alle geschlossen","var_state3":"undefined","var_text3":"teilweise geschlossen","var_icon":"mi-line_weight"}'></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

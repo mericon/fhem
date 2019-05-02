@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Proplanta -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_date" data-substitution="toDate().ee()"></div>
+		</div>
+		<div class="hdm-flexbox-item-15">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_weatherDayIcon" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_max" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_tempMax" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_rain" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-umbrella" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_chOfRainDay" data-limits="[0,1,10,25,50,75]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="%"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-sun-o" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_sun" data-limits="[0,1,10,25,50,75]" data-colors='["flx_red","flx_light_red","flx_orange","flx_yellow","flx_green_yellow","flx_green"]' data-unit="%"></div>
+		</div>
+		<div class="hdm-flexbox-item-15">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_weatherNightIcon" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_min" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_tempMin" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-umbrella" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_chOfRainNight" data-limits="[0,1,10,25,50,75]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="%"></div>
+		</div>
+	</div>
+</body>
+</html>

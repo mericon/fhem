@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div class="page" id="content_home">
+				<div class="hbox">
+					<div class="box phone-width">
+						<div class="card lift">
+						<header>Übersicht</header>
+						<section>
+							<div data-template="template_link.html" data-parameter='{"var_device":"LichtAn","var_link":"content_light","var_name":"Licht","var_state1":"on","var_text1":"an","var_state2":"off","var_text2":"aus","var_icon":"mi-lightbulb_outline"}'></div>
+						</section>
+						<section>
+							<div class="row">
+								<div class="cell left-align left-space">
+								</div>
+								<div class="cell-80 left-align">
+									<div class="big">Anwesenheit</div>
+									<div class="inline">
+										<div class="inline top-narrow">
+											<div class=" top-narrow">Carsten</div>
+											<div class=" top-narrow" data-type="symbol" data-device="Carsten" data-states='["present","absent"]' data-icons='["fa-user-circle"]' data-colors='["green", "white"]'></div>
+										</div>
+									</div>
+									<div class="inline">
+										<div class="inline top-narrow">
+											<div class=" top-narrow">Rebecca</div>
+											<div class=" top-narrow" data-type="symbol" data-device="Rebecca" data-states='["present","absent"]' data-icons='["fa-user-circle"]' data-colors='["green", "white"]'></div>
+										</div>
+									</div>
+								</div>
+								<div class="cell"></div>
+								<div class="cell">
+									<div>
+										<div data-type="symbol" data-color="white" data-icon="mi-chevron_right" class="compressed"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+					</div>
+					<div class="vbox phone-width">
+					<div class="card lift">
+						<header>Infos1</header>
+						<section>
+							<div class="row">
+								<div class="cell left-align left-space">
+								</div>
+								<div class="cell-80 left-align">
+									<div class="big">M&uuml;llabfuhr</div>
+									<div class="inline top-narrow">
+										<div class="center top-narrow">Rest</div>
+										<div class=" top-narrow" data-device="muell" data-type="symbol" class="left-align" data-get="Restabfall2woe_days" data-get-on='[0-1]' data-warn="Restabfall2woe_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#FF0000' data-off-color='#FF0000'
+
+											data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+										</div>
+									</div>
+									<div class="inline  top-narrow">
+										<div class="center top-narrow">Gelb</div>
+										<div class=" top-narrow" data-device="muell" data-type="symbol"  data-get="GelberSack_days" data-get-on='[0-1]' data-warn="GelberSack_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#FFFF00' data-off-color='#FFFF00'
+
+											data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+										</div>
+									</div>
+									<div class="inline top-narrow">
+										<div class="center top-narrow">Bio</div>
+										<div class=" top-narrow" data-device="muell" data-type="symbol"  data-get="Bio2woe_days" data-get-on='[0-1]' data-warn="Bio2woe_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#01DF01' data-off-color='#01DF01'
+
+											data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+										</div>
+									</div>
+									<div class="inline top-narrow">
+										<div class="center" top-narrow>Papier</div>
+										<div class=" top-narrow" data-device="muell" data-type="symbol" data-get="Altpapier4woe_days" data-get-on='[0-1]' data-warn="Altpapier4woe_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#0000FF' data-off-color='#0000FF'
+
+											data-icons='["fa-trash-o fa-blink","fa-trash-o"]'></div>
+									</div>
+								</div>
+								<div class="cell"></div>
+								<div class="cell">
+									<div>
+										<div data-type="symbol" data-color="white" data-icon="mi-chevron_right" class="compressed"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="row">
+								<div class="cell left-align left-space">
+								</div>
+								<div class="cell-80 left-align">
+									<div class="big">Benzinpreise</div>
+									<div class="top-narrow"><div class="">
+										<div class="inline large">SB Real</div>
+										Diesel: <div data-device="Real" data-type="label" data-get="Diesel" class="inline"></div>
+										Super: <div data-device="Real" data-type="label" data-get="SuperE5" class="inline"></div>
+									</div>
+									
+									<div class="top-narrow">
+										<div class="inline large">BFT E-dorf</div>
+										Diesel: <div data-device="bft" data-type="label" data-get="Diesel" class="inline"></div>
+										Super: <div data-device="bft" data-type="label" data-get="SuperE5" class="inline"></div>
+									</div></div>
+
+								</div>
+								<div class="cell"></div>
+								<div class="cell">
+									<div>
+										<div data-type="symbol" data-color="white" data-icon="mi-chevron_right" class="compressed"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section>
+							<div class="row">
+								<div class="cell left-align left-space">
+									<div data-type="weather" data-device="wetter" data-get="condition" class="big compressed"></div>
+								</div>
+								<div class="cell-80 left-align">
+									<div class="big">Wetter aktuell</div>
+									<div class=" top-narrow" data-type="label" data-device="wetter" data-get="temperature" data-unit="&deg;C" class="inline"></div>
+									<div class=" top-narrow" data-type="label" data-device="wetter" data-get="humidity" data-unit="%" class="inline"></div>
+									<div class=" top-narrow" data-type="label" data-device="wetter" data-get="pressure" data-unit="hPa" class="inline"></div>
+									<div class=" top-narrow" data-type="label" data-device="wetter" data-get="wind_condition" class="inline"></div>
+								</div>
+								<div class="cell"></div>
+								<div class="cell">
+									<div data-type="link" data-url="#content_weather.html" data-load="#content_weather" data-color="black" data-fade-duration="0">
+										<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+					</div>
+				</div>
+			</div>
+	</body>
+</html>

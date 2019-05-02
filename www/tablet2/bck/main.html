@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+        <style>
+            div.Wetter td {
+                padding:2px !important;
+                text-align:left;
+                white-space:nowrap;
+            }
+            div.Wetter div[data-type=label] {
+                display:inline;
+                font-weight:bold;
+                white-space:normal;
+            }
+        </style>
+        <title>FTUI Demo</title>
+    </head>
+
+    <body backgroundcolor="#1E1E1E">
+        <div class="gridster">
+            <ul>
+                <li data-row="1" data-col="1" data-sizex="1" data-sizey="9" data-template="menu.html"></li>
+                <li data-row="1" data-col="2" data-sizex="3" data-sizey="2">
+                    <header class="blue">Anwesenheit</header>
+                    <div class="top-space inline">
+                        <div class="inline">
+                            <div>Carsten</div>
+                            <div data-type="symbol" data-device="Carsten" data-states='["present","absent"]' data-icons='["fa-user-circle"]' data-colors='["green", "white"]'></div>
+                        </div>
+                    </div>
+                    <div class="top-space inline">
+                        <div class="inline">
+                            <div>Rebecca</div>
+                            <div data-type="symbol" data-device="Rebecca" data-states='["present","absent"]' data-icons='["fa-user-circle"]' data-colors='["green", "white"]'></div>
+                        </div>
+                    </div>
+                </li>
+                <li data-row="3" data-col="2" data-sizex="2" data-sizey="3">
+                    <div class="container Wetter">
+                        <header class="blue">Wetter in
+                            <div data-type="label" data-device="wetter" data-get="city" style="display:inline"></div>
+                        </header>
+                    </div>
+                    <div data-type="weather" data-device="wetter" data-get="condition" data-imageset="meteocons" class="cell"></div>
+                    <div data-type="label" data-device="wetter" data-get="condition" class="cell"></div>
+                    <div data-type="label" data-device="wetter" data-get="temperature" data-unit=" ′C" class="cell inline"></div>
+                    <div data-type="label" data-device="wetter" data-get="humidity" data-unit=" %" class="cell inline"></div>
+                </li>
+<li data-row="6" data-col="2" data-sizex="2" data-sizey="2">
+                    
+                        <header class="blue">Flur Unten
+                            
+                        </header>
+                    <div class="top-space">Lichterkette<Br>Treppe</div>
+                    <div data-type="switch" data-device="KetteTreppe" class="top-space small"></div>
+                    </li>
+                <li data-row="1" data-col="5" data-sizex="5" data-sizey="2">
+                    <header class="blue">Abfall</header>
+                    <div class="inline top-space">
+                        <div>Rest</div>
+                        <div data-device="muell" data-type="symbol" class="large" data-get="Restabfall_days" data-get-on='[0-1]' data-warn="Restabfall_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#FF0000'
+                        data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+                        </div>
+                    </div>
+                    <div class="inline top-space">
+                        <div>Gelb</div>
+                        <div data-device="muell" data-type="symbol" class="large" data-get="LVP-GelberSack_days" data-get-on='[0-1]' data-warn="LVP-GelberSack_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#FFFF00'
+                        data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+                        </div>
+                    </div>
+                    <div class="inline top-space">
+                        <div>Bio</div>
+                        <div data-device="muell" data-type="symbol" class="large" data-get="Bioabfall_days" data-get-on='[0-1]' data-warn="Bioabfall_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#01DF01'
+                        data-icons='["fa-trash-o fa-blink","fa-trash-o"]'>
+                        </div>
+                    </div>
+                    <div class="inline top-space">
+                        <div>Papier</div>
+                        <div data-device="muell" data-type="symbol" class="large" data-get="Altpapier_days" data-get-on='[0-1]' data-warn="Altpapier_days" data-warn-on='[0-5]' data-warn-off="([6-9]{1}|[0-9]{2})" data-states='["[0-2]","([2-9]{1}|[0-9]{2})"]' data-on-color='#0000FF'
+                        data-icons='["fa-trash-o fa-blink","fa-trash-o"]'></div>
+                    </div>
+                </li>
+                <li data-row="1" data-col="10" data-sizex="2" data-sizey="6">
+                    <header>
+                        <div data-type="label" class="blue">Wetter</div>
+                    </header>
+                    
+                    <div data-type="label" class="darker large top-space">Heute</div>
+                    <div data-type="weather" data-device="wetter" data-get="fc1_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc1_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc1_high_c" data-unit="%B0C%0A" class="large">
+                    </div>
+
+                    <div data-type="label" class="darker large top-space">Morgen</div>
+                    <div data-type="weather" data-device="wetter" data-get="fc2_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc2_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc2_high_c" data-unit="%B0C%0A" class="large">
+                    </div>
+
+                    <div data-type="label" class="darker large top-space">Übermorgen</div>
+                    <div data-type="weather" data-device="wetter" data-get="fc3_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc3_condition">
+                    </div>
+                    <div data-type="label" data-device="wetter" data-get="fc3_high_c" data-unit="%B0C%0A" class="large">
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </body>
+
+</html>

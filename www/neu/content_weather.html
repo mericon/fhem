@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_weather">
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Vorhersagen</header>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Proplanta_today","var_name":"Proplanta Heute","var_description":"Detail-Vorschau","var_icon":"wi wi-day-cloudy-gusts"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Proplanta_tomorrow","var_name":"Proplanta Morgen","var_description":"Detail-Vorschau","var_icon":"wi wi-day-cloudy-gusts"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Proplanta_day_after_tomorrow","var_name":"Proplanta &Uuml;bermorgen","var_description":"Detail-Vorschau","var_icon":"wi wi-day-cloudy-gusts"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_WW","var_name":"Wetterstation","var_description":"4-Tage-Vorschau","var_icon":"fa-mixcloud"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Proplanta","var_name":"Proplanta","var_description":"5-Tage-Vorschau","var_icon":"wi wi-cloud"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_DWD_new","var_name":"Deutscher Wetterdienst","var_description":"5-Tage-Vorschau","var_icon":"wi wi-cloud"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Proplanta_meteogram","var_name":"Proplanta","var_description":"7-Tage-Meteogram","var_icon":"wi wi-earthquake"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_yrno","var_name":"yr.no","var_description":"2-Tage-Meteogram","var_icon":"wi wi-earthquake"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_Foreca","var_name":"Foreca","var_description":"5-Tage-Meteogram","var_icon":"wi wi-earthquake"}'></div>
+					</section>
+				
+					<!--
+					<section>
+						<div data-template="template_link_uncompressed.html" data-parameter='{"var_device":"overview_blinds","var_link":"content_blinds","var_name":"Jalousien","var_state1":"on","var_text1":"alle offen","var_state2":"off","var_text2":"alle geschlossen","var_state3":"undefined","var_text3":"teilweise geschlossen","var_icon":"mi-line_weight"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link_uncompressed.html" data-parameter='{"var_device":"overview_smokedetect","var_link":"content_smoke","var_name":"Rauchmelder","var_state1":"Alarm_B0","var_text1":"Alarm!","var_state2":"off","var_text2":"Melder bereit","var_icon":"oa-secur_smoke_detector"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link_uncompressed.html" data-parameter='{"var_device":"","var_link":"content_cam","var_name":"Kameras","var_icon":"mi-videocam"}'></div>
+					</section>
+					-->
+				</div>
+			</div>
+		
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Karten</header>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-device="UWZ" 
+								data-warn="WarnCount"
+								data-warn-background-color="#E17000"
+								data-warn-color="white"
+								class="big warn compressed"
+								data-off-color="flx_blue"
+								data-icon="oa-weather_wind">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_weather_warning_UWZ.html" data-load="#content_weather_warning_UWZ" data-fade-duration="0">
+									<div class="big white left-align">Wetterwarnung UWZ</div>
+								</div>
+							</div>
+							<div class="cell">
+							</div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_weather_warning_UWZ.html" data-load="#content_weather_warning_UWZ" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-device="DWD" 
+								data-warn="a_count"
+								data-warn-background-color="#E17000"
+								data-warn-color="white"
+								class="big warn compressed"
+								data-off-color="flx_blue"
+								data-icon="oa-weather_wind">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_weather_warning_DWD.html" data-load="#content_weather_warning_DWD" data-fade-duration="0">
+									<div class="big white left-align">Wetterwarnung DWD</div>
+								</div>
+							</div>
+							<div class="cell">
+							</div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_weather_warning_DWD.html" data-load="#content_weather_warning_DWD" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_rain","var_name":"Regenradar","var_description":"2-Tage-Vorschau","var_icon":"wi wi-forecast-io-rain"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_DWD","var_name":"Deutscher Wetterdienst","var_description":"Aktuelle Wetterkarten","var_icon":"fa-map-o"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_pollen","var_name":"Pollen","var_description":"Aktuelle Informationen","var_icon":"fa-forumbee"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_wind","var_name":"Wind","var_description":"Aktuelle Informationen","var_icon":"wi wi-forecast-io-wind"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_chart","var_name":"R&uuml;ckblick","var_description":"3-Tages-R&uuml;ckblick","var_icon":"wi wi-earthquake"}'></div>
+					</section>
+
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_meteogram","var_name":"Meteogram","var_description":"zum Testen","var_icon":"fa-sellsy"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_weather_DarkSky","var_name":"DarkSky","var_description":"6-Tage-Vorschau","var_icon":"wi wi-cloud"}'></div>
+					</section>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

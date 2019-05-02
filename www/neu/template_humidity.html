@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für Homematic Schaltaktor 4-fach HM-LC-SW4-DR zur Schaltung des Heizkreises (Fußbodenheizung) in Verbindung mit Wandthermostat HM-TC-IT-WM-W-EU -->
+</head>
+<body>
+	<div class="row">
+		<div class="cell left-align left-space">
+			<div data-type="symbol" data-device="var_device" data-off-color="flx_blue"  data-icon="wi wi-humidity" class="big compressed"></div>
+		</div>
+		<div class="cell-80 left-align">
+			<div class="big">var_name</div>
+		</div>
+		<div class="cell right-align right-space">
+			<div data-type="label" data-device="var_device" data-get="humidity" data-unit="%" data-fix="1" class="bigger"></div>
+			<div data-type="klimatrend" data-device="var_device" data-get="statHumidityTendency" data-refperiod="1" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+			<div data-type="klimatrend" data-device="var_device" data-get="statHumidityTendency" data-refperiod="2" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+			<div data-type="klimatrend" data-device="var_device" data-get="statHumidityTendency" data-refperiod="3" class="inline readonly" data-stagnating-color="rgb(223,210,202)" data-rising-color="rgb(225,112,0)" data-highmark-rising-color="rgb(225,112,0)" data-falling-color="rgb(0,161,222)" data-highmark-falling-color="rgb(0,161,222)"></div>
+		</div>
+	</div>
+</body>
+</html>

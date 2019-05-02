@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für HUE Lampen -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-15">
+			<div data-type="symbol" id="var_device" data-device="var_device" data-off-color="var_device:rgb" data-icon="fa-lightbulb-o" class="big compressed"></div>
+				<div data-type="popup" data-height="300px" data-width="300px" data-mode="animate" data-starter="#var_device" class="">
+					<div class="dialog">
+					<header>Farbe w&auml;hlen</header>
+					<div data-type="colorwheel" data-device='var_device' data-get="rgb" data-set="rgb" class="top-narrow roundIndicator big"></div>
+					</div>
+				</div>
+		</div>
+		<div class="hdm-flexbox-item-15">
+			<div data-type="checkbox" data-device="var_device" data-get="onoff" class="small" data-on-background-color="flx_blue" data-off-background-color="flx_orange"></div>
+		</div>
+		<div class="hdm-flexbox-item-30 left-align">
+			<div class="big">var_name</div>
+			<div data-type="label" data-device="var_device" data-get="pct" data-unit="%"></div>
+		</div>
+
+		<div class="hdm-flexbox-item-40 right-space">
+			<div data-type="spinner" data-device="var_device" data-get="pct" data-set="pct" data-step="5" data-min="0" data-max="100" data-width="150" data-height="35" data-color="flx_blue" data-icon-left-color="white" data-icon-right-color="white" class=""></div>
+		</div>
+	</div>
+</body>
+</html>

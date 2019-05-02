@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_traffic">
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card">
+					<header>Auswahl</header>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-off-color="flx_blue"
+								data-icon="mi-local_gas_station"
+								class="big compressed">
+								</div>
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_traffic_gasoline.html" data-load="#content_traffic_gasoline" data-fade-duration="0">
+									<div class="big white left-align">Aktueller Spritpreis</div>
+								</div>
+								<div data-type="label" data-device="Spritpreis_aktuell" data-unit="€" data-limits='[1.20,1.40,1.50]' data-colors='["flx_blue","flx_yellow","flx_orange"]' class="bigger"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_traffic_gasoline.html" data-load="#content_traffic_gasoline" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								data-off-color="flx_blue"
+								data-icon="mi-local_gas_station"
+								class="big compressed">
+								</div>
+							</div>
+							<div class="cell-80 left-align white">
+								<div class="big white left-align">Gewünschter Spritpreis</div>
+								<div data-type="spinner" 
+									data-device="Spritpreisschwelle"
+									data-icon-left-color="white"
+									data-icon-right-color="white"
+									data-height="35"
+									data-width="150"
+									data-step="0.01"
+									data-min="1.25"
+									data-max="1.60"
+									data-unit="€"
+									class="valueonly"
+								></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+							</div>
+						</div>
+					</section>					
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_traffic_messages","var_name":"Verkehrsmeldungen","var_description":"auf A9, A92, A93, A94, A95, A96 und A99","var_icon":"mi-sms_failed"}'></div>
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_traffic_public","var_name":"&Ouml;ffentliche","var_description":"zum Marienplatz, Flughafen und Olympiazentrum","var_icon":"mi-train"}'></div>
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card">
+					<header>weitere Auswahl</header>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								class="big compressed"
+								data-off-color="flx_blue"
+								data-icon="mi-map">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_traffic_route_1.html" data-load="#content_traffic_route_1" data-fade-duration="0">
+									<div class="big white left-align">Fahrzeit xxx</div>
+								</div>								
+								<div data-type="label" data-device="TrafficMaps_1" data-get="duration_in_traffic" class="inline" data-pre-text="Aktuell&nbsp;"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_traffic_route_Vogtland.html" data-load="#content_traffic_route_1" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>					
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								class="big compressed"
+								data-off-color="flx_blue"
+								data-icon="mi-map">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_traffic_route_2.html" data-load="#content_traffic_route_2" data-fade-duration="0">
+									<div class="big white left-align">Fahrzeit zum Flughafen</div>
+								</div>								
+								<div data-type="label" data-device="TrafficMaps_2" data-get="duration_in_traffic" class="inline" data-pre-text="Aktuell&nbsp;"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_traffic_route_2.html" data-load="#content_traffic_route_2" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>					
+					</section>
+					<section>
+						<div class="row">
+							<div class="cell left-align left-space">
+								<div data-type="symbol"
+								class="big compressed"
+								data-off-color="flx_blue"
+								data-icon="mi-map">
+								</div> 								
+							</div>
+							<div class="cell-80 left-align white">
+								<div data-type="link" data-url="#content_traffic_route_Office.html" data-load="#content_traffic_route_Office" data-fade-duration="0">
+									<div class="big white left-align">Fahrzeit zum B&uuml;ro</div>
+								</div>								
+								<div data-type="label" data-device="TrafficMaps_Office" data-get="duration_in_traffic" class="inline" data-pre-text="Aktuell&nbsp;"></div>
+							</div>
+							<div class="cell"></div>
+							<div class="cell">
+								<div data-type="link" data-url="#content_traffic_route_Office.html" data-load="#content_traffic_route_Office" data-fade-duration="0">
+									<div data-type="symbol" data-color="gray" data-icon="mi-chevron_right" class="compressed"></div>
+								</div>
+							</div>
+						</div>					
+					</section>
+					<section>
+						<div data-template="template_link.html" data-parameter='{"var_link":"content_traffic_blitzer","var_name":"Blitzer","var_description":"im Umkreis von 25km","var_icon":"fa-camera"}'></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

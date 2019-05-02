@@ -1,0 +1,62 @@
+attr global userattr cmdIcon devStateIcon devStateStyle icon msgContactAudio msgContactLight msgContactMail msgContactPush msgContactScreen msgParams msgPriority msgRecipient msgRecipientAudio msgRecipientLight msgRecipientMail msgRecipientPush msgRecipientScreen msgRecipientText msgTitle msgTitleShrt msgType:text,push,mail,screen,light,audio,queue sortby webCmd widgetOverride
+attr global autoload_undefined_devices 1
+attr global logfile ./log/fhem-%Y-%m.log
+attr global modpath .
+attr global motd SecurityCheck:\
+\
+WEB,WEBphone,WEBtablet has no associated allowed device with basicAuth.\
+telnetPort has no associated allowed device with password/globalpassword.\
+\
+Restart FHEM for a new check if the problem is fixed,\
+or set the global attribute motd to none to supress this message.\
+
+attr global statefile ./log/fhem.save
+attr global updateInBackground 1
+attr global verbose 3
+
+define telnetPort telnet 7072 global
+
+define WEB FHEMWEB 8083 global
+
+define WEBphone FHEMWEB 8084 global
+attr WEBphone stylesheetPrefix smallscreen
+
+define WEBtablet FHEMWEB 8085 global
+attr WEBtablet stylesheetPrefix touchpad
+
+# Fake FileLog entry, to access the fhem log from FHEMWEB 
+
+define autocreate autocreate
+attr autocreate filelog ./log/%NAME-%Y.log
+
+define eventTypes eventTypes ./log/eventTypes.txt
+
+# Disable this to avoid looking for new USB devices on startup
+define initialUsbCheck notify global:INITIALIZED usb create
+define Logfile FileLog ./log/fhem-%Y-%m.log fakelog
+define TABLETUI HTTPSRV ftui/ ./www/tablet Tablet-UI
+define AbfallGoogleCalender Calendar ical url http://bananapi:8083/fhem/ftui/A.ICS
+define muell ABFALL AbfallGoogleCalender
+attr muell calendarname_praefix 0
+attr muell delimiter_reading |
+attr muell delimiter_text_reading und
+attr muell stateFormat next_text in next_tage Tag(en)
+attr muell weekday_mapping Sonntag Montag Dienstag Mittwoch Donnerstag Freitag Samstag
+define c1 CUL 192.168.178.65:2323 0000
+define CUL1 CUL /dev/ttyACM0@9600 1234
+attr CUL1 rfmode SlowRF
+define bot Pushbullet o.x4WuDow7PDrwFNc012hMdgKMSXFqINgc
+define dRestBioGelb DOIF ([18:00] and [muell:next_tage:"(1)"] and [muell:next_text:"(Bio*)"]) ( set bot message "Morgen wird Bio, Rest und Gelbersack abgeholt")
+attr dRestBioGelb do always
+define globalMsg msgConfig
+attr globalMsg comment FHEM Global Configuration for command 'msg'
+attr globalMsg group Global
+attr globalMsg msgType text
+attr globalMsg stateFormat fhemMsgState
+attr globalMsg verbose 3
+define dPapier DOIF ([18:00] and [muell:next_tage:"(1)"] and [muell:next_text:"(papier*)"]) ( set bot message "Morgen wird Papier abgeholt")
+attr dPapier do always
+define speed speedtest
+define flspeed FileLog ./log/MySpeedtest-%Y%m.log speed:.*
+attr flspeed logtype text
+define wl_speedtest SVG flspeed:wl_speedtest:CURRENT

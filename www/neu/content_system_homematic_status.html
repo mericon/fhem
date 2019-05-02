@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <div class="page" id="content_system_homematic_status">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_system.html" data-load="#content_system" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+		
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Wohnzimmer</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"wz_TempSensor","var_name":"Temperatur"}'></div>
+					</section>
+					<header>K&uuml;che</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"wz_FensterSensor","var_name":"Balkont&uuml;r"}'></div>
+					</section>
+					<header>Schlafzimmer</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"sz_TempSensor","var_name":"Temperatur"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"sz_FensterSensor","var_name":"Fenster"}'></div>
+					</section>
+				</div>
+			</div>
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Bad</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"Bad_TempSensor","var_name":"Temperatur"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"Bad_FensterSensor","var_name":"Fenster"}'></div>
+					</section>
+					<header>B&uuml;ro</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"Buero_TempSensor","var_name":"Temperatur"}'></div>
+					</section>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"Buero_FensterSensor","var_name":"Fenster"}'></div>
+					</section>
+					<header>Eingang</header>
+					<section>
+						<div data-template="template_system_homematic_status.html" data-parameter='{"var_device":"Wohnungstuer_Sensor","var_name":"Wohnungst&uuml;r"}'></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

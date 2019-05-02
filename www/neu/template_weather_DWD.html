@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für DWD -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-10">
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_weekday"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_4_wwd" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_max" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_Tx" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_2_RRhc" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-umbrella" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_6_Rh00" data-limits="[0,1,10,25,50,75]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="%" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="wi wi-sandstorm" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_3_FF" data-limits="[0,5,10,30,50,100]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-part="1" data-fix="0" data-unit="km/h"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="mini" data-type="wind_direction" data-device="var_device" data-direction="var_day_3_DD" data-speed="var_day_3_FF" data-calm="~" data-tickstep="45" data-angleoffset="0" data-hdcolor="#00A1DE"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-sun-o" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_SunDh" data-limits="[0,2,4,6,8,10]" data-colors='["flx_red","flx_light_red","flx_orange","flx_yellow","flx_green_yellow","flx_green"]' data-unit="h" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="readonly" data-type="weather" data-device="var_device" data-get="var_day_0_wwd" data-imageset="kleinklima"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-temp_temperature_min" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_Tn" data-limits="[-50,-10,0,10,20,25,30]" data-colors='["flx_darkblue","flx_blue","flx_violett","flx_light_orange","flx_orange","flx_light_red","flx_red"]' data-unit="&deg;C" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="oa-weather_rain_light" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_6_RRhc" data-limits="[0,1,3,5,10,20]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="mm" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="fa-umbrella" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_2_Rh00" data-limits="[0,1,10,25,50,75]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-unit="%" data-fix="0"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="" data-type="symbol" data-icon="wi wi-sandstorm" data-off-color="flx_blue"></div>
+			<div class="bigger" data-type="label" data-device="var_device" data-get="var_day_7_FF" data-limits="[0,5,10,30,50,100]" data-colors='["flx_green","flx_green_yellow","flx_yellow","flx_orange","flx_light_red","flx_red"]' data-part="1" data-fix="0" data-unit="km/h"></div>
+		</div>
+		<div class="hdm-flexbox-item-10">
+			<div class="mini" data-type="wind_direction" data-device="var_device" data-direction="var_day_7_DD" data-speed="var_day_7_FF" data-calm="~" data-tickstep="45" data-angleoffset="0" data-hdcolor="#00A1DE"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="page" id="content_clima">
+		<div class="phone-back-btn">
+			<div data-type="link" data-url="#content_home.html" data-load="#content_home" data-color="white" data-icon="mi-chevron_left" class="large"></div>
+		</div>
+
+		<div class="hbox">
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Temperatur</header>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"Bad_TempSensor","var_name":"Bad","var_window":"Bad.Lueften"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"Buero_TempSensor","var_name":"B&uuml;ro","var_window":"Buero.Lueften"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"sz_TempSensor","var_name":"Schlafzimmer","var_window":"SZ.Lueften"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"wz_TempSensor","var_name":"Wohnzimmer","var_window":"WZ.Lueften"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"Temp_Abstellraum_Sensor","var_name":"Abstellraum"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"Temp_Aufgang_oben","var_name":"Aufgang oben"}'></div>
+					</section>
+					<section>
+						<div data-template="template_temperature.html" data-parameter='{"var_device":"Temp_Aufgang_unten","var_name":"Aufgang unten"}'></div>
+					</section>
+				</div>
+			</div>
+
+			<div class="vbox phone-width">
+				<div class="card lift">
+					<header>Luftfeuchte</header>
+					<section>
+						<div data-template="template_humidity.html" data-parameter='{"var_device":"Bad_TempSensor","var_name":"Bad"}'></div>
+					</section>
+					<section>
+						<div data-template="template_humidity.html" data-parameter='{"var_device":"Buero_TempSensor","var_name":"B&uuml;ro"}'></div>
+					</section>
+					<section>
+						<div data-template="template_humidity.html" data-parameter='{"var_device":"sz_TempSensor","var_name":"Schlafzimmer"}'></div>
+					</section>
+					<section>
+						<div data-template="template_humidity.html" data-parameter='{"var_device":"wz_TempSensor","var_name":"Wohnzimmer"}'></div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

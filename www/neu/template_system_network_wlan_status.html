@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- FHEM Tablet UI V2.6 -->
+	<!-- Template für WLAN Netzwerkgeräte Fritz!Box -->
+</head>
+<body>
+	<div class="hdm-flexbox-container">
+		<div class="hdm-flexbox-item-25">
+			<div class="autohide compressed large"
+			data-type="symbol"
+			data-device="Fritz_Box"
+			data-get="var_mac"
+			data-icon="var_icon"
+			data-get-on=".*(WLAN|LAN1|LAN2|LAN3|LAN4).*"
+			data-on-color="flx_blue"></div>
+		</div>
+		<div class="hdm-flexbox-item-25 left-align">
+			<div class="big" data-type="label">var_name</div>
+		</div>
+		<div class="hdm-flexbox-item-20 right-align">
+			<div class="autohide big"
+			data-type="label"
+			data-device="Fritz_Box"
+			data-get="var_mac"
+			data-unit="var_unit"
+			data-part=3></div>
+		</div>
+		<div class="hdm-flexbox-item-30">
+			<div class="autohide" data-type="label" data-device="Fritz_Box" data-get="var_mac" data-part=".*\/...(...)\)"></div>
+			<div class="autohide notext readonly"
+			data-type="scale" 
+			data-device="Fritz_Box"
+			data-get="var_mac"
+			data-part=".*\/...(...)\)"
+			data-min="-100"
+			data-max="-40"
+			data-limits="[-100,-85,-80]"
+			data-colors='["flx_orange","flx_yellow","flx_green"]'
+			data-orientation="horizontal"
+			data-tick="2"
+			data-extra-tick="20"></div>
+		</div>
+	</div>
+</body>
+</html>

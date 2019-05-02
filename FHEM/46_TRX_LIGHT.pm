@@ -1,4 +1,4 @@
-# $Id: 46_TRX_LIGHT.pm 19271 2019-04-27 22:04:29Z KernSani $
+# $Id: 46_TRX_LIGHT.pm 19312 2019-05-01 21:27:31Z KernSani $
 ##############################################################################
 #
 #     46_TRX_LIGHT.pm
@@ -223,7 +223,6 @@ sub TRX_LIGHT_Set($@) {
     my ( $hash, $name, @a ) = @_;
     my $ret = undef;
     my $na  = int(@a);
-	Log3 $name,1,Dumper(@a);
     return "no set value specified" if ( $na < 1 || $na > 4 );
 
     # look for device_type

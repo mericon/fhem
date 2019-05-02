@@ -8178,7 +8178,6 @@ Zwischen 5:00 und 22:00 Uhr läuft die Zirkulationspumpe alle 60 Minuten jeweils
 <code>define di_presence_simulation DOIF ([19:00-00:00])(set lamp on-for-timer {(int(rand(1800)+300))}) DOELSE (set lamp off)<br>
 attr di_presence_simulation repeatcmd rand(3600)+2200</code><br>
 <br>
-<br>
 </li><li><a name="DOIF_cmdpause"></a>
 <b>Zwangspause für das Ausführen eines Kommandos seit der letzten Zustandsänderung</b>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht">back</a><br>
 <br>
@@ -8248,6 +8247,7 @@ Die Attribute <code>wait</code> und <code>waitdel</code> lassen sich für versch
 <br>
 <code>attr di_cmd wait 2:0<br>
 attr di_cmd waitdel 0:2</code><br>
+<br>
 </li><li><a name="DOIF_checkReadingEvent"></a>
 <b>Readingauswertung bei jedem Event des Devices</b>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht">back</a><br>
 <br>
@@ -8727,7 +8727,7 @@ Mit dem Attribut <code>initialize</code> Wird der Status vorbelegt, mit Initiali
 <br>
 <u>Anwendungsbeispiel</u>: Nach dem Neustart soll der Zustand von <code>di_lamp</code> mit "initialized" vorbelegt werden. Das Reading <code>cmd_nr</code> wird auf 0 gesetzt, damit wird ein Zustandswechsel provoziert, das Modul wird initialisiert - der nächste Trigger führt zum Ausführen eines Kommandos.<br>
 <br>
-<code>attr di_lamp intialize initialized</code><br>
+<code>attr di_lamp initialize initialized</code><br>
 <br>
 Das ist insb. dann sinnvoll, wenn das System ohne Sicherung der Konfiguration (unvorhergesehen) beendet wurde und nach dem Neustart die zuletzt gespeicherten Zustände des Moduls nicht mit den tatsächlichen übereinstimmen.<br>
 <br>
@@ -9333,42 +9333,32 @@ Es sind beliebige Hierarchietiefen möglich:<br>
 <br>
 Bemerkung: Innerhalb eines Ereignisblocks muss mindestens ein Trigger definiert werden, damit der gesamte Block beim passenden Trigger ausgeführt wird.<br>
 <br>
-<a name="DOIF_Inhaltsuebersicht"></a>
-<b>Inhaltsübersicht</b> (Beispiele im Perlmodus sind besonders gekennzeichnet)<br>
+<a name="DOIF_Inhaltsuebersicht_Perl-Modus"></a>
+<b>Inhaltsübersicht Perl-Modus</b><br>
 <ul><br>
-  <a href="#DOIF_Lesbarkeit_der_Definitionen">Lesbarkeit der Definitionen</a><br>
-  <a href="#DOIF_Ereignissteuerung">Ereignissteuerung</a><br>
-  <a href="#DOIF_Teilausdruecke_abfragen">Teilausdrücke abfragen</a><br>
-  <a href="#DOIF_Ereignissteuerung_ueber_Auswertung_von_Events">Ereignissteuerung über Auswertung von Events</a><br>
-  <a href="#DOIF_Angaben_im_Ausfuehrungsteil">Angaben im Ausführungsteil</a><br>
-  <a href="#DOIF_Filtern_nach_Zahlen">Filtern nach Ausdrücken mit Ausgabeformatierung</a><br>
-  <a href="#DOIF_Reading_Funktionen">Durchschnitt, Median, Differenz, anteiliger Anstieg</a><br>
-  <a href="#DOIF_aggregation">Aggregieren von Werten</a><br>
-  <a href="#DOIF_Zeitsteuerung">Zeitsteuerung</a><br>
-  <a href="#DOIF_Relative_Zeitangaben">Relative Zeitangaben</a><br>
-  <a href="#DOIF_Zeitangaben_nach_Zeitraster_ausgerichtet">Zeitangaben nach Zeitraster ausgerichtet</a><br>
-  <a href="#DOIF_Relative_Zeitangaben_nach_Zeitraster_ausgerichtet">Relative Zeitangaben nach Zeitraster ausgerichtet</a><br>
-  <a href="#DOIF_Zeitangaben_nach_Zeitraster_ausgerichtet_alle_X_Stunden">Zeitangaben nach Zeitraster ausgerichtet alle X Stunden</a><br>
-  <a href="#DOIF_Wochentagsteuerung">Wochentagsteuerung</a><br>
-  <a href="#DOIF_Zeitsteuerung_mit_Zeitintervallen">Zeitsteuerung mit Zeitintervallen</a><br>
-  <a href="#DOIF_Indirekten_Zeitangaben">Indirekten Zeitangaben</a><br>
-  <a href="#DOIF_Zeitsteuerung_mit_Zeitberechnung">Zeitsteuerung mit Zeitberechnung</a><br>
-  <a href="#DOIF_Intervall-Timer">Intervall-Timer</a><br>
-  <a href="#DOIF_Kombination_von_Ereignis_und_Zeitsteuerung_mit_logischen_Abfragen">Kombination von Ereignis- und Zeitsteuerung mit logischen Abfragen</a><br>
-  <a href="#DOIF_Zeitintervalle_Readings_und_Status_ohne_Trigger">Zeitintervalle, Readings und Status ohne Trigger</a><br>
-  <a href="#DOIF_notexist">Ersatzwert für nicht existierende Readings oder Status</a><br>
-  <a href="#DOIF_Zeitspanne_eines_Readings_seit_der_letzten_Aenderung">Zeitspanne eines Readings seit der letzten Änderung</a><br>
-  <a href="#DOIF_setList__readingList">Darstellungselement mit Eingabemöglichkeit im Frontend und Schaltfunktion</a><br>
-  <a href="#DOIF_uiTable">uiTable, das User Interface</a><br>
-  <a href="#DOIF_Reine_Statusanzeige_ohne_Ausfuehrung_von_Befehlen">Reine Statusanzeige ohne Ausführung von Befehlen</a><br>
-  <a href="#DOIF_state">Anpassung des Status mit Hilfe des Attributes <code>state</code></a><br>
-  <a href="#DOIF_DOIF_Readings">Erzeugen berechneter Readings<br>
-  <a href="#DOIF_disable">Deaktivieren des Moduls</a><br>
-  <a href="https://wiki.fhem.de/wiki/DOIF">DOIF im FHEM-Wiki</a><br>
-  <a href="https://forum.fhem.de/index.php/board,73.0.html">DOIF im FHEM-Forum</a><br>
-  <a href="#DOIF_Kurzreferenz">Kurzreferenz</a><br>
+  <a href="#DOIF_Eigene_Funktionen">Eigene Funktionen - subs-Block</a><br>
+  <a href="#DOIF_Eigene_Funktionen_mit_Parametern">Eigene Funktionen mit Parametern</a><br>
+  <a href="#DOIF_Eigener_Namensraum">Eigener_Namensraum</a><br>
+  <a href="#DOIF_Spezifische_Perl-Funktionen_im_Perl-Modus">Spezifische Perl-Funktionen im Perl-Modus:</a>&nbsp;
+    <a href="#DOIF_fhem_set">fhem_set</a>&nbsp;
+    <a href="#DOIF_set_Event">set_Event</a>&nbsp;
+    <a href="#DOIF_set_State">set_State</a>&nbsp;
+    <a href="#DOIF_get_State">get_State</a>&nbsp;
+    <a href="#DOIF_set_Reading">set_Reading</a>&nbsp;
+    <a href="#DOIF_get_Reading">get_Reading</a>&nbsp;
+    <a href="#DOIF_set_Reading_Update">set_Reading_Update</a><br>
+  <a href="#DOIF_Ausführungstimer">Ausführungstimer:</a>&nbsp;
+    <a href="#DOIF_set_Exec">set_Exec</a>&nbsp;
+    <a href="#DOIF_get_Exec">get_Exec</a>&nbsp;
+    <a href="#DOIF_del_Exec">del_Exec</a><br>
+  <a href="#DOIF_init-Block">Initialisierung - init-Block</a><br>
+  <a href="#DOIF_Device-Variablen">Device-Variablen</a><br>
+  <a href="#DOIF_Blockierende_Funktionsaufrufe">Blockierende Funktionsaufrufe</a><br>
+  <a href="#DOIF_Attribute_Perl_Modus">Attribute im Perl-Modus</a><br>
+  <a href="#DOIF_Anwendungsbeispiele_im_Perlmodus">Anwendungsbeispiele im Perl-Modus</a><br>
 </ul><br>
-<u>Eigene Funktionen</u><br>
+<a name="DOIF_Eigene_Funktionen"></a>
+<u>Eigene Funktionen</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 Ein besonderer Block ist der Block namens <b>subs</b>. In diesem Block werden Perlfunktionen definiert, die innerhalb des DOIFs genutzt werden. 
 Um eine möglichst hohe Kompatibilität zu Perl sicherzustellen, wird keine DOIF-Syntax in eckigen Klammern unterstützt, insb. gibt es keine Trigger, die den Block ausführen können.<br>
@@ -9390,7 +9380,8 @@ subs { ## Definition von Perlfunktionen lamp_on und lamp_off<br>
 {[08:00];lamp_off()} ## Um 08:00 Uhr wird die Funktion lamp_off aufgerufen<br>
 </code><br>
 <br>
-<u>Eigene Funktionen mit Parametern</u><br>
+<a name="DOIF_Eigene_Funktionen_mit_Parametern"></a>
+<u>Eigene Funktionen mit Parametern</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 Unter Verwendung von Funktionsparamerter lassen sich Definitionen oft vereinfachen, das obige Beispiel lässt sich mit Hilfe nur einer Funktion kürzer wie folgt definieren:<br>
 <br><code>
@@ -9406,6 +9397,9 @@ subs { ## Definition der Perlfunktion lamp<br>
 {[08:00];lamp("off")} ## Um 08:00 Uhr wird die Funktion lamp mit dem Parameter "off" aufgerufen<br>
 </code><br>
 <br>
+<a name="DOIF_Eigener_Namensraum"></a>
+<u>Eigener Namensraum</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
+<br>
 Der Namensraum im Perl-Modus ist gekapselt. Selbstdefinierte Funktionen im DOIF-Device können nicht bereits existierende Perlfunktionen in FHEM (Namensraum main) überschreiben.
 Funktionen aus dem Namensraum main müssen mit vorangestellem Doppelpunkt angegeben werden: <code>::&lt;perlfunction&gt;</code><br>
 <br>
@@ -9417,8 +9411,9 @@ Folgende FHEM-Perlfunktionen wurden ebenfalls im DOIF-Namensraum definiert, sie 
 <code><b>fhem, Log, Log3, InternVal, InternalNum, OldReadingsVal, OldReadingsNum, OldReadingsTimestamp, ReadingsVal, ReadingsNum, ReadingsTimestamp, ReadingsAge, Value, OldValue, OldTimestamp, AttrVal, AttrNum</code></b><br>
 <br>
 <a name="DOIF_Spezifische_Perl-Funktionen_im_Perl-Modus"></a>
-<b>Spezifische Perl-Funktionen im Perl-Modus</b><br>
+<u>Spezifische Perl-Funktionen im Perl-Modus</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
+<a name="DOIF_fhem_set"></a>
 FHEM set-Befehl ausführen: <code><b>fhem_set(&lt;content&gt;)</code></b>, mit &lt;content&gt; Übergabeparameter des FHEM set-Befehls<br>
 <br>
 Beispiel: Lampe ausschalten:<br>
@@ -9431,34 +9426,40 @@ entspricht:<br>
 <br>
 Der Aufruf der fhem_set-Funktion ist performater, da das Parsen nach dem set-Befehl im Gegensatz zum Aufruf mit der Funktion <code>fhem</code> entfällt.<br>
 <br>
+<a name="DOIF_set_Event"></a>
 Ein beliebiges FHEM-Event absetzen: <code><b>set_Event(&lt;Event&gt;)</code></b><br>
 <br>
 Beispiel: Setze das Event "on":<br>
 <br>
 <code>set_Event("on");</code><br>
 <br>
+<a name="DOIF_set_State"></a>
 Status setzen: <code><b>set_State(&lt;value&gt;,&lt;trigger&gt;)</code></b>, mit &lt;trigger&gt;: 0 ohne Trigger, 1 mit Trigger, &lt;trigger&gt; ist optional, default ist 1<br>
 <br>
 Beispiel: Status des eignen DOIF-Device auf "on" setzen:<br>
 <br>
 <code>set_State("on");</code><br>
 <br>
+<a name="DOIF_get_State"></a>
 Status des eigenen DOIF-Devices holen: <code><b>get_State()</code></b><br>
 <br>
 Beispiel: Schalte lampe mit dem eigenen Status:<br>
 <br>
 <code>fhem_set("lamp ".get_State());</code><br>
 <br>
+<a name="DOIF_set_Reading"></a>
 Reading des eigenen DOIF-Devices schreiben: <code><b>set_Reading(&lt;readingName&gt;,&lt;value&gt;,&lt;trigger&gt;)</code></b>, mit &lt;trigger&gt;: 0 ohne Trigger, 1 mit Trigger, &lt;trigger&gt; ist optional, default ist 0<br>
 <br>
 <code>set_Reading("weather","cold");</code><br>
 <br>
+<a name="DOIF_get_Reading"></a>
 Reading des eigenen DOIF-Devices holen: <code><b>get_Reading(&lt;readingName&gt;)</code></b><br>
 <br>
 Beispiel: Schalte Lampe mit dem Inhalt des eigenen Readings "dim":<br>
 <br>
 <code>fhem_set("lamp ".get_Reading("dim"));</code><br>
 <br>
+<a name="DOIF_set_Reading_Update"></a>
 Setzen mehrerer Readings des eigenen DOIF-Devices in einem Eventblock:<br>
 <br>
 <code><b>set_Reading_Begin()</code></b><br>
@@ -9476,17 +9477,21 @@ Die Readings "temperature" und "humidity" sollen in einem Eventblock mit dem zuv
 <code>set_Reading_Update("humidity",$hum);</code><br>
 <code>set_Reading_End(1);</code><br>
 <br>
-<u>Ausführungstimer</u><br>
+<a name="DOIF_Ausführungstimer"></a>
+<u>Ausführungstimer</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 Mit Hilfe von Ausführungstimern können Anweisungen verzögert ausgeführt werden. Im Gegensatz zum FHEM-Modus können beliebig viele Timer gleichzeitig genutzt werden.
 Ein Ausführungstimer wird mit einem Timer-Namen eindeutig definiert. Über den Timer-Namen kann die Restlaufzeit abgefragt werden, ebenfalls kann er vor seinem Ablauf gelöscht werden.<br>
 <br>
+<a name="DOIF_set_Exec"></a>
 Timer setzen: <code><b>set_Exec(&lt;timerName&gt;, &lt;seconds&gt;, &lt;perlCode&gt, &lt;parameter&gt)</code></b>, mit &lt;timerName&gt;: beliebige Angabe, sie spezifiziert eindeutig einen Timer, 
 welcher nach Ablauf den angegebenen Perlcode &lt;perlCode&gt; aufruft. Falls als Perlcode eine Perlfunktion angegeben wird, kann optional ein Übergabeparameter &lt;parameter&gt; angegeben werden. Die Perlfunkion muss eindeutig sein und in FHEM zuvor deklariert worden sein.
 Wird set_Exec mit dem gleichen &lt;timerName&gt; vor seinem Ablauf erneut aufgerufen, so wird der laufender Timer gelöscht und neugesetzt.<br>
 <br>
+<a name="DOIF_get_Exec"></a>
 Timer holen: <code><b>get_Exec(&lt;timerName&gt;)</code></b>, Returnwert: 0, wenn Timer abgelaufen oder nicht gesetzt ist, sonst Anzahl der Sekunden bis zum Ablauf des Timers<br>
 <br>
+<a name="DOIF_del_Exec"></a>
 Laufenden Timer löschen: <code><b>del_Exec(&lt;timerName&gt;)</code></b><br>
 <br>
 Beispiel: Funktion namens "lamp" mit dem Übergabeparameter "on" 30 Sekunden verzögert aufrufen:<br>
@@ -9505,13 +9510,15 @@ Beispiel: Das Event "off" 30 Sekunden verzögert auslösen:<br>
 <br>
 <code>set_Exec("off_Event",30,'set_Event("off")');</code><br>
 <br>
-<u>init-Block</u><br>
+<a name="DOIF_init-Block"></a>
+<u>init-Block</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 Wird ein Ereignisblock mit dem Namen <b>init</b> benannt, so wird dieser Block beim Systemstart ausgeführt. Er bietet sich insb. an, um Device-Variablen des Moduls vorzubelegen.<br>
 <br>
-<u>Device-Variablen</u><br>
+<a name="DOIF_Device-Variablen"></a>
+<u>Device-Variablen</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
-Device-Variablen sind sogenannte Instanzvariablen, die global innerhalb eines DOIF-Devices genutzt werden können. Deren Inhalt bleibt während der Laufzeit des System erhalten. Sie beginnen mit <b>$_</b> und müssen nicht deklariert werden.
+Device-Variablen sind sogenannte Instanzvariablen, die global innerhalb eines DOIF-Devices genutzt werden können. Deren Inhalt bleibt von Trigger zu Trigger während der Laufzeit des System erhalten. Sie beginnen mit <b>$_</b> und müssen nicht deklariert werden.
 Wenn sie nicht vorbelegt werden, gelten sie als nicht definiert. Das lässt sich abfragen mit:<br>
 <br>
 <code>if (defined $_...) ...</code><br>
@@ -9530,7 +9537,8 @@ $_betrag{$i}=100;</code><br>
 Ebenso funktionieren hash-Variablen z. B.: <br>
 <code>$_betrag{heute}=100;</code><br>
 <br>
-<u>Blokierende Funktionsaufrufe (blocking calls)</u><br>
+<a name="DOIF_Blockierende_Funktionsaufrufe"></a>
+<u>Blockierende Funktionsaufrufe (blocking calls)</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 DOIF verwaltet blockierende Funktionsaufrufe, d.h. die in diesem Zusammenhang gestarteten FHEM-Instanzen werden gel&ouml;scht, beim Herunterfahren (shutdown), Wiedereinlesen der Konfiguration (rereadcfg) &Auml;nderung der Konfiguration (modify) und Deaktivieren des Ger&auml;tes (disabled).<br>
 <br>
@@ -9547,7 +9555,7 @@ Wenn <i>&lt;blocking function&gt;</i>, <i>&lt;finish function&gt;</i> und <i>&lt
 <b>$_blockingcalls</b> ist eine f&uuml;r DOIF reservierte Variable und darf nur in der beschriebener Weise verwendet werden.<br>
 <br>
 <a name="DOIF_Attribute_Perl_Modus"></a>
-<u>Nutzbare Attribute im Perl-Modus</u><br>
+<u>Nutzbare Attribute im Perl-Modus</u>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
   <ul>
   <a href="#DOIF_addStateEvent">addStateEvent</a> &nbsp;
@@ -9563,7 +9571,8 @@ Wenn <i>&lt;blocking function&gt;</i>, <i>&lt;finish function&gt;</i> und <i>&lt
   <br><a href="#readingFnAttributes">readingFnAttributes</a> &nbsp;
 </ul>
 <br>
-<b>Weitere Anwendungsbeispiele:</b><br>
+<a name="DOIF_Anwendungsbeispiele_im_Perlmodus"></a>
+<b>Anwendungsbeispiele im Perlmodus:</b>&nbsp;&nbsp;&nbsp;<a href="#DOIF_Inhaltsuebersicht_Perl-Modus">back</a><br>
 <br>
 <a name="DOIF_Treppenhauslicht mit Bewegungsmelder"></a>
 <u>Treppenhauslicht mit Bewegungsmelder</u><br>
@@ -39614,6 +39623,10 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
         hier das Attribut <i>TTS_speakAsFastAsPossible</i> zu verwenden. Die Verwendung des Attributes <i>TTS_useMP3Wrap</i> wird dringend empfohlen. 
         Ansonsten wird hier nur der letzte Teiltext als mp3 Datei im Reading dargestellt.
       </ul>
+      <p>
+          <b>Beispiel:</b><br>
+          <code>define MyTTS Text2Speech none</code>
+        </p>
     </li>
 
   </ul>
@@ -39640,13 +39653,22 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
 <a name="Text2Speechattr"></a>
 <b>Attribute</b>
 <ul>
-  <li>TTS_Delemiter<br>
-    Optional: Wird ein Delemiter angegeben, so wird der Sprachbaustein an dieser Stelle geteilt. 
-    Als Delemiter ist nur ein einzelnes Zeichen zul&auml;ssig.
-    Hintergrund ist die Tatsache, das die Google Sprachengine nur 100Zeichen zul&auml;sst.<br>
+  <li>TTS_Delimiter<br>
+    Optional: Wird ein Delimiter angegeben, so wird der Sprachbaustein an dieser Stelle geteilt. 
+    Als Delimiter ist nur ein einzelnes Zeichen zul&auml;ssig.
+    Hintergrund ist die Tatsache, das die einige Sprachengines nur eine bestimmt Anzahl an Zeichen (zb. Google nur 100Zeichen) zul&auml;sst.<br>
     Im Standard wird nach jedem Satzende geteilt. Ist ein einzelner Satz l&auml;nger als 100 Zeichen,
     so wird zus&auml;tzlich nach Kommata, Semikolon und dem Verbindungswort <i>und</i> geteilt.<br>
-    Achtung: Nur bei einem lokal definierter Text2Speech Instanz m&ouml;glich und nur bei Nutzung der Google Sprachengine relevant!
+    Achtung: Nur bei einem lokal definierter Text2Speech Instanz m&ouml;glich!<br>
+    <b>Notation</b><br>
+       + -> erzwinge das Trennen, auch wenn Textbaustein < x Zeichen<br>
+       - -> Trenne nur wenn Textbaustein > x Zeichen
+      af -> add first -> füge den Delimiter am Satzanfang wieder hinzu<br>
+      al -> add last  -> füge den Delimiter am Satzende wieder hinzu<br>
+      an -> add nothing -> Delimiter nicht wieder hinzufügen<br>
+       ~ -> der Delimiter<br>
+    <b>Beispiel</b><br>
+    <code>attr myTTS TTS_Delimiter -al.</code>
   </li> 
 
   <li>TTS_Ressource<br>
@@ -39661,7 +39683,7 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
         Nutzung der VoiceRSS Sprachengine. Die Nutzung ist frei bis zu 350 Anfragen pro Tag. 
         Wenn mehr benötigt werden ist ein Bezahlmodell wählbar. Ein Internetzugriff ist notwendig! 
         Aufgrund der Qualit&auml;t ist der Einsatz diese Engine ebenfalls zu empfehlen.
-        Wenn diese Engine benutzt wird, ist ein APIKey notwendig (siehe TTXS_APIKey)
+        Wenn diese Engine benutzt wird, ist ein APIKey notwendig (siehe TTS_APIKey)
       </li>
       <li>ESpeak<br>
         Nutzung der ESpeak Offline Sprachengine. Die Qualit&auml; ist schlechter als die Google Engine.
@@ -39679,9 +39701,29 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
         <code>wget http://www.dr-bischoff.de/raspi/pico2wave.deb</code><br>
         <code>sudo dpkg --install pico2wave.deb</code>
       </li>
+      <li>Amazon-Polly<br>
+       Nutzung der Amazon Polly Sprachengine, dieselbe Engine wie für Amazon Alexa verwendet wird.<br>
+       Es muss das Perl Package Paws installiert sowie ein AWS Konto und ein Polly AWS User verfügbar sein<br>
+       <code>cpan paws</code><br>
+       Die Zugangsdaten zum eigenen AWS Konto müssen unter ~/.aws/credentials liegen. <br>
+       <code>[default]
+         aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxx
+         aws_access_key_id = xxxxxxxxxxxxxxx
+       </code>
+      </li>
     </ul>
   </li>
-  
+
+  <li>TTS_Language<br>
+    Auswahl verschiendener Standardsprachen
+  </li>
+
+  <li>TTS_Language_Custom<br>
+    Möchte man eine Spreche und Stimme abweichend der Standardspreachen verwenden, so kann man diese hier eintragen. <br>
+    Die Definition ist abhängig der verwendeten Sprachengine. Diesea Attribut überschreibt ein ev. vorhandenes TTS_Langugae Attribut.<br>
+    Siehe in die jeweilige API Referenz
+  </li>
+
   <li>TTS_APIKey<br>
     Wenn VoiceRSS genutzt wird, ist ein APIKey notwendig. Um diesen zu erhalten ist eine vorherige
     Registrierung notwendig. Anschließend erhält man den APIKey <br>
@@ -39694,13 +39736,13 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
 
   <li>TTS_CacheFileDir<br>
     Optional: Die per Google geladenen Sprachbausteine werden in diesem Verzeichnis zur Wiedeverwendung abgelegt.
-    Es findet zurZEit keine automatisierte L&ouml;schung statt.<br>
+    Es findet zurZeit keine automatisierte L&ouml;schung statt.<br>
     Default: <i>cache/</i><br>
     Achtung: Nur bei einem lokal definierter Text2Speech Instanz m&ouml;glich!
   </li>
 
   <li>TTS_UseMP3Wrap<br>
-    Optional: F&uuml;r eine fl&uuml;ssige Sprachausgabe ist es zu empfehlen, die einzelnen vorher per Google 
+    Optional: F&uuml;r eine fl&uuml;ssige Sprachausgabe ist es zu empfehlen, die einzelnen vorher
     geladenen Sprachbausteine zu einem einzelnen Sprachbaustein zusammenfassen zu lassen bevor dieses per 
     Mplayer ausgegeben werden. Dazu muss Mp3Wrap installiert werden.<br>
     <code>apt-get install mp3wrap</code><br>
@@ -39708,8 +39750,17 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
   </li>
 
   <li>TTS_MplayerCall<br>
-    Optional: Angabe der Systemaufrufes zu Mplayer. Das folgende Beispiel ist der Standardaufruf.<br>
-    Beispiel: <code>sudo /usr/bin/mplayer</code>
+    Optional: Angabe des Systemaufrufes zu Mplayer oder einem anderem Tool. Wird ein anderes Tool als mplayer<br>
+    dort verwendet gelten folgende Templates: <br>
+    <ul>
+        <li>{device}</li>
+        <li>{volume}</li>
+        <li>{volumeadjust}</li>
+        <li>{file}</li>
+    </ul>
+    Beispiele:<br>
+    <code>attr myTTS TTS_MplayerCall sudo /usr/bin/mplayer</code>
+    <code>attr myTTS TTS_MplayerCall AUDIODEV={device} play -q -v {volume} {file}</code>
   </li>
 
   <li>TTS_SentenceAppendix<br>
@@ -39753,6 +39804,15 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
     Attribut nur verfügbar bei einer lokalen oder Server Instanz
   </li>
 
+  <li>TTS_OutputFile<br>
+      Angabe eines fixen Dateinamens als mp3 Output. Das Attribut ist nur relevant in Verbindung mit TTS_UseMP3Wrap.<br>
+      Wenn ein Dateinamen angegeben wird, so wird zusätzlich TTS_CacheFileDir beachtet. Bei einer absoluten Pfadangabe <br>
+      muss der Dateipfad durch FHEM schreibbar sein.<br>
+      <code>attr myTTS TTS_OutputFile output.mp3</code><br>
+      <code>attr myTTS TTS_OutputFile /media/miniDLNA/output.mp3</code><br>
+  </li>
+
+
   <li><a href="#readingFnAttributes">readingFnAttributes</a>
   </li><br>
 
@@ -39772,6 +39832,12 @@ Weitere Informationen zu diesem Modul im <a href="https://wiki.fhem.de/wiki/UVR1
 <a name="Text2SpeechExamples"></a>
 <b>Beispiele</b> 
 <ul>
+  <code>define TTS_EG_WZ Text2Speech hw=/dev/snd/controlC3</code><br>
+  <code>attr TTS_EG_WZ TTS_Language Deutsch</code><br>
+  <code>attr TTS_EG_WZ TTS_MplayerCall /usr/bin/mplayer</code><br>
+  <code>attr TTS_EG_WZ TTS_Ressource Amazon-Polly</code><br>
+  <code>attr TTS_EG_WZ TTS_UseMP3Wrap 1</code><br>
+  <br>
   <code>define MyTTS Text2Speech hw=0.0</code><br>
   <code>set MyTTS tts Die Alarmanlage ist bereit.</code><br>
   <code>set MyTTS tts :beep.mp3:</code><br>

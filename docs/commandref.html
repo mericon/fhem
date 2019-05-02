@@ -67890,9 +67890,9 @@ KlikAanKlikUit, NEXA, CHACON, HomeEasy UK. <br> You need to define an RFXtrx433 
 <a name="Text2Speechattr"></a>
 <b>Attributes</b>
 <ul>
-  <li>TTS_Delemiter<br>
+  <li>TTS_Delimiter<br>
     optional: By using the google engine, its not possible to convert more than 100 characters in a single audio brick.
-    With a delemiter the audio brick will be split at this character. A delemiter must be a single character.!<br>
+    With a Delimiter the audio brick will be split at this character. A Delimiter must be a single character.!<br>
     By default, ech audio brick will be split at sentence end. Is a single sentence longer than 100 characters, 
     the sentence will be split additionally at comma, semicolon and the word <i>and</i>.<br>
     Notice: Only available in locally instances with Google engine!
@@ -67926,7 +67926,27 @@ KlikAanKlikUit, NEXA, CHACON, HomeEasy UK. <br> You need to define an RFXtrx433 
         <code>wget http://www.dr-bischoff.de/raspi/pico2wave.deb</code><br>
         <code>sudo dpkg --install pico2wave.deb</code>
       </li>
+      <li>Amazon-Polly<br>
+       Using the Amazon Polly engine, the same as Amazon Alexa.<br>
+       The perl package Paws is required. An AWS Access and Polly Aws User is required too<br>
+       <code>cpan paws</code><br>
+       The credentials to your AWS Polly are expected at ~/.aws/credentials<br>
+       <code>[default]
+         aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxx
+         aws_access_key_id = xxxxxxxxxxxxxxx
+       </code>
+      </li>
     </ul>
+  </li>
+
+  <li>TTS_Language<br>
+    Selection of different languages
+  </li>
+
+  <li>TTS_Language_Custom<br>
+    if you want another engine and speech of default languages, you can insert this here.<br>
+    The definition is dependent of used engine. This attribute overrides an TTS_Language attribute.<br>
+    Please refer the specific API reference.
   </li>
 
   <li>TTS_APIKey<br>

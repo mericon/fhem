@@ -1,5 +1,5 @@
 ##############################################
-# $Id: 98_autocreate.pm 19291 2019-04-29 21:04:46Z rudolfkoenig $
+# $Id: 98_autocreate.pm 19337 2019-05-05 19:44:00Z rudolfkoenig $
 package main;
 
 use strict;
@@ -624,7 +624,8 @@ CommandUsb($$)
           # Send reset (optional)
           if(defined($thash->{init})) {
             DevIo_SimpleWrite($hash, $thash->{init}, 0);
-            DevIo_TimeoutRead($hash, $thash->{timeout} ? $thash->{timeout}:0.5);
+            DevIo_SimpleReadWithTimeout($hash,
+                                    $thash->{timeout} ? $thash->{timeout}:0.5);
           }
 
           # Clear the USB buffer

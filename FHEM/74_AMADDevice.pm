@@ -26,7 +26,7 @@
 #  GNU General Public License for more details.
 #
 #
-# $Id: 74_AMADDevice.pm 19064 2019-03-29 21:18:40Z CoolTux $
+# $Id: 74_AMADDevice.pm 19353 2019-05-08 20:31:02Z CoolTux $
 #
 ###############################################################################
 ##
@@ -51,7 +51,7 @@ use warnings;
 use FHEM::Meta;
 
 my $modulversion   = '4.4.0';
-my $flowsetversion = '4.4.0';
+my $flowsetversion = '4.4.1';
 
 sub AMADDevice_Initialize($) {
 

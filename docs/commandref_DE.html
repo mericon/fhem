@@ -146,6 +146,7 @@
       <a href="#dash_dhcp">dash_dhcp</a> &nbsp;
       <a href="#DFPlayerMini">DFPlayerMini</a> &nbsp;
       <a href="#DLNARenderer">DLNARenderer</a> &nbsp;
+      <a href="#DoorBird">DoorBird</a> &nbsp;
       <a href="#Dooya">Dooya</a> &nbsp;
       <a href="#DUOFERN">DUOFERN</a> &nbsp;
       <a href="#DUOFERNSTICK">DUOFERNSTICK</a> &nbsp;
@@ -593,6 +594,7 @@
       <a href="#MSwitch">MSwitch</a> &nbsp;
       <a href="#notify">notify</a> &nbsp;
       <a href="#PachLog">PachLog</a> &nbsp;
+      <a href="#PET">PET</a> &nbsp;
       <a href="#PostMe">PostMe</a> &nbsp;
       <a href="#powerMap">powerMap</a> &nbsp;
       <a href="#PRESENCE">PRESENCE</a> &nbsp;
@@ -700,7 +702,17 @@ Die Kommunikation mit FHEM kann entweder in einer "session" (&uuml;ber telnet) o
 </ul>
 <br>
 Falls FHEM als root gestartet wurde, und ein OS-Benutzer fhem existiert, dann
-wechselt FHEM nach dem start zu diesem Benutzer (via setuid). <br>
+wechselt FHEM nach dem start zu diesem Benutzer (via setuid).
+<br><br>
+
+Falls FHEM mit der -d Koommandozeilenoption gestartet wurde (perl fhem.pl -d
+fhem.cfg), dann wird verbose auf 5 gesetzt und die Logs werden auf STDOUT
+geschrieben.
+<br><br>
+
+Die Umgebungsvariable FHEM_GLOBALATTR wird ausgewertet: sie enth&auml;lt
+Leerzeichengetrennte Name=Wert Paare, wobei Name ein global Attribut ist. So
+gesetzte Werte &uuml;berschreiben die Werte aus der Konfigurationsdatei.
 </ul>
 <br>
 <!-- intro end - diese Zeile nicht entfernen! -->
@@ -3311,9 +3323,9 @@ Die folgenden lokalen Attribute werden von mehreren Ger&auml;ten verwendet:
       <a name="ASC_blockAscDrivesAfterManual"></a>
       <li>ASC_blockAscDrivesAfterManual - 0,1 wenn der Wert auf 1 gesetzt ist und ein Rollladen im Reading ASC_ShuttersLastDrive ein manual stehen hat und der Rollladen eine unbekannte (nicht in den Attributen konfigueriebare) position hat wird dieser Rollladen vom ASC nicht mehr gesteuert.</li>
       <a name="ASC_brightnessDriveUpDown"></a>
-      <li>ASC_brightnessDriveUpDown - WERT-MORGENS:WERT-ABENDS, Werte bei dem Schaltbedingungen für Sunrise und Sunset gepr&uuml;ft werden sollen. Diese globale Einstellung kann durch die WERT-MORGENS:WERT-ABENDS Einstellung von ASC_BrightnessSensor im Rollladen selbst &uuml;berschrieben werden.</li>
+      <li>ASC_brightnessDriveUpDown - WERT-MORGENS:WERT-ABENDS, Werte bei dem Schaltbedingungen f&uuml;r Sunrise und Sunset gepr&uuml;ft werden sollen. Diese globale Einstellung kann durch die WERT-MORGENS:WERT-ABENDS Einstellung von ASC_BrightnessSensor im Rollladen selbst &uuml;berschrieben werden.</li>
       <a name="ASC_debug"></a>
-      <li>ASC_debug - aktiviert die erweiterte Logausgabe für Debugausgaben</li>
+      <li>ASC_debug - aktiviert die erweiterte Logausgabe f&uuml;r Debugausgaben</li>
       <a name="ASC_expert"></a>
       <li>ASC_expert - ist der Wert 1 werden erweiterte Informationen bez&uuml;glich des NotifyDevs unter set und get angezeigt</li>
       <a name="ASC_freezeTemp"></a>
@@ -3363,14 +3375,14 @@ Die folgenden lokalen Attribute werden von mehreren Ger&auml;ten verwendet:
       <li>ASC_AutoAstroModeMorning - aktuell REAL,CIVIL,NAUTIC,ASTRONOMIC / default none wenn nicht gesetzt</li>
       <li>ASC_AutoAstroModeMorningHorizon - H&ouml;he &uuml;ber Horizont wenn beim Attribut ASC_autoAstroModeMorning HORIZON ausgew&auml;hlt / default none wenn nicht gesetzt</li>
       <li>ASC_BlockingTime_afterManual - wie viel Sekunden soll die Automatik nach einer manuellen Fahrt aus setzen. / default 1200 wenn nicht gesetzt</li>
-      <li>ASC_BlockingTime_beforDayOpen - wie viel Sekunden vor dem morgendlichen &ouml;ffnen soll keine schließen Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
-      <li>ASC_BlockingTime_beforNightClose - wie viel Sekunden vor dem n&auml;chtlichen schlie&zlig;en soll keine &ouml;ffnen Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
+      <li>ASC_BlockingTime_beforDayOpen - wie viel Sekunden vor dem morgendlichen &ouml;ffnen soll keine schlie&szlig;en Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
+      <li>ASC_BlockingTime_beforNightClose - wie viel Sekunden vor dem n&auml;chtlichen schlie&szlig;en soll keine &ouml;ffnen Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
       <li>ASC_BrightnessSensor - DEVICE:READING WERT-MORGENS:WERT-ABENDS / 'Helligkeit:brightness 400:800' Angaben zum Helligkeitssensor und den Brightnesswerten f&uuml;r Sonnenuntergang und Sonnenaufgang. Die Sensor Device Angaben werden auch f&uuml;r die Beschattung verwendet. / default none wenn nicht gesetzt</li>
       <li>ASC_Closed_Pos - in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_ComfortOpen_Pos - in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_Down - astro/time/brightness - bei astro wird Sonnenuntergang berechnet, bei time wird der Wert aus ASC_Time_Down_Early als Fahrzeit verwendet und bei brightness muss ASC_Time_Down_Early und ASC_Time_Down_Late korrekt gesetzt werden. Der Timer l&auml;uft dann nach ASC_Time_Down_Late Zeit, es wird aber in der Zeit zwischen ASC_Time_Down_Early und ASC_Time_Down_Late geschaut, ob die als Attribut im Moduldevice hinterlegte ASC_brightnessMinVal erreicht wurde. Wenn ja, wird der Rollladen runter gefahren / default astro wenn nicht gesetzt</li>
       <li>ASC_DriveUpMaxDuration - die Dauer des hochfahrens vom Rollladen plus 5 Sekunden / default 60 wenn nicht gesetzt</li>
-      <li>ASC_Drive_Offset - maximaler Wert f&uuml;r einen zuf&auml;llig ermittelte Verz&ouml;gerungswert in Sekunden bei der Berechnung der Fahrzeiten, 0 bedeutet keine Verz&ouml;gerung, -1 bedeutet, dass das gleichwertige Attribut aus dem ASC Device ausgewertet werden soll. / default -1 wenn nicht gesetzt</li>
+      <li>ASC_Drive_Offset - maximaler Wert f&uuml;r einen zuf&auml;llig ermittelte Verz&ouml;gerungswert in Sekunden bei der Berechnung der Fahrzeiten, 0 bedeutet keine Verz&ouml;gerung / default -1 wenn nicht gesetzt</li>
       <li>ASC_Drive_OffsetStart - in Sekunden verz&ouml;gerter Wert ab welchen dann erst das Offset startet und dazu addiert wird. Funktioniert nur wenn gleichzeitig ein Drive_Offset gesetzt wird. / default -1 wenn nicht gesetzt</li>
       <li>ASC_LockOut - soft/hard/off - stellt entsprechend den Aussperrschutz ein. Bei global aktivem Aussperrschutz (set ASC-Device lockOut soft) und einem Fensterkontakt open bleibt dann der Rollladen oben. Dies gilt nur bei Steuerbefehle über das ASC Modul. Stellt man global auf hard, wird bei entsprechender M&ouml;glichkeit versucht den Rollladen hardwareseitig zu blockieren. Dann ist auch ein Fahren &uuml;ber die Taster nicht mehr m&ouml;glich. / default off wenn nicht gesetzt</li>
       <li>ASC_LockOut_Cmd - inhibit/blocked/protection - set Befehl f&uuml;r das Rollladen-Device zum Hardware sperren. Dieser Befehl wird gesetzt werden, wenn man "ASC_LockOut" auf hard setzt / default none wenn nicht gesetzt</li>
@@ -3379,21 +3391,31 @@ Die folgenden lokalen Attribute werden von mehreren Ger&auml;ten verwendet:
       <li>ASC_Open_Pos -  in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_Partymode -  on/off - schaltet den Partymodus an oder aus. Wird  am ASC Device set ASC-DEVICE partyMode on geschalten, werden alle Fahrbefehle an den Rolll&auml;den, welche das Attribut auf on haben, zwischengespeichert und sp&auml;ter erst ausgef&uuml;hrt / default off wenn nicht gesetzt</li>
       <li>ASC_Pos_Reading - Name des Readings, welches die Position des Rollladen in Prozent an gibt; wird bei unbekannten Device Typen auch als set Befehl zum fahren verwendet</li>
-      <li>ASC_PrivacyDownTime_beforNightClose - wie viele Sekunden vor dem abendlichen schlie&zlig;en soll der Rollladen in die Sichtschutzposition fahren, -1 bedeutet das diese Funktion unbeachtet bleiben soll / default -1 wenn nicht gesetzt</li>
+      <li>ASC_PrivacyDownTime_beforNightClose - wie viele Sekunden vor dem abendlichen schlie&szlig;en soll der Rollladen in die Sichtschutzposition fahren, / default -1 wenn nicht gesetzt</li>
       <li>ASC_PrivacyDown_Pos - Position den Rollladens f&uuml;r den Sichtschutz / default 50 wenn nicht gesetzt</li>
+      <li>ASC_WindProtection - on/off soll das Rolllo beim Regenschutz beachtet werden. On=JA, off=NEIN.</li>
       <li>ASC_Roommate_Device - mit Komma getrennte Namen des/der Roommate Device/s, welche den/die Bewohner des Raumes vom Rollladen wiedergibt. Es macht nur Sinn in Schlaf- oder Kinderzimmern / default none wenn nicht gesetzt</li>
       <li>ASC_Roommate_Reading - das Reading zum Roommate Device, welches den Status wieder gibt / default state wenn nicht gesetzt</li>
       <li>ASC_Self_Defense_Exclude - on/off - bei on Wert wird dieser Rollladen bei aktiven Self Defense und offenen Fenster nicht runter gefahren, wenn Residents absent ist. / default off wenn nicht gesetzt</li>
-      <li>ASC_Shading_Angle_Left - Vorlaufwinkel im Bezug zum Fenster, ab wann abgeschattet wird. Beispiel: Fenster 180° - 85° ==> ab Sonnenpos. 95° wird abgeschattet / default 75 wenn nicht gesetzt</li>
-      <li>ASC_Shading_Angle_Right - Nachlaufwinkel im Bezug zum Fenster, bis wann abgeschattet wird. Beispiel: Fenster 180° + 85° ==> bis Sonnenpos. 265° wird abgeschattet / default 75 wenn nicht gesetzt</li>
-      <li>ASC_Shading_Direction -  Position in Grad, auf der das Fenster liegt - genau Osten w&auml;re 90, S&uuml;den 180 und Westen 270 / default 180 wenn nicht gesetzt</li>
-      <li>ASC_Shading_Min_Elevation - ab welcher Höhe des Sonnenstandes soll beschattet werden, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 25.0 wenn nicht gesetzt</li>
-      <li>ASC_Shading_Min_OutsideTemperature - ab welcher Temperatur soll Beschattet werden, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 18 wenn nicht gesetzt</li>
-      <li>ASC_Shading_Mode - absent,always,off,home / wann soll die Beschattung nur statt finden. / default off wenn nicht gesetzt</li>
-      <li>ASC_Shading_Pos - Position des Rollladens für die Beschattung</li>
-      <li>ASC_Shading_StateChange_Cloudy - Brightness Wert ab welchen die Beschattung aufgehoben werden soll, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 20000 wenn nicht gesetzt</li>
-      <li>ASC_Shading_StateChange_Sunny - Brightness Wert ab welchen Beschattung statt finden soll, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 35000 wenn nicht gesetzt</li>
-      <li>ASC_Shading_WaitingPeriod - wie viele Sekunden soll gewartet werden bevor eine weitere Auswertung der Sensordaten für die Beschattung statt finden soll / default 1200 wenn nicht gesetzt</li>
+      <ul>
+        <b><u>Beschreibung der Beschattungsfunktion</u></b>
+        </br>Damit die Beschattung Funktion hat, m&uuml;&szlig;en folgende Anforderungen erf&uuml;llt sein.
+        </br><b>Im ASC Device</b> das Attribut "ASC_autoShuttersControlShading" mit dem Wert on, sowie ein Astro/Twilight Device im Attribut "ASC_twilightDevice" und das Attribut "ASC_tempSensor".
+        </br><b>In den Rollladendevices</b> ben&ouml;tigt ihr ein Helligkeitssensor als Attribut "ASC_BrightnessSensor", sofern noch nicht vorhanden. Findet der Sensor nur f&uuml;r die Beschattung Verwendung ist der Wert DEVICENAME[:READING] ausreichend.
+        </br>Alle weiteren Attribute sind optional und wenn nicht gestezt mit default Werten belegt. Ihr solltet sie dennoch einmal anschauen und entsprechend Euren Gegebenheiten setzen. Die Werte f&uumlr; die Fensterposition und den Vor- Nachlaufwinkel sowie die Granzwerte f&uuml;r die StateChange_Cloudy und StateChange_Sunny solltet ihr besondere Beachtung dabei schenken.
+        <ul>
+            <li>ASC_Shading_Angle_Left - Vorlaufwinkel im Bezug zum Fenster, ab wann abgeschattet wird. Beispiel: Fenster 180&deg; - 85&deg; ==> ab Sonnenpos. 95&deg; wird abgeschattet / default 75 wenn nicht gesetzt</li>
+            <li>ASC_Shading_Angle_Right - Nachlaufwinkel im Bezug zum Fenster, bis wann abgeschattet wird. Beispiel: Fenster 180&deg; + 85&deg; ==> bis Sonnenpos. 265&deg; wird abgeschattet / default 75 wenn nicht gesetzt</li>
+            <li>ASC_Shading_Direction -  Position in Grad, auf der das Fenster liegt - genau Osten w&auml;re 90, S&uuml;den 180 und Westen 270 / default 180 wenn nicht gesetzt</li>
+            <li>ASC_Shading_Min_Elevation - ab welcher H&ouml;he des Sonnenstandes soll beschattet werden, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 25.0 wenn nicht gesetzt</li>
+            <li>ASC_Shading_Min_OutsideTemperature - ab welcher Temperatur soll Beschattet werden, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 18 wenn nicht gesetzt</li>
+            <li>ASC_Shading_Mode - absent,always,off,home / wann soll die Beschattung nur statt finden. / default off wenn nicht gesetzt</li>
+            <li>ASC_Shading_Pos - Position des Rollladens f&uuml;r die Beschattung</li>
+            <li>ASC_Shading_StateChange_Cloudy - Brightness Wert ab welchen die Beschattung aufgehoben werden soll, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 20000 wenn nicht gesetzt</li>
+            <li>ASC_Shading_StateChange_Sunny - Brightness Wert ab welchen Beschattung statt finden soll, immer in Abh&auml;ngikkeit der anderen einbezogenden Sensorwerte / default 35000 wenn nicht gesetzt</li>
+            <li>ASC_Shading_WaitingPeriod - wie viele Sekunden soll gewartet werden bevor eine weitere Auswertung der Sensordaten f&uuml;r die Beschattung statt finden soll / default 1200 wenn nicht gesetzt</li>
+        </ul>
+      </ul>
       <li>ASC_ShuttersPlace - window/terrace - Wenn dieses Attribut auf terrace gesetzt ist, das Residence Device in den Status "gone" geht und SelfDefence aktiv ist (ohne das das Reading selfDefense gesetzt sein muss), wird das Rollo geschlossen / default window wenn nicht gesetzt</li>
       <li>ASC_Time_Down_Early - Sunset fr&uuml;hste Zeit zum Runterfahren / default 16:00 wenn nicht gesetzt</li>
       <li>ASC_Time_Down_Late - Sunset sp&auml;teste Zeit zum Runterfahren / default 22:00 wenn nicht gesetzt</li>
@@ -3405,7 +3427,7 @@ Die folgenden lokalen Attribute werden von mehreren Ger&auml;ten verwendet:
       <li>ASC_Ventilate_Pos -  in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_Ventilate_Window_Open - auf l&uuml;ften, wenn das Fenster gekippt/ge&ouml;ffnet wird und aktuelle Position unterhalb der L&uuml;ften-Position ist / default on wenn nicht gesetzt</li>
       <li>ASC_WiggleValue - Wert um welchen sich die Position des Rollladens &auml;ndern soll / default 5 wenn nicht gesetzt</li>
-      <li>ASC_WindParameters - TRIGGERMAX[:HYSTERESE] [DRIVEPOSITION] / Angabe von Max Wert ab dem für Wind getriggert werden soll, Hytsrese Wert ab dem der Windschutz aufgehoben werden soll TRIGGERMAX - HYSTERESE / Ist es bei einigen Rolll&auml;den nicht gew&uuml;nscht das gefahren werden soll, so ist das Attribut ASC_WindProtection auf off zu setzen. / default '50:20 ClosedPosition' wenn nicht gesetzt</li>
+      <li>ASC_WindParameters - TRIGGERMAX[:HYSTERESE] [DRIVEPOSITION] / Angabe von Max Wert ab dem f&uuml;r Wind getriggert werden soll, Hytsrese Wert ab dem der Windschutz aufgehoben werden soll TRIGGERMAX - HYSTERESE / Ist es bei einigen Rolll&auml;den nicht gew&uuml;nscht das gefahren werden soll, so ist das Attribut ASC_WindProtection auf off zu setzen. / default '50:20 ClosedPosition' wenn nicht gesetzt</li>
       <li>ASC_WindProtection - on/off aktiviert den Windschutz f&uuml;r diesen Rollladen. / default on wenn nicht gesetzt.</li>
       <li>ASC_WindowRec - Name des Fensterkontaktes, an dessen Fenster der Rollladen angebracht ist / default none wenn nicht gesetzt</li>
       <li>ASC_WindowRec_subType - Typ des verwendeten Fensterkontaktes: twostate (optisch oder magnetisch) oder threestate (Drehgriffkontakt) / default twostate wenn nicht gesetzt</li>
@@ -13860,6 +13882,156 @@ sub bdump {
   
 </ul>
 
+<p><a name="DoorBird"></a>
+<h3>DoorBird</h3>
+<div class='langLinks'>[<a href='commandref.html#DoorBird'>EN</a> DE]</div>
+<ul>
+	<table>
+		<tr>
+			<td>
+				Das DoorBird Modul erm&ouml;glicht die Komminikation zwischen der DoorBird Interkommunikationseinheit und dem fhem Automationssystem basierend auf der API des Herstellers her.<BR>
+				Für den vollen Funktionsumfang muss sichergestellt werden, dass das Setting "API-Operator" in der DoorBird Android/iPhone - APP unter "Administration -> User -> Edit -> Permission -> API-Operator" gesetzt ist.
+				Die folgenden Software - Pakete m&uuml;ssen noch zus&auml;tzlich installiert werden, sofern dies nicht schon durch andere Module erfolgt ist. (Die Beispiele sind auf dem Raspberry JESSIE gestestet):<BR>
+				<BR>
+				<code>
+					<li>sudo apt-get install sox					</li>
+					<li>sudo apt-get install libsox-fmt-all			</li>
+					<li>sudo apt-get install libsodium-dev			</li>
+					<li>sudo cpan LWP::UserAgent					</li>
+					<li>sudo cpan Alien::Base::ModuleBuild			</li>
+					<li>sudo cpan Alien::Sodium					</li>
+					<li>sudo cpan Crypt::NaCl::Sodium				</li>
+					<li>sudo cpan MIME::Base64						</li>
+				</code>
+			</td>
+		</tr>
+	</table>
+	<BR>
+
+	<table>
+		<tr>
+			<td>
+				<a name="DoorBirddefine"></a><b>Define</b>
+			</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td>
+				<ul>
+					<code>define &lt;name&gt; DoorBird &lt;IPv4-address&gt; &lt;Username&gt; &lt;Passwort&gt;</code>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+	<ul>
+		<ul>
+			<table>
+				<tr><td><code>&lt;name&gt;           </code> : </td><td>Der Name des Device unter fhem. Beispiel: "myDoorBird".																												</td></tr>
+				<tr><td><code>&lt;IPv4-Addresse&gt;  </code> : </td><td>Eine g&uuml;ltige IPv4 - Addresse der DoorBird-Anlage. Ggf. muss man im Router nach der entsprechenden DHCP Addresse suchen, die der DoorBird Anlage vergeben wurde.</td></tr>
+				<tr><td><code>&lt;Username&gt;       </code> : </td><td>Der Username zum einloggen auf der DoorBird Anlage.																													</td></tr>
+				<tr><td><code>&lt;Passwort&gt;       </code> : </td><td>Das Passwort zum einloggen auf der DoorBird Anlage.																													</td></tr>
+			</table>
+		</ul>
+	</ul>
+
+	<BR>
+
+	<table>
+		<tr><td><a name="DoorBirdSet"></a><b>Set</b></td></tr>
+		<tr><td><ul>Die Set - Funktion ist in der lage auf der DoorBird - Anlage die folgenden Einstellungen vorzunehmen bzw. zu de-/aktivieren:</ul><BR></td></tr>
+	</table>
+
+	<table>
+		<tr><td><ul><code>set Light_On                    </code></ul></td><td> : Schaltet das IR lichht der DoorBird Anlage ein. Das IR Licht schaltet sich automatisch nach der in der DoorBird - Anlage vorgegebenen Default Zeit wieder aus.																	</td></tr>
+		<tr><td><ul><code>set Live_Audio &lt;on:off&gt;   </code></ul></td><td> : Aktiviert/Deaktiviert den Live Audio Stream der DoorBird - Anlage Ein oder Aus und wechselt den direkten link in dem <b>versteckten</b> Reading <code>.AudioURL.</code>															</td></tr>
+		<tr><td><ul><code>set Live_Video &lt;on:off&gt;   </code></ul></td><td> : Aktiviert/Deaktiviert den Live Video Stream der DoorBird - Anlage Ein oder Aus und wechselt den direkten link in dem <b>versteckten</b> Reading <code>.VideoURL.</code>															</td></tr>
+		<tr><td><ul><code>set Open Door &lt;Value&gt;     </code></ul></td><td> : Aktiviert das Relais der DoorBird - Anlage mit dessen Adresse. Die Liste der installierten Relais werden mit der Initialisierung der Parameter importiert.																		</td></tr>
+		<tr><td><ul><code>set Restart                     </code></ul></td><td> : Sendet das Kommando zum rebooten der DoorBird - Anlage.																																											</td></tr>
+		<tr><td><ul><code>set Transmit_Audio &lt;Path&gt; </code></ul></td><td> : Konvertiert die angegebene Audio-Datei und sendet diese zur Ausgabe an die DoorBird - Anlage. Es ben&ouml;tigt einen Dateipfad zu der Audio-Datei zu dem der User "fhem" Schreibrechte braucht (z.B.: /opt/fhem/audio).			</td></tr>
+	</table>
+
+
+	<table>
+		<tr><td><a name="DoorBirdGet"></a><b>Get</b></td></tr>
+		<tr><td><ul>Die Get - Funktion ist in der lage von der DoorBird - Anlage die folgenden Informationen und Daten zu laden:<BR><BR></ul></td></tr>
+	</table>
+	<table>
+		<tr><td><ul><code>get History_Request             </code></ul></td><td> : L&auml;dt die Bilder der letzten Ereignisse durch die T&uuml;rklingel und dem Bewegungssensor herunter. (Siehe auch Attribut <code>MaxHistory</code>)</td></tr>
+		<tr><td><ul><code>get Image_Request               </code></ul></td><td> : L&auml;dt das gegenw&auml;rtige Bild der DoorBird - Kamera herunter.</td></tr>
+		<tr><td><ul><code>get Info_Request                </code></ul></td><td> : L&auml;dt das interne Setup (Firmware Version, Relais Konfiguration etc.) herunter. Die &uuml;bermittelten Relais-Adressen werden als Option f&uuml;r das Kommando <code>Open_Door</code> verwendet.</td></tr>
+	</table>
+
+
+	<table>
+		<tr><td><a name="DoorBirdAttr"></a><b>Attributes</b></td></tr>
+		<tr><td>
+			<ul>
+					Die folgenden Attribute k&ouml;nnen mit dem DoorBird Module neben den globalen Attributen wie <a href="#room">room</a> verwednet werden.<BR>
+			</ul>
+		</td></tr>
+	</table>
+
+	<ul>
+		<table>
+			<tr>
+				<td>
+					<code>disable          </code> : </td><td>Stoppt das Ger&auml;t von weiteren Reaktionen auf die von der DoorBird ß Anlage ausgesendeten UDP - Datageramme<BR>											          Der Default Wert ist 0 = aktiviert<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>KeepAliveTimeout </code> : </td><td>Timeout in Sekunden ohne "still-alive" - UDP Datagramme bevor der Status des Ger&auml;tes auf  "disconnected" gesetzt wird.<BR>
+														  Der Default Wert ist 30s<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>MaxHistory       </code> : </td><td>Anzahl der herunterzuladenden Bilder aus dem Historien-Archiv sowohl f&uuml;r Ereignisse seitens der T&uuml;rklingel als auch f&uuml;r den Bewegungssensor.<BR>
+														  Der Default Wert ist "50" = Maximum.<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>PollingTimeout   </code> : </td><td>Timeout in Sekunden before der Download-Versuch aufgrund fehlender Antwort seitens der DoorBird-Anlage terminiert wird. Eine Adjustierung mag notwendig sein, sobald Netzwerk-Latenzen aufteten.<BR>
+														  Der Default-Wert ist 10s.<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>UdpPort          </code> : </td><td>Port Nummer auf welcher das DoorBird - Modul nach den UDP Datagrammen der DoorBird - Anlage h&ouml;ren soll. Die Ports sind von der Firmware vorgegeben.<BR>
+														  Der Default Port ist 6524<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SessionIdSec</code> : </td><td>Zeit in Sekunden nach welcher die Session Id erneuert werden soll. Diese ist f&uuml;r die sichere &Uuml;bertragung der Video und Audio Verbindungsdaten notwendig. Die DoorBird-Unit devalidiert die Session Id automatisch nach 10min. F&uuml;r den Fall, dass die DoorBird Kamera an ein &Uuml;berwachungssystem angebunden werden soll, muss diese Funktion ausser Betrieb genommen werden indem man den Wert auf 0 setzt 0.<BR>
+																   Der Default Wert ist 540s = 9min.<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SipDevice</code> : </td><td>Name des fhem SIP Device mit wessen Nummer in der DoorBird - Anlage hinterlegt wurde die die DoorBird - Anlage  anrufen d&uuml;rfen. Refer to <a href="#SIP">SIP</a>.<BR>
+																   Der Default Wert ist das erste SIP device in fhem.<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SipNumber</code> : </td><td>Die Telefonnummer unter der die DoorBird / Anlage registriert und erreicht werden kann.<BR>
+																   Der Default Wert ist <code>**620</code><BR>
+				</td>
+			</tr>
+					<tr>
+				<td>
+					<code>ImageFileDir</code> : </td><td>Der relative (z.B. "images") oder absolute (z.B. "/mnt/NAS/images") Verzeichnispfad mit oder ohne nachfolgendem Pfadzeichen "/"  in welchen die Bild-Dateien gespeichert werden sollen.<BR>
+																   The Default Wert ist <code>0</code> = deaktiviert<BR>
+				</td>
+			</tr>
+		</table>
+	</ul>
+</ul>
 <p><a name="Dooya"></a>
 <h3>Dooya</h3>
 <ul>
@@ -18369,16 +18541,26 @@ ben&oml;ntigt XML:Simple -> sudo apt-get install libxml-simple-perl
       </ul><br>
       <br>
       <ul>
-        <u>Anwesenheit mit anderen GUEST oder ROOMMATE Devices synchronisieren</u><br>
-        <br>
+        <u>Anwesenheit mit anderen GUEST, PET oder ROOMMATE Devices synchronisieren</u><br />
+        <br />
         <ul>
-          Wenn Sie immer zusammen mit anderen Mitbewohnern oder G&auml;sten das Haus verlassen oder erreichen, k&ouml;nnen Sie ihren Status ganz einfach auf andere Mitbewohner &uuml;bertragen.<br>
-          Durch das Setzen des Attributs rg_PassPresenceTo folgen die dort aufgef&uuml;hrten Mitbewohner ihren eigenen Status&auml;nderungen nach 'home', 'absent' oder 'gone'.<br>
-          <br>
-          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'none' oder 'gone' (im Falle von ROOMMATE Devices) nicht beachtet werden.
+          Wenn Sie immer zusammen mit anderen Mitbewohnern oder G&auml;sten das Haus verlassen oder erreichen, k&ouml;nnen Sie ihren Status ganz einfach auf andere Mitbewohner &uuml;bertragen.<br />
+          Durch das Setzen des Attributs rr_PassPresenceTo folgen die dort aufgef&uuml;hrten Mitbewohner ihren eigenen Status&auml;nderungen nach 'home', 'absent' oder 'gone'.<br />
+          <br />
+          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
         </ul>
-      </ul><br>
-      <br>
+      </ul><br />
+      <br />
+      <ul>
+        <u>Status zu Hause mit anderen GUEST, PET oder ROOMMATE Devices synchronisieren</u><br />
+        <br />
+        <ul>
+          Um jeden Statuswechsel zu synchronisieren, welcher _nicht_ dem erreichen oder verlassen des Hauses entspricht, kann das Attribut rr_passStateTo gesetzt werden.<br />
+          <br />
+          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
+        </ul>
+      </ul><br />
+      <br />
       <ul>
         <u>Zusammenhang zwischen Aufenthaltsort/Location und Anwesenheit/Presence</u><br>
         <br>
@@ -18437,7 +18619,10 @@ ben&oml;ntigt XML:Simple -> sudo apt-get install libxml-simple-perl
             <b>rg_noDuration</b> - deaktiviert die kontinuierliche, nicht Event-basierte Berechnung der Zeitspannen (siehe Readings durTimer*)
           </li>
           <li>
-            <b>rg_passPresenceTo</b> - synchronisiere die Anwesenheit mit anderen GUEST oder ROOMMATE Devices; mehrere Devices durch Leerzeichen trennen
+            <b>rg_passStateTo</b> - synchronisiere den Status zu Hause mit anderen GUEST, PET oder ROOMMATE Devices; mehrere Devices durch Leerzeichen trennen
+          </li>
+          <li>
+            <b>rg_passPresenceTo</b> - synchronisiere die Anwesenheit mit anderen GUEST, PET oder ROOMMATE Devices; mehrere Devices durch Leerzeichen trennen
           </li>
           <li>
             <b>rg_presenceDevices</b> - &uuml;bernehmen des presence Status von einem anderen FHEM Device. Bei mehreren Devices diese mit Komma trennen, um ein Update des GUEST Devices auszul&ouml;sen, sobald ALLE Devices entweder absent oder present sind. Optional kann auch durch : abgetrennt ein Reading Name angegeben werden, ansonsten werden die Readings presence und state ber&uuml;cksichtigt.
@@ -18453,6 +18638,9 @@ ben&oml;ntigt XML:Simple -> sudo apt-get install libxml-simple-perl
           </li>
           <li>
             <b>rg_wakeupDevice</b> - Referenz zu versklavten DUMMY Ger&auml;ten, welche als Wecker benutzt werden (Teil von RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - Gibt einen bestimmten Typ eines Gasts f&uuml;r das Device an. Dies wird bei der Berechnung des Home Alone Status ber&uuml;cksichtigt. Standard ist "generic"
           </li>
         </ul>
       </ul><br>
@@ -18548,11 +18736,10 @@ ben&oml;ntigt XML:Simple -> sudo apt-get install libxml-simple-perl
           <li>
             <b>wayhome</b> - abh&auml;ngig vom aktullen Aufenthaltsort, kann der Wert '1' werden, wenn die Person auf dem weg zur&uuml;ck nach Hause ist
           </li>
-          <li>
-            <br>
-            Die folgenden Readings werden auf '-' gesetzt, sobald der Status auf 'none' steht:<br>
-            lastArrival, lastDurAbsence, lastLocation, lastMood, location, mood
-          </li>
+          <br>
+          <br>
+          Die folgenden Readings werden auf '-' gesetzt, sobald der Status auf 'none' steht:<br>
+          lastArrival, lastDurAbsence, lastLocation, lastMood, location, mood
         </ul>
       </ul>
     </ul>
@@ -28258,7 +28445,316 @@ werden aber nicht ausgeführt <br />3. schreibt alle Aktionen in ein seperates L
   Leider keine deutsche Dokumentation vorhanden. Die englische Version gibt es
   hier: <a href='commandref.html#PCA301'>PCA301</a><br/>
 </ul>
-<a name="PHC"></a>
+    <a name="PET" id="PET"></a>
+    <h3>PET</h3>
+<div class='langLinks'>[<a href='commandref.html#PET'>EN</a> DE]</div>
+    <ul>
+      <a name="PETdefine" id="PETdefine"></a> <b>Define</b>
+      <ul>
+        <code>define &lt;rp_FirstName&gt; PET [&lt;Device Name(n) der Bewohnergruppe(n)&gt;]</code><br>
+        <br>
+        Stellt ein spezielles virtuelles Device bereit, welches ein Haustier zu Hause repr&auml;sentiert.<br>
+        Basierend auf dem aktuellen Status und anderen Readings k&ouml;nnen andere Aktionen innerhalb von FHEM angestoßen werden.<br>
+        <br>
+        Wird vom &uuml;bergeordneten Modul <a href="#RESIDENTS">RESIDENTS</a> verwendet, kann aber auch einzeln benutzt werden.<br>
+        <br />
+        Bei Mitgliedschaft mehrerer Bewohnergruppen werden diese durch Komma getrennt angegeben (siehe Beispiel unten).<br />
+        <br>
+        Beispiele:<br>
+        <ul>
+          <code># Einzeln<br>
+          define rp_Pet PET<br>
+          <br>
+          # Typisches Gruppenmitglied<br>
+          define rp_Pet PET rgr_Residents # um Mitglied der Gruppe rgr_Residents zu sein<br>
+          <br>
+          # Mitglied in mehreren Gruppen<br>
+          define rp_Pet PET rgr_Residents,rgr_Pets # um Mitglied der Gruppen rgr_Residents und rgr_Pets zu sein</code>
+        </ul>
+        <br />
+        Hinweis: Ein Haustier ist generell "wert" als FHEM Device repr&auml;sentiert zu werden, wenn es sich um ein Tier handelt, welches normalerweise regelm&auml;&szlig;ig das Haus verl&auml;sst und wieder betritt. Es sollte ein Tier sein, bei welchem sich die Hausautomation abh&auml;ngig des Pr&auml;senz- und Zuhause Status anders verhalten soll. F&uuml;r gew&ouml;hnlich sind das keine Fische oder Kleintiere in K&auml;figen, sondern etwas wie insbesondere ein Hund. Bei Katzen kann es sich unter Umst&auml;nden auch nicht lohnen diese zu tracken, je nach Charakter und dem t&auml;glichen Familienleben.
+      </ul><br>
+      <br>
+      <a name="PETset" id="PETset"></a> <b>Set</b>
+      <ul>
+        <code>set &lt;rp_FirstName&gt; &lt;command&gt; [&lt;parameter&gt;]</code><br>
+        <br>
+        Momentan sind die folgenden Kommandos definiert.<br>
+        <ul>
+          <li>
+            <b>location</b> &nbsp;&nbsp;-&nbsp;&nbsp; setzt das Reading 'location'; siehe auch Attribut rp_locations, um die in FHEMWEB angezeigte Liste anzupassen
+          </li>
+          <li>
+            <b>mood</b> &nbsp;&nbsp;-&nbsp;&nbsp; setzt das Reading 'mood'; siehe auch Attribut rp_moods, um die in FHEMWEB angezeigte Liste anzupassen
+          </li>
+          <li>
+            <b>state</b> &nbsp;&nbsp;home,gotosleep,asleep,awoken,absent,gone&nbsp;&nbsp; wechselt den Status; siehe auch Attribut rp_states, um die in FHEMWEB angezeigte Liste anzupassen
+          </li>
+          <li>
+            <b>create</b>
+             <li><i>locationMap</i>&nbsp;&nbsp; f&uuml;gt ein vorkonfiguriertes weblink Device hinzu, welches eine Google Map anzeigt, sofern die Readings locationLat+locationLong vorhanden sind.</li>
+             <li><i>wakeuptimer</i>&nbsp;&nbsp; f&uuml;gt diverse Vorkonfigurationen auf Basis von RESIDENTS Toolkit hinzu. Siehe separate Sektion in der <a href="#RESIDENTS">RESIDENTS Modul Kommandoreferenz</a>.</li>
+          </li>
+        </ul>
+        <ul>
+            <u>Hinweis:</u> Sofern der Zugriff auf administrative set-Kommandos (-> create) eingeschr&auml;nkt werden soll, kann in einer FHEMWEB Instanz das Attribut allowedCommands &auml;hnlich wie 'set,set-user' erweitert werden.
+            Die Zeichenfolge 'set-user' stellt dabei sicher, dass beim Zugriff auf FHEM &uuml;ber diese FHEMWEB Instanz nur nicht-administrative set-Kommandos ausgef&uuml;hrt werden k&ouml;nnen.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>M&ouml;gliche Status und ihre Bedeutung</u><br>
+        <br>
+        <ul>
+          Dieses Modul unterscheidet 6 verschiedene Status:<br>
+          <br>
+          <ul>
+            <li>
+              <b>home</b> - Mitbewohner ist zu Hause und wach
+            </li>
+            <li>
+              <b>gotosleep</b> - Mitbewohner ist auf dem Weg ins Bett
+            </li>
+            <li>
+              <b>asleep</b> - Mitbewohner schl&auml;ft
+            </li>
+            <li>
+              <b>awoken</b> - Mitbewohner ist gerade aufgewacht
+            </li>
+            <li>
+              <b>absent</b> - Mitbewohner ist momentan nicht zu Hause, wird aber bald zur&uuml;ck sein
+            </li>
+            <li>
+              <b>gone</b> - Mitbewohner ist f&uuml;r l&auml;ngere Zeit verreist
+            </li>
+          </ul>
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Zusammenhang zwischen Anwesenheit/Presence und Aufenthaltsort/Location</u><br>
+        <br>
+        <ul>
+          Unter bestimmten Umst&auml;nden f&uuml;hrt der Wechsel des Status auch zu einer Änderung des Readings 'location'.<br>
+          <br>
+          Wannimmer die Anwesenheit (bzw. das Reading 'presence') von 'absent' auf 'present' wechselt, wird 'location' auf 'home' gesetzt. Sofern das Attribut rp_locationHome gesetzt ist, wird die erste Lokation daraus anstelle von 'home' verwendet.<br>
+          <br>
+          Wannimmer die Anwesenheit (bzw. das Reading 'presence') von 'present' auf 'absent' wechselt, wird 'location' auf 'underway' gesetzt. Sofern das Attribut rp_locationUnderway gesetzt ist, wird die erste Lokation daraus anstelle von 'underway' verwendet.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Auto-Status 'gone'</u><br>
+        <br>
+        <ul>
+          Immer wenn ein Mitbewohner auf 'absent' gesetzt wird, wird ein Z&auml;hler gestartet, der nach einer bestimmten Zeit den Status automatisch auf 'gone' setzt.<br>
+          Der Standard ist nach 16 Stunden.<br>
+          <br>
+          Dieses Verhalten kann &uuml;ber das Attribut rp_autoGoneAfter angepasst werden.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Anwesenheit mit anderen PET, GUEST, oder ROOMMATE Devices synchronisieren</u><br />
+        <br />
+        <ul>
+          Wenn Sie immer zusammen mit anderen Mitbewohnern oder G&auml;sten das Haus verlassen oder erreichen, k&ouml;nnen Sie ihren Status ganz einfach auf andere Mitbewohner &uuml;bertragen.<br />
+          Durch das Setzen des Attributs rr_PassPresenceTo folgen die dort aufgef&uuml;hrten Mitbewohner ihren eigenen Status&auml;nderungen nach 'home', 'absent' oder 'gone'.<br />
+          <br />
+          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
+        </ul>
+      </ul><br />
+      <br />
+      <ul>
+        <u>Status zu Hause mit anderen PET, GUEST oder ROOMMATE Devices synchronisieren</u><br />
+        <br />
+        <ul>
+          Um jeden Statuswechsel zu synchronisieren, welcher _nicht_ dem erreichen oder verlassen des Hauses entspricht, kann das Attribut rr_passStateTo gesetzt werden.<br />
+          <br />
+          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
+        </ul>
+      </ul><br />
+      <br />
+      <ul>
+        <u>Zusammenhang zwischen Aufenthaltsort/Location und Anwesenheit/Presence</u><br>
+        <br>
+        <ul>
+          Unter bestimmten Umst&auml;nden hat der Wechsel des Readings 'location' auch einen Einfluss auf den tats&auml;chlichen Status.<br>
+          <br>
+          Immer wenn eine Lokation mit dem Namen 'home' gesetzt wird, wird auch der Status auf 'home' gesetzt, sofern die Anwesenheit bis dahin noch auf 'absent' stand. Sofern das Attribut rp_locationHome gesetzt wurde, so l&ouml;sen alle dort angegebenen Lokationen einen Statuswechsel nach 'home' aus.<br>
+          <br>
+          Immer wenn eine Lokation mit dem Namen 'underway' gesetzt wird, wird auch der Status auf 'absent' gesetzt, sofern die Anwesenheit bis dahin noch auf 'present' stand. Sofern das Attribut rp_locationUnderway gesetzt wurde, so l&ouml;sen alle dort angegebenen Lokationen einen Statuswechsel nach 'underway' aus. Diese Lokationen werden auch nicht in das Reading 'lastLocation' &uuml;bertragen.<br>
+          <br>
+          Immer wenn eine Lokation mit dem Namen 'wayhome' gesetzt wird, wird das Reading 'wayhome' auf '1' gesetzt, sofern die Anwesenheit zu diesem Zeitpunkt 'absent' ist. Sofern das Attribut rp_locationWayhome gesetzt wurde, so f&uuml;hrt das VERLASSEN einer dort aufgef&uuml;hrten Lokation ebenfalls dazu, dass das Reading 'wayhome' auf '1' gesetzt wird. Es gibt also 2 M&ouml;glichkeiten den Nach-Hause-Weg-Indikator zu beeinflussen (implizit und explizit).<br>
+          Die Ankunft zu Hause setzt den Wert von 'wayhome' zur&uuml;ck auf '0'.<br>
+          <br>
+          Wenn Sie auch das <a href="#GEOFANCY">GEOFANCY</a> Modul verwenden, k&ouml;nnen Sie das Reading 'location' ganz einfach &uuml;ber GEOFANCY Ereignisse aktualisieren lassen. Definieren Sie dazu einen NOTIFY-Trigger wie diesen:<br>
+          <br>
+          <code>define n_rp_Manfred.location notify geofancy:currLoc_Manfred.* set rp_Manfred:FILTER=location!=$EVTPART1 location $EVTPART1</code><br>
+          <br>
+          Durch das Anlegen von Geofencing-Zonen mit den Namen 'home' und 'wayhome' in der iOS App werden zuk&uuml;nftig automatisch alle Status&auml;nderungen wie oben beschrieben durchgef&uuml;hrt.
+        </ul>
+      </ul><br>
+      <br>
+      <a name="PETattr" id="PETattr"></a> <b>Attribute</b><br>
+      <ul>
+        <ul>
+          <li>
+            <b>rp_autoGoneAfter</b> - Anzahl der Stunden, nach denen sich der Status automatisch auf 'gone' &auml;ndert, wenn der aktuellen Status 'absent' ist; Standard ist 36 Stunden
+          </li>
+          <li>
+            <b>rp_geofenceUUIDs</b> - Mit Komma getrennte Liste von Ger&auml;te UUIDs, die ihren Standort &uuml;ber <a href="#GEOFANCY">GEOFANCY</a> aktualisieren. Vermeidet zus&auml;tzliche notify/DOIF/watchdog Ger&auml;te und kann als Ersatz f&uuml;r das GEOFANCY attribute <i>devAlias</i> dienen. (hier ehr als eine UUID/Device zu hinterlegen ist eher keine gute Idee da die Lokation dann wom&ouml;glich anf&auml;ngt zu springen)
+          </li>
+          <li>
+            <b>rp_lang</b> - &uuml;berschreibt globale Spracheinstellung; hilft beim setzen von Device Attributen, um FHEMWEB Anzeigetext zu &uuml;bersetzen
+          </li>
+          <li>
+            <b>rp_locationHome</b> - hiermit &uuml;bereinstimmende Lokationen werden als zu Hause gewertet; der erste Eintrag wird f&uuml;r das Zusammenspiel bei Status&auml;nderungen benutzt; mehrere Eintr&auml;ge durch Leerzeichen trennen; Standard ist 'home'
+          </li>
+          <li>
+            <b>rp_locationUnderway</b> - hiermit &uuml;bereinstimmende Lokationen werden als unterwegs gewertet; der erste Eintrag wird f&uuml;r das Zusammenspiel bei Status&auml;nderungen benutzt; mehrere Eintr&auml;ge durch Leerzeichen trennen; Standard ist 'underway'
+          </li>
+          <li>
+            <b>rp_locationWayhome</b> - das Verlassen einer Lokation, die hier aufgef&uuml;hrt ist, l&auml;sst das Reading 'wayhome' auf '1' setzen; mehrere Eintr&auml;ge durch Leerzeichen trennen; Standard ist "wayhome"
+          </li>
+          <li>
+            <b>rp_locations</b> - Liste der in FHEMWEB anzuzeigenden Lokationsauswahlliste in FHEMWEB; mehrere Eintr&auml;ge nur durch Komma trennen und KEINE Leerzeichen verwenden
+          </li>
+          <li>
+            <b>rp_moodDefault</b> - die Stimmung, die nach Ankunft zu Hause oder nach dem Statuswechsel von 'awoken' auf 'home' gesetzt werden soll
+          </li>
+          <li>
+            <b>rp_moodSleepy</b> - die Stimmung, die nach Statuswechsel zu 'gotosleep' oder 'awoken' gesetzt werden soll
+          </li>
+          <li>
+            <b>rp_moods</b> - Liste von Stimmungen, wie sie in FHEMWEB angezeigt werden sollen; mehrere Eintr&auml;ge nur durch Komma trennen und KEINE Leerzeichen verwenden
+          </li>
+          <li>
+            <b>rp_noDuration</b> - deaktiviert die kontinuierliche, nicht Event-basierte Berechnung der Zeitspannen (siehe Readings durTimer*)
+          </li>
+          <li>
+            <b>rp_passStateTo</b> - synchronisiere den Status zu Hause mit anderen PET, GUEST oder ROOMMATE Devices; mehrere Devices durch Leerzeichen trennen
+          </li>
+          <li>
+            <b>rp_passPresenceTo</b> - synchronisiere die Anwesenheit mit anderen PET, GUEST oder ROOMMATE Devices; mehrere Devices durch Leerzeichen trennen
+          </li>
+          <li>
+            <b>rp_presenceDevices</b> - &uuml;bernehmen des presence Status von einem anderen FHEM Device. Bei mehreren Devices diese mit Komma trennen, um ein Update des PET Devices auszul&ouml;sen, sobald ALLE Devices entweder absent oder present sind. Optional kann auch durch : abgetrennt ein Reading Name angegeben werden, ansonsten werden die Readings presence und state ber&uuml;cksichtigt.
+          </li>
+          <li>
+            <b>rp_realname</b> - wo immer PET den richtigen Namen verwenden m&ouml;chte nutzt es den Wert des Attributs alias oder group; Standard ist group
+          </li>
+          <li>
+            <b>rp_showAllStates</b> - die Status 'asleep' und 'awoken' sind normalerweise nicht immer sichtbar, um einen einfachen Zubettgeh-Prozess &uuml;ber das devStateIcon Attribut zu erm&ouml;glichen; Standard ist 0
+          </li>
+          <li>
+            <b>rp_states</b> - Liste aller in FHEMWEB angezeigter Status; Eintrage nur mit Komma trennen und KEINE Leerzeichen benutzen; nicht unterst&uuml;tzte Status f&uuml;hren zu Fehlern
+          </li>
+          <li>
+            <b>rp_wakeupDevice</b> - Referenz zu versklavten DUMMY Ger&auml;ten, welche als Wecker benutzt werden (Teil von RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - Gibt einen bestimmten Typ eines Haustiers f&uuml;r das Device an. Dies wird bei der Berechnung des Home Alone Status ber&uuml;cksichtigt. Standard ist "generic"
+          </li>
+        </ul>
+      </ul><br>
+      <br>
+      <br>
+      <b>Generierte Readings/Events:</b><br>
+      <ul>
+        <ul>
+          <li>
+            <b>durTimerAbsence</b> - Timer, der die Dauer der Abwesenheit in normal lesbarem Format anzeigt (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>durTimerAbsence_cr</b> - Timer, der die Dauer der Abwesenheit in Computer lesbarem Format anzeigt (Minuten)
+          </li>
+          <li>
+            <b>durTimerPresence</b> - Timer, der die Dauer der Anwesenheit in normal lesbarem Format anzeigt (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>durTimerPresence_cr</b> - Timer, der die Dauer der Anwesenheit in Computer lesbarem Format anzeigt (Minuten)
+          </li>
+          <li>
+            <b>durTimerSleep</b> - Timer, der die Schlafdauer in normal lesbarem Format anzeigt (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>durTimerSleep_cr</b> - Timer, der die Schlafdauer in Computer lesbarem Format anzeigt (Minuten)
+          </li>
+          <li>
+            <b>lastArrival</b> - Zeitstempel der letzten Ankunft zu Hause
+          </li>
+          <li>
+            <b>lastAwake</b> - Zeitstempel des Endes des letzten Schlafzyklus
+          </li>
+          <li>
+            <b>lastDeparture</b> - Zeitstempel des letzten Verlassens des Zuhauses
+          </li>
+          <li>
+            <b>lastDurAbsence</b> - Dauer der letzten Abwesenheit in normal lesbarem Format (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>lastDurAbsence_cr</b> - Dauer der letzten Abwesenheit in Computer lesbarem Format (Minuten)
+          </li>
+          <li>
+            <b>lastDurPresence</b> - Dauer der letzten Anwesenheit in normal lesbarem Format (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>lastDurPresence_cr</b> - Dauer der letzten Anwesenheit in Computer lesbarem Format (Minuten)
+          </li>
+          <li>
+            <b>lastDurSleep</b> - Dauer des letzten Schlafzyklus in normal lesbarem Format (Stunden:Minuten:Sekunden)
+          </li>
+          <li>
+            <b>lastDurSleep_cr</b> - Dauer des letzten Schlafzyklus in Computer lesbarem Format (Minuten)
+          </li>
+          <li>
+            <b>lastLocation</b> - der vorherige Aufenthaltsort
+          </li>
+          <li>
+            <b>lastMood</b> - die vorherige Stimmung
+          </li>
+          <li>
+            <b>lastSleep</b> - Zeitstempel des Beginns des letzten Schlafzyklus
+          </li>
+          <li>
+            <b>lastState</b> - der vorherige Status
+          </li>
+          <li>
+            <b>lastWakeup</b> - Zeit der letzten Wake-up Timer Ausf&uuml;hring
+          </li>
+          <li>
+            <b>lastWakeupDev</b> - Device Name des zuletzt verwendeten Wake-up Timers
+          </li>
+          <li>
+            <b>location</b> - der aktuelle Aufenthaltsort
+          </li>
+          <li>
+            <b>mood</b> - die aktuelle Stimmung
+          </li>
+          <li>
+            <b>nextWakeup</b> - Zeit der n&auml;chsten Wake-up Timer Ausf&uuml;hrung
+          </li>
+          <li>
+            <b>nextWakeupDev</b> - Device Name des als n&auml;chstes ausgef&auml;hrten Wake-up Timer
+          </li>
+          <li>
+            <b>presence</b> - gibt den zu Hause Status in Abh&auml;ngigkeit des Readings 'state' wieder (kann 'present' oder 'absent' sein)
+          </li>
+          <li>
+            <b>state</b> - gibt den aktuellen Status wieder
+          </li>
+          <li>
+            <b>wakeup</b> - hat den Wert '1' w&auml;hrend ein Weckprogramm dieses Bewohners ausgef&uuml;hrt wird
+          </li>
+          <li>
+            <b>wayhome</b> - abh&auml;ngig vom aktullen Aufenthaltsort, kann der Wert '1' werden, wenn die Person auf dem weg zur&uuml;ck nach Hause ist
+          </li>
+        </ul>
+      </ul>
+    </ul>
+
+<p><a name="PHC"></a>
 <h3>PHC</h3>
 <ul>
   Leider keine deutsche Dokumentation vorhanden. Die englische Version gibt es
@@ -30635,7 +31131,7 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
         <code>define &lt;rgr_ResidentsName&gt; RESIDENTS</code><br>
         <br>
         Stellt ein spezielles virtuelles Device bereit, um eine Gruppe von Personen zu repr&auml;sentieren, die zusammen wohnen.<br>
-        Es kombiniert dabei logisch die individuellen Status von <a href="#ROOMMATE">ROOMMATE</a> und <a href="#GUEST">GUEST</a> Devices und erlaubt den Status f&uuml;r alle Mitglieder zeitgleich zu &auml;ndern. Basierend auf dem aktuellen Status und anderen Readings k&ouml;nnen andere Aktionen innerhalb von FHEM angestoßen werden.<br>
+        Es kombiniert dabei logisch die individuellen Status von <a href="#ROOMMATE">ROOMMATE</a>, <a href="#GUEST">GUEST</a> und <a href="#PET">PET</a> Devices und erlaubt den Status f&uuml;r alle Mitglieder zeitgleich zu &auml;ndern. Basierend auf dem aktuellen Status und anderen Readings k&ouml;nnen andere Aktionen innerhalb von FHEM angestoßen werden.<br>
         <br>
         Beispiele:<br>
         <ul>
@@ -30654,10 +31150,16 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
             <b>addGuest</b> &nbsp;&nbsp;-&nbsp;&nbsp; erstellt ein neues GUEST Device und f&uuml;gt es der aktuellen RESIDENTS Gruppe hinzu. Einfach den Platzhalternamen eingeben und das wars.
           </li>
           <li>
+            <b>addPet</b> &nbsp;&nbsp;-&nbsp;&nbsp; erstellt ein neues PET Device und f&uuml;gt es der aktuellen RESIDENTS Gruppe hinzu. Einfach den Platzhalternamen eingeben und das wars.
+          </li>
+          <li>
             <b>addRoommate</b> &nbsp;&nbsp;-&nbsp;&nbsp; erstellt ein neues ROOMMATE Device und f&uuml;gt es der aktuellen RESIDENTS Gruppe hinzu. Einfach den Vornamen eingeben und das wars.
           </li>
           <li>
             <b>removeGuest</b> &nbsp;&nbsp;-&nbsp;&nbsp; zeigt alle Mitglieder vom Typ GUEST an und erm&ouml;glicht ein einfaches l&ouml;schen des dazugeh&ouml;rigen Dummy Devices.
+          </li>
+          <li>
+            <b>removePet</b> &nbsp;&nbsp;-&nbsp;&nbsp; zeigt alle Mitglieder vom Typ PET an und erm&ouml;glicht ein einfaches l&ouml;schen des dazugeh&ouml;rigen Dummy Devices.
           </li>
           <li>
             <b>removeRoommate</b> &nbsp;&nbsp;-&nbsp;&nbsp; zeigt alle Mitglieder vom Typ ROOMMATE an und erm&ouml;glicht ein einfaches l&ouml;schen des dazugeh&ouml;rigen Dummy Devices.
@@ -30670,7 +31172,7 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
           </li>
         </ul>
         <ul>
-            <u>Hinweis:</u> Sofern der Zugriff auf administrative set-Kommandos (-> addGuest, addRoommate, removeGuest, create) eingeschr&auml;nkt werden soll, kann in einer FHEMWEB Instanz das Attribut allowedCommands &auml;hnlich wie 'set,set-user' erweitert werden.
+            <u>Hinweis:</u> Sofern der Zugriff auf administrative set-Kommandos (-> addGuest, addPet, addRoommate, removeGuest, removePet, create) eingeschr&auml;nkt werden soll, kann in einer FHEMWEB Instanz das Attribut allowedCommands &auml;hnlich wie 'set,set-user' erweitert werden.
             Die Zeichenfolge 'set-user' stellt dabei sicher, dass beim Zugriff auf FHEM &uuml;ber diese FHEMWEB Instanz nur nicht-administrative set-Kommandos ausgef&uuml;hrt werden k&ouml;nnen.
         </ul>
       </ul><br>
@@ -30705,13 +31207,19 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
             </li>
           </ul><br>
           <br>
-          Hinweis: Der Status 'none' kann nicht explizit gesetzt werden. Das setzen von 'gone' wird bei Mitgliedern vom Typ GUEST als 'none' behandelt.
+          Hinweis: Der Status 'none' kann nicht explizit gesetzt werden. Das setzen von 'gone' wird bei Mitgliedern vom Typ GUEST oder PET als 'none' behandelt.
         </ul>
       </ul><br>
       <br>
       <a name="RESIDENTSattr" id="RESIDENTSattr"></a> <b>Attribute</b><br>
       <ul>
         <ul>
+          <li>
+            <b>rgr_homealoneInStatus</b> - wenn aktiviert, dann erh&auml;lt state den Wert von HomealoneSubtype als Pr&auml;fix; Standard ist "0"
+          </li>
+          <li>
+            <b>rgr_homealoneSubTypes</b> - eine Liste von subTypes, die den Home Alone Status ausl&ouml;sen, sofern sie diese die einzigen Anwesenden zu Hause sind. Die Reihenfolge beeinflusst die Bestimmung der Person mit der h&ouml;chsten Verantwortung im Haus. Die Sortierung geht vom unwichtigsten zum wichtigsten.
+          </li>
           <li>
             <b>rgr_lang</b> - &uuml;berschreibt globale Spracheinstellung; hilft beim setzen von Device Attributen, um FHEMWEB Anzeigetext zu &uuml;bersetzen
           </li>
@@ -30734,6 +31242,12 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
       <b>Generierte Readings/Events:</b><br>
       <ul>
         <ul>
+          <li>
+            <b>homealoneSubtype</b> - subType des Bewohner Objekts in Verantwortung
+          </li>
+          <li>
+            <b>homealoneType</b> - type des Bewohner Objekts in Verantwortung
+          </li>
           <li>
             <b>lastActivity</b> - der letzte Status Wechsel eines Gruppenmitglieds
           </li>
@@ -30855,7 +31369,7 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
             <b>residentsTotalAbsentNames</b> - Ger&auml;tealias aller aktiven Bewohner, die unterwegs sind
           </li>
           <li>
-            <b>residentsTotalGuests</b> - Anzahl der aktiven G&auml;ste, welche momentan du den Bewohnern dazugez&auml;hlt werden
+            <b>residentsTotalGuests</b> - Anzahl der aktiven G&auml;ste, welche momentan zu den Bewohnern dazugez&auml;hlt werden
           </li>
           <li>
             <b>residentsTotalGuestsAbsent</b> - Anzahl der aktiven G&auml;ste, die momentan unterwegs sind
@@ -30874,6 +31388,48 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
           </li>
           <li>
             <b>residentsTotalGuestsPresentNames</b> - Ger&auml;tealias der aktiven G&auml;ste, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPeople</b> - Anzahl der aktiven Personen, welche momentan zu den Bewohnern dazugez&auml;hlt werden
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsent</b> - Anzahl der aktiven Personen, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsentDevs</b> - Ger&auml;tename der aktiven Personen, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsentNames</b> - Ger&auml;tealias der aktiven Personen, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresent</b> - Anzahl der aktiven Personen, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresentDevs</b> - Ger&auml;tename der aktiven Personen, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresentNames</b> - Ger&auml;tealias der aktiven Personen, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPets</b> - Anzahl der Haustiere, die als permanente Bewohner behandelt werden
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsent</b> - Anzahl der Haustiere, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsentDevs</b> - Ger&auml;tename der Haustiere, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsentNames</b> - Ger&auml;tealias der Haustiere, die momentan unterwegs sind
+          </li>
+          <li>
+            <b>residentsTotalPetsPresent</b> - Anzahl der Haustiere, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPetsPresentDevs</b> - Ger&auml;tename der Haustiere, die momentan zu Hause sind
+          </li>
+          <li>
+            <b>residentsTotalPetsPresentNames</b> - Ger&auml;tealias der Haustiere, die momentan zu Hause sind
           </li>
           <li>
             <b>residentsTotalRoommates</b> - Anzahl der Bewohner, die als permanente Bewohner behandelt werden
@@ -30945,7 +31501,7 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
       <b>RESIDENTS Toolkit</b><br>
       <ul>
         <ul>
-					Mit dem set-Kommando <code>create</code> k&ouml;nnen zur Vereinfachung vorkonfigurierte Konfigurationen zu RESIDENTS, <a href="#ROOMMATE">ROOMMATE</a> oder <a href="#GUEST">GUEST</a> Ger&auml;ten hinzugef&uuml;gt werden.<br>
+					Mit dem set-Kommando <code>create</code> k&ouml;nnen zur Vereinfachung vorkonfigurierte Konfigurationen zu RESIDENTS, <a href="#ROOMMATE">ROOMMATE</a>, <a href="#GUEST">GUEST</a> oder <a href="#PET">PET</a> Ger&auml;ten hinzugef&uuml;gt werden.<br>
 					Die folgenden Kommandos sind momentan verf&uuml;gbar:<br>
 					<br>
 					<li>
@@ -30983,7 +31539,7 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
 								<i>wakeupResetdays</i> - sofern wakeupDefaultTime gesetzt ist, kann der Reset hier auf betimmte Tage begrenzt werden. Mon=1,Di=2,Mi=3,Do=4,Fr=5,Sa=6,So=0 (optional)
 							</li>
 							<li>
-								<i>wakeupUserdevice</i> - Backlink zum RESIDENTS, ROOMMATE oder GUEST Ger&auml;t, um dessen Status zu pr&uuml;fen (notwendig)
+								<i>wakeupUserdevice</i> - Backlink zum RESIDENTS, ROOMMATE, GUEST oder PET Ger&auml;t, um dessen Status zu pr&uuml;fen (notwendig)
 							</li>
 							<li>
 								<i>wakeupWaitPeriod</i> - Schwelle der Wartezeit in Minuten bis das Weckprogramm erneut ausgef&uuml;hrt werden kann, z.B. wenn manuell eine fr&uuml;here Weckzeit gesetzt wurde als normal w&auml;hrend wakeupDefaultTime verwendet wird. Greift nicht, wenn die Weckzeit w&auml;hrend dieser Zeit ge&auml;ndert wurde; Standard ist 360 Minuten / 6h (optional)
@@ -31283,11 +31839,21 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
       </ul><br />
       <br />
       <ul>
-        <u>Anwesenheit mit anderen ROOMMATE oder GUEST Devices synchronisieren</u><br />
+        <u>Anwesenheit mit anderen ROOMMATE, GUEST oder PET Devices synchronisieren</u><br />
         <br />
         <ul>
           Wenn Sie immer zusammen mit anderen Mitbewohnern oder G&auml;sten das Haus verlassen oder erreichen, k&ouml;nnen Sie ihren Status ganz einfach auf andere Mitbewohner &uuml;bertragen.<br />
           Durch das Setzen des Attributs rr_PassPresenceTo folgen die dort aufgef&uuml;hrten Mitbewohner ihren eigenen Status&auml;nderungen nach 'home', 'absent' oder 'gone'.<br />
+          <br />
+          Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
+        </ul>
+      </ul><br />
+      <br />
+      <ul>
+        <u>Status zu Hause mit anderen ROOMMATE, GUEST oder PET Devices synchronisieren</u><br />
+        <br />
+        <ul>
+          Um jeden Statuswechsel zu synchronisieren, welcher _nicht_ dem erreichen oder verlassen des Hauses entspricht, kann das Attribut rr_passStateTo gesetzt werden.<br />
           <br />
           Bitte beachten, dass Mitbewohner mit dem aktuellen Status 'gone' oder 'none' (im Falle von G&auml;sten) nicht beachtet werden.
         </ul>
@@ -31351,7 +31917,10 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
             <b>rr_noDuration</b> - deaktiviert die kontinuierliche, nicht Event-basierte Berechnung der Zeitspannen (siehe Readings durTimer*)
           </li>
           <li>
-            <b>rr_passPresenceTo</b> - synchronisiere die Anwesenheit mit anderen ROOMMATE oder GUEST Devices; mehrere Devices durch Leerzeichen trennen
+            <b>rr_passStateTo</b> - synchronisiere den Status zu Hause mit anderen ROOMMATE, GUEST oder PET Devices; mehrere Devices durch Leerzeichen trennen
+          </li>
+          <li>
+            <b>rr_passPresenceTo</b> - synchronisiere die Anwesenheit mit anderen ROOMMATE, GUEST oder PET Devices; mehrere Devices durch Leerzeichen trennen
           </li>
           <li>
             <b>rr_presenceDevices</b> - &uuml;bernehmen des presence Status von einem anderen FHEM Device. Bei mehreren Devices diese mit Komma trennen, um ein Update des ROOMMATE Devices auszul&ouml;sen, sobald ALLE Devices entweder absent oder present sind. Optional kann auch durch : abgetrennt ein Reading Name angegeben werden, ansonsten werden die Readings presence und state ber&uuml;cksichtigt.
@@ -31367,6 +31936,9 @@ Siehe <a href="#PW_Switch">PW_Switch</a>.
           </li>
           <li>
             <b>rr_wakeupDevice</b> - Referenz zu versklavten DUMMY Ger&auml;ten, welche als Wecker benutzt werden (Teil von RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - Gibt einen bestimmten Typ eines Mitbewohner f&uuml;r das Device an. Dies wird bei der Berechnung des Home Alone Status ber&uuml;cksichtigt. Standard ist "adult"
           </li>
         </ul>
       </ul><br />

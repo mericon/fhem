@@ -1,5 +1,5 @@
 ##############################################
-# $Id: 01_FHEMWEB.pm 19148 2019-04-08 12:24:10Z rudolfkoenig $
+# $Id: 01_FHEMWEB.pm 19335 2019-05-05 18:05:33Z rudolfkoenig $
 package main;
 
 use strict;
@@ -737,7 +737,8 @@ sub
 FW_closeConn($)
 {
   my ($hash) = @_;
-  if(!$hash->{inform} && !$hash->{BUF}) { # Forum #41125
+  # Forum #41125, 88470
+  if(!$hash->{inform} && !$hash->{BUF} && !defined($hash->{".WRITEBUFFER"})) {
     my $cc = AttrVal($hash->{SNAME}, "closeConn",
                      $FW_userAgent =~ m/(iPhone|iPad|iPod)/);
     if(!$FW_httpheader{Connection} || $cc) {

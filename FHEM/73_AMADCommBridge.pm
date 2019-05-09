@@ -26,7 +26,7 @@
 #  GNU General Public License for more details.
 #
 #
-# $Id: 73_AMADCommBridge.pm 19090 2019-04-02 06:24:39Z CoolTux $
+# $Id: 73_AMADCommBridge.pm 19353 2019-05-08 20:31:02Z CoolTux $
 #
 ###############################################################################
 ##
@@ -65,7 +65,7 @@ use warnings;
 use FHEM::Meta;
 
 my $modulversion   = '4.4.1';
-my $flowsetversion = '4.4.0';
+my $flowsetversion = '4.4.1';
 
 sub AMADCommBridge_Initialize($) {
 

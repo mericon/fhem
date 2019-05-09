@@ -1124,6 +1124,7 @@ sub renderViewTemplateMaint($$) {
 					Show all (overview)
 					</a></li>
 				<li style="text-align:left;list-style-type:circle;color:var(--fuip-color-symbol-active);"><a href="javascript:void(0);" onclick="dialogCreateNewViewTemplate();">Create new</a></li> 
+				<li style="text-align:left;list-style-type:circle;color:var(--fuip-color-symbol-active);"><a href="javascript:void(0);" onclick="dialogImportViewTemplate();">Import</a></li> 
 				<br>'."\n";
 	for my $viewtemplate (sort keys %{$hash->{viewtemplates}}) {
 		$result .= '<li	style="text-align:left;list-style-type:circle;color:var(--fuip-color-symbol-active);">
@@ -2102,33 +2103,50 @@ sub settingsImport($$) {
 	$content =~ s/\+/%20/g;
 	$content = main::urlDecode($content);
 	my $confHash = eval($content);
+	my $targettype = $urlParams->{type};  # this is what we are trying to import
+	$targettype = "" unless $targettype;
 	# cell or page?
 	# TODO: Also maybe full FUIP instances?
-	my $class = $confHash->{class}; # This allows for other cell-implementations (???)
+	my $class = $confHash->{class}; # This is what is in the file
+	$class = "" unless $class;
 	delete($confHash->{class});
-	# we only allow FUIP::Cell and FUIP::Page so far
-	# TODO: real error handling
-	if($class eq "FUIP::Cell" or $class eq "FUIP::Dialog") {
+	# we only allow FUIP::Cell, FUIP::Dialog, FUIP::Page and FUIP::ViewTemplate so far
+	# check whether there is anything sensible in the file and whether the file matches what we are trying to import
+	unless($class =~ m/^FUIP::(Cell|Dialog|Page|ViewTemplate)$/) {
+		return ("text/plain; charset=utf-8", 
+			"<b>Select a FUIP export file</b><p>
+			You are probably trying to import a file as a FUIP page, cell, dialog or view template. However, the selected
+			file does not seem to be a FUIP export file at all."); 
+	};
+	if($targettype eq "viewtemplate") {
+		return ("text/plain; charset=utf-8", 
+			"<b>Select a FUIP view template export file</b><p>
+			You are probably trying to import a file as a FUIP <b>view template</b>. However, the selected 
+			file looks like an exported <b>cell</b>, <b>dialog</b> or <b>page</b>. Either import the file as a new cell, dialog or page, or select
+			a different file.") unless $class eq "FUIP::ViewTemplate"; 	
+	}elsif($targettype eq "page") {
 		return ("text/plain; charset=utf-8", 
 			"<b>Select a FUIP page export file</b><p>
 			You are probably trying to import a file as a FUIP <b>page</b>. However, the selected 
-			file looks like an exported <b>cell</b> or <b>dialog</b>. Either import the file as a new cell (or dialog) or select
-			a different file.") unless exists($urlParams->{cellid}); 
-	}elsif($class eq "FUIP::Page"){
+			file looks like an exported <b>cell</b>, <b>dialog</b> or <b>view template</b>. Either import the file as a new cell, dialog or view template, or select
+			a different file.") unless $class eq "FUIP::Page"; 
+	}elsif($targettype =~ m/^(cell|dialog)$/){
 		return ("text/plain; charset=utf-8", 			
 			"<b>Select a FUIP cell or dialog export file</b><p>
 			You are probably trying to import a file as a FUIP <b>cell</b> or <b>dialog</b>. However, the selected 
-			file looks like an exported <b>page</b>. Either import the file as a new page or select
-			a different file.") if exists($urlParams->{cellid}); 	
+			file looks like an exported <b>page</b> or <b>view template</b>. Either import the file as a new page or view template, or select
+			a different file.") unless $class =~ m/^FUIP::(Cell|Dialog)$/; 	
 	}else{
-		return ("text/plain; charset=utf-8", 
-			"<b>Select a FUIP export file</b><p>
-			You are probably trying to import a file as a FUIP page, cell or dialog. However, the selected
-			file does not seem to be a FUIP export file at all."); 
+		return ("text/plain; charset=utf-8", 			
+			"<b>Unknown type: ".$targettype."</b><p>
+			You are probably trying to import a file as a FUIP object. However, the system could not find out the target object type. This is most likely an internal FUIP error, i.e. probably not your fault. Maybe it's time to open a new thread in the FHEM forum."); 	
 	};
 	my $newObject = $class->reconstruct($confHash,$hash);
+	# we might have downloaded something where a view template is missing
+	# TODO: real error management/naming concept etc.
+	FUIP::ViewTemplInstance::fixInstancesWithoutTemplates();
 	my $cellSpacing = 2 * getCellMargin($hash);
-	if(exists($urlParams->{fieldid})) {
+	if($targettype eq "dialog") {
 		# importing (as) a dialog
 		# This means that what we import will replace the current one
 		my $dialog = findDialogFromFieldId($hash,$urlParams,$urlParams->{fieldid});
@@ -2146,7 +2164,7 @@ sub settingsImport($$) {
 			$dialog->{width} =  $newObject->{width};
 			$dialog->{height} =  $newObject->{height};
 		};
-	}elsif(exists($urlParams->{cellid})) {
+	}elsif($targettype eq "cell") {
 		# importing as a cell
 		# This always creates a new cell
 		# If we come from a dialog, we need to convert sizes
@@ -2168,8 +2186,19 @@ sub settingsImport($$) {
 			delete $newObject->{posY};
 		};
 		push(@{$hash->{pages}{$urlParams->{pageid}}{cells}},$newObject);
-	}else{
+	}elsif($targettype eq "page"){
 		$hash->{pages}{$urlParams->{pageid}} = $newObject;
+	}elsif($targettype eq "viewtemplate") {
+		# make sure to use a new name
+		my $id = $newObject->{id};
+		my $cnt = 0;
+		while(exists $hash->{viewtemplates}{$id}) {
+			$cnt++;
+			$id = $newObject->{id}.'_'.$cnt; 
+		};
+		$newObject->{id} = $id;
+		$hash->{viewtemplates}{$id} = $newObject;
+		return ("text/plain; charset=utf-8", "OK".$id);
 	};	
 	return("text/plain; charset=utf-8", "OK");
 };
@@ -2187,7 +2216,7 @@ sub finishCgiAnswer($$) {
 		eval { $data = Compress::Zlib::memGzip($data); };
 		if($@) {
 			main::Log 1, "memGzip: $@"; 
-			$data = ""; #Forum #29939
+			$data = ""; 
 		}else{
 			$compressed = "Content-Encoding: gzip\r\n";
 		}
@@ -2198,12 +2227,13 @@ sub finishCgiAnswer($$) {
     #     "Expires: ".FmtDateTimeRFC1123($main::FW_chash->{LASTACCESS}+900)."\r\n" : 
     #     "Cache-Control: no-cache, no-store, must-revalidate\r\n");
 	my $expires = "Cache-Control: no-cache, no-store, must-revalidate\r\n";
-	main::FW_addToWritebuffer($main::defs{$main::FW_cname},
+	my $client = $main::defs{$main::FW_cname};
+	main::FW_addToWritebuffer($client,
            "HTTP/1.1 200 OK\r\n" .
            "Content-Length: $length\r\n" .
            $expires . $compressed . # $main::FW_headerlines .
            "Content-Type: $rettype\r\n\r\n" .
-           $data, undef, 1);
+           $data, undef , 1);
 }
 
 
@@ -2545,6 +2575,8 @@ sub setViewSettings($$$$;$) {
 		$newclass = undef if($newclass and $newclass eq blessed($viewlist->[$viewindex]));  # already this class
 		# now check for view templates
 		if($newclass and $newclass =~ m/^FUIP::VTempl::(.*)/) {
+			# Is this the "error class"? If yes, don't do anything
+			return if $1 eq "<ERROR>";
 			$newclass = undef if(blessed($viewlist->[$viewindex]) eq "FUIP::ViewTemplInstance" 
 									and $1 eq $viewlist->[$viewindex]{templateid});
 		};

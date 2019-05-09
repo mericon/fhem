@@ -4,6 +4,7 @@
 #
 # Copyright (C) 2014 Norbert Truchsess
 # Copyright (C) 2019 Hauswart@forum.fhem.de
+# Copyright (C) 2019 Beta-User@forum.fhem.de
 #
 #     This file is part of fhem.
 #
@@ -20,7 +21,7 @@
 #     You should have received a copy of the GNU General Public License
 #     along with fhem.  If not, see <http://www.gnu.org/licenses/>.
 #
-# $Id: 00_MYSENSORS.pm 19108 2019-04-04 04:08:41Z Beta-User $
+# $Id: 00_MYSENSORS.pm 19314 2019-05-03 05:02:58Z Beta-User $
 #
 ##############################################
 

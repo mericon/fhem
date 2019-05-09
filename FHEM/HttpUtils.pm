@@ -1,5 +1,5 @@
 ##############################################
-# $Id: HttpUtils.pm 17831 2018-11-24 15:09:17Z rudolfkoenig $
+# $Id: HttpUtils.pm 19349 2019-05-08 16:26:21Z rudolfkoenig $
 package main;
 
 use strict;
@@ -592,9 +592,11 @@ HttpUtils_Connect2($)
     delete($hash->{httpheader});
     $hash->{NAME} = "" if(!defined($hash->{NAME})); 
     my %timerHash = (hash=>$hash, checkSTS=>$selectTimestamp, msg=>"write to");
+    $hash->{conn}->blocking(0);
     $hash->{directReadFn} = sub() {
       my $buf;
       my $len = sysread($hash->{conn},$buf,65536);
+      return if(!defined($len) && $! == EWOULDBLOCK);
       $hash->{buf} .= $buf if(defined($len) && $len > 0);
       if(!defined($len) || $len <= 0 || 
          HttpUtils_DataComplete($hash)) {

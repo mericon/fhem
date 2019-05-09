@@ -1,5 +1,20 @@
 # Add changes at the top of the list. Keep it in ASCII, and 80-char wide.
 # Do not insert empty lines here, update check depends on it.
+ - feature: 74_AMADtaskerset_4.4.0.prj: add nfc tag support in taskerset
+               74_AMADautomagicflowset: fix bug then use VLC player
+ - feature: 73_DoorBird: Images can be stored as JPGs
+ - feature: 73_DoorBird: Secure communication with https ans SessionID
+ - bugfix:  73_AutoShuttersControl: fix brightness detection for IsDay,
+               fix detection for manual driveing
+ - bugfix:  73_GardenaSmartBridge: fix the fix
+ - bugfix:  73_GardenaSmartBridge: check if defined $data
+ - bufix:   55_DWD_OpenData: SunUp calculation (forum #83097 msg #931972)
+ - feature: 10_RESIDENTS: add home alone mode
+ - new:     20_PET: new RESIDENTS module type for pets at home
+ - bugfix:  73_AutoShuttersControl: fix bugs and logic problems
+ - feature: 98_weekprofile: HMCCU support
+ - change:  10_MYSENSORS_DEVICE: enhance support for SetExtensions;
+                      separate readings for heatrbeat, smartSleep & NACK
  - bugfix:  73_GardenaSmartBridge: fix undefined_value Error
  - feature: 98_Text2Speech: add Amazon Polly as new suggested TTS-Engine
               due best quality 

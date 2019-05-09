@@ -28,7 +28,7 @@
 #  GNU General Public License for more details.
 #
 #
-# $Id: 73_GardenaSmartBridge.pm 19308 2019-05-01 16:21:07Z CoolTux $
+# $Id: 73_GardenaSmartBridge.pm 19343 2019-05-07 08:58:15Z CoolTux $
 #
 ###############################################################################
 ##
@@ -59,7 +59,7 @@ use strict;
 use warnings;
 use FHEM::Meta;
 
-my $version = "1.6.1";
+my $version = "1.6.2";
 
 
 sub GardenaSmartBridge_Initialize($) {
@@ -497,13 +497,13 @@ sub ErrorHandling($$$) {
         return;
     }
 
-    if (
+    if ( defined($data)
+        and $data
+        and
         (
             ( $data =~ /Error/ )
             or defined( eval { decode_json($data) }->{errors} )
         )
-        and ref($param->{code}) eq 'HASH'
-        and exists( $param->{code} )
       )
     {
         readingsBeginUpdate($dhash);

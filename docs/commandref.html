@@ -145,6 +145,7 @@
       <a href="#dash_dhcp">dash_dhcp</a> &nbsp;
       <a href="#DFPlayerMini">DFPlayerMini</a> &nbsp;
       <a href="#DLNARenderer">DLNARenderer</a> &nbsp;
+      <a href="#DoorBird">DoorBird</a> &nbsp;
       <a href="#Dooya">Dooya</a> &nbsp;
       <a href="#DUOFERN">DUOFERN</a> &nbsp;
       <a href="#DUOFERNSTICK">DUOFERNSTICK</a> &nbsp;
@@ -592,6 +593,7 @@
       <a href="#MSwitch">MSwitch</a> &nbsp;
       <a href="#notify">notify</a> &nbsp;
       <a href="#PachLog">PachLog</a> &nbsp;
+      <a href="#PET">PET</a> &nbsp;
       <a href="#PostMe">PostMe</a> &nbsp;
       <a href="#powerMap">powerMap</a> &nbsp;
       <a href="#PRESENCE">PRESENCE</a> &nbsp;
@@ -700,7 +702,17 @@ telnet) or single client command (via fhem.pl). Example:
 </ul>
 <br>
 If a OS-user called fhem exists, and FHEM is started as root, FHEM will
-automatically change to to this user via setuid. <br>
+automatically change to to this user via setuid.
+<br><br>
+
+If FHEM is started with the -d option (perl fhem.pl -d fhem.cfg), then the
+verbose level is set to 5 and the logfile is redirected to the STDOUT.
+<br><br>
+
+The environment variable FHEM_GLOBALATTR is evaluated: it consists of space
+separated name=value pairs, where name is a global attribute. Values from this
+source override values set in the configuration file.
+
 </ul>
 <!-- intro end - diese Zeile nicht entfernen! -->
 
@@ -4066,7 +4078,7 @@ The following local attributes are used by a wider range of devices:
       <li>ASC_BlockingTime_afterManual - wie viel Sekunden soll die Automatik nach einer manuellen Fahrt aus setzen. / default 1200 wenn nicht gesetzt</li>
       <li>ASC_BlockingTime_beforDayOpen - wie viel Sekunden vor dem morgendlichen &ouml;ffnen soll keine schließen Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
       <li>ASC_BlockingTime_beforNightClose - wie viel Sekunden vor dem n&auml;chtlichen schlie&zlig;en soll keine &ouml;ffnen Fahrt mehr statt finden. / default 3600 wenn nicht gesetzt</li>
-      <li>ASC_BrightnessSensor - DEVICE:READING WERT-MORGENS:WERT-ABENDS / 'Helligkeit:brightness 400:800' Angaben zum Helligkeitssensor und den Brightnesswerten f&uuml;r Sonnenuntergang und Sonnenaufgang. Die Sensor Device Angaben werden auch f&uuml;r die Beschattung verwendet. / default none wenn nicht gesetzt</li>
+      <li>ASC_BrightnessSensor - DEVICE[:READING] WERT-MORGENS:WERT-ABENDS / 'Sensorname[:brightness [400:800]]' Angaben zum Helligkeitssensor mit (Readingname, optional) f&uuml;r die Beschattung und dem Fahren der Rollladen nach brightness und den optionalen Brightnesswerten f&uuml;r Sonnenauf- und Sonnenuntergang. / default none wenn nicht gesetzt</li>
       <li>ASC_Closed_Pos - in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_ComfortOpen_Pos - in 10 Schritten von 0 bis 100, Default ist abh&auml;ngig vom Attribut ASC</li>
       <li>ASC_Down - astro/time/brightness - bei astro wird Sonnenuntergang berechnet, bei time wird der Wert aus ASC_Time_Down_Early als Fahrzeit verwendet und bei brightness muss ASC_Time_Down_Early und ASC_Time_Down_Late korrekt gesetzt werden. Der Timer l&auml;uft dann nach ASC_Time_Down_Late Zeit, es wird aber in der Zeit zwischen ASC_Time_Down_Early und ASC_Time_Down_Late geschaut, ob die als Attribut im Moduldevice hinterlegte ASC_brightnessMinVal erreicht wurde. Wenn ja, wird der Rollladen runter gefahren / default astro wenn nicht gesetzt</li>
@@ -9950,7 +9962,7 @@ Just one definition per FHEM-installation is allowed. <a href="https://fhem.de/c
   <ul> <br>
       <li>forecastStation &lt;station code&gt;, default: none<br>
           Setting forecastStation enables automatic updates every hour.
-          The station code is either a 5 digit WMO station code or an alphanumeric DWD station code from the <a href="https://www.dwd.de/DE/leistungen/met_verfahren_mosmix/mosmix_stationskatalog.pdf">MOSMIX station catalogue</a>.<br>
+          The station code is either a 5 digit WMO station code or an alphanumeric DWD station code from the <code>id</code> column of the <a href="https://www.dwd.de/DE/leistungen/met_verfahren_mosmix/mosmix_stationskatalog.pdf">MOSMIX station catalogue</a>.<br>
           Note: When value is changed all existing forecast readings will be deleted.
       </li><br>
       <li>forecastDays &lt;n&gt;, default: 6<br>
@@ -13903,6 +13915,166 @@ sub bdump {
   
 </ul>
 
+<p><a name="DoorBird"></a>
+<h3>DoorBird</h3>
+<div class='langLinks'>[EN <a href='commandref_DE.html#DoorBird'>DE</a>]</div>
+<ul>
+	<table>
+		<tr>
+			<td>
+				The DoorBird module establishes the communication between the DoorBird - door intercommunication unit and the fhem home automation based on the official API, published by the manufacturer.<BR>
+				Please make sure, that the user has been enabled the API-Operator button in the DoorBird Android/iPhone APP under "Administration -> User -> Edit -> Permission -> API-Operator".
+				The following packet - installations are pre-requisite if not already installed by other modules (Examples below tested on Raspberry JESSIE):<BR>
+				<BR>
+				<code>
+					<li>sudo apt-get install sox					</li>
+					<li>sudo apt-get install libsox-fmt-all			</li>
+					<li>sudo apt-get install libsodium-dev			</li>
+					<li>sudo cpan LWP::UserAgent					</li>
+					<li>sudo cpan Alien::Base::ModuleBuild			</li>
+					<li>sudo cpan Alien::Sodium					</li>
+					<li>sudo cpan Crypt::NaCl::Sodium				</li>
+					<li>sudo cpan MIME::Base64						</li>
+				</code>
+			</td>
+		</tr>
+	</table>
+	<BR>
+
+	<table>
+		<tr>
+			<td>
+				<a name="DoorBirddefine"></a><b>Define</b>
+			</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td>
+				<ul>
+					<code>define &lt;name&gt; DoorBird &lt;IPv4-address&gt; &lt;Username&gt; &lt;Password&gt;</code>
+				</ul>
+			</td>
+		</tr>
+	</table>
+
+	<ul>
+		<ul>
+			<table>
+				<tr><td><code>&lt;name&gt;                </code> : </td><td>The name of the device. Recommendation: "myDoorBird".																		</td></tr>
+				<tr><td><code>&lt;IPv4-address&gt;        </code> : </td><td>A valid IPv4 address of the KMxxx. You might look into your router which DHCP address has been given to the DoorBird unit.	</td></tr>
+				<tr><td><code>&lt;Username&gt;            </code> : </td><td>The username which is required to sign on the DoorBird.																	</td></tr>
+				<tr><td><code>&lt;Password&gt;            </code> : </td><td>The password which is required to sign on the DoorBird.																	</td></tr>
+			</table>
+		</ul>
+	</ul>
+
+	<BR>
+
+	<table>
+		<tr><td><a name="DoorBirdSet"></a><b>Set</b></td></tr>
+		<tr><td><ul>The set function is able to change or activate the following features as follows:</ul></td></tr>
+	</table>
+
+
+	<table>
+		<tr><td><ul><code>set Light_On                    </code></ul></td><td> : Activates the IR lights of the DoorBird unit. The IR - light deactivates automatically by the default time within the Doorbird unit																			</td></tr>
+		<tr><td><ul><code>set Live_Audio &lt;on:off&gt;   </code></ul></td><td> : Activate/Deactivate the Live Audio Stream of the DoorBird on or off and toggles the direct link in the <b>hidden</b> Reading <code>.AudioURL</code>															</td></tr>
+		<tr><td><ul><code>set Live_Video &lt;on:off&gt;   </code></ul></td><td> : Activate/Deactivate the Live Video Stream of the DoorBird on or off and toggles the direct link in the <b>hidden</b> Reading <code>.VideoURL</code>															</td></tr>
+		<tr><td><ul><code>set Open Door &lt;Value&gt;     </code></ul></td><td> : Activates the Relay of the DoorBird unit with the given address. The list of installed relay addresses are imported with the initialization of parameters.													</td></tr>
+		<tr><td><ul><code>set Restart                     </code></ul></td><td> : Sends the command to restart (reboot) the Doorbird unit																																						</td></tr>
+		<tr><td><ul><code>set Transmit_Audio &lt;Path&gt; </code></ul></td><td> : Converts a given audio file and transmits the stream to the DoorBird speaker. Requires a datapath to audio file to be converted and send. The user "fhem" needs to have write access to this directory.<BR>	</td></tr>
+	</table>
+
+
+	<table>
+		<tr><td><a name="DoorBirdGet"></a><b>Get</b></td></tr>
+		<tr><td>
+			<ul>
+					The get function is able to obtain the following information from the DoorBird unit:<BR><BR>
+			</ul>
+		</td></tr>
+	</table>
+	<table>
+		<tr><td><ul><code>get History_Request             </code></ul></td><td> : Downloads the pictures of the last events of the doorbell and motion sensor. (Refer to attribute <code>MaxHistory</code>)																						</td></tr>
+		<tr><td><ul><code>get Image_Request               </code></ul></td><td> : Downloads the current Image of the camera of DoorBird unit.																																					</td></tr>
+		<tr><td><ul><code>get Info_Request                </code></ul></td><td> : Downloads the current internal setup such as relay configuration, firmware version etc. of the DoorBird unit. The obtained relay adresses will be used as options for the <code>Open_Door</code> command.		</td></tr>
+	</table>
+
+
+	<table>
+		<tr><td><a name="DoorBirdAttr"></a><b>Attributes</b></td></tr>
+		<tr><td>
+			<ul>
+					The following user attributes can be used with the DoorBird module in addition to the global ones e.g. <a href="#room">room</a>.<BR>
+			</ul>
+		</td></tr>
+	</table>
+
+	<ul>
+		<table>
+			<tr>
+				<td>
+				<code>disable</code> : </td><td>Stops the device from further reacting on UDP datagrams sent by the DoorBird unit.<BR>
+																   The default value is 0 = activated<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>KeepAliveTimeout</code> : </td><td>Timeout in seconds without still-alive UDP datagrams before state of device will be set to "disconnected".<BR>
+																   The default value is 30s<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>MaxHistory</code> : </td><td>Number of pictures to be downloaded from history for both - doorbell and motion sensor events.<BR>
+																   The default value is "50" which is the maximum possible.<BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>PollingTimeout</code> : </td><td>Timeout in seconds before download requests are terminated in cause of no reaction by DoorBird unit. Might be required to be adjusted due to network speed.<BR>
+																   The default value is 10s.<BR>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>UdpPort</code> : </td><td>Port number to be used to receice UDP datagrams. Ports are pre-defined by firmware.<BR>
+																   The default value is port 6524<BR>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SipDevice</code> : </td><td>Name of the fhem SIP device which is registered in the DoorBird unit as those ones who are allowed to call the DoorBird. Refer to <a href="#SIP">SIP</a>.<BR>
+																   The default value is the first SIP device in fhem.<BR>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SessionIdSec</code> : </td><td>Time in seconds for how long the session Id shall be valid, which is required for secure Video and Audio transmission. The DoorBird kills the session Id after 10min = 600s automatically. In case of use with CCTV recording units, this function must be disabled by setting to 0.<BR>
+																   The default value is 540s = 9min.<BR>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>SipNumber</code> : </td><td>The telephone number under which the DoorBird unit is registered and can be called.<BR>
+																   The default value is <code>**620</code><BR>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<code>ImageFileDir</code> : </td><td>The relative (e.g. "images") or absolute (e.g. "/mnt/NAS/images") with or without trailing "/" directory path to which the image files supposed to be stored.<BR>
+																   The default value is <code>0</code> = disabled<BR>
+				</td>
+			</tr>
+		</table>
+	</ul>
+</ul>
 <p><a name="Dooya"></a>
 <h3>Dooya protocol</h3>
 <div class='langLinks'>[EN <a href='commandref_DE.html#Dooya'>DE</a>]</div>
@@ -21851,7 +22023,7 @@ plugin_b =&gt; {
      <li>Environmental Applications<br>
          Weather Station (EEP A5-13-01)<br>
          Sun Intensity (EEP A5-13-02)<br>
-         [Eltako FWS61]<br>
+         [AWAG XFJ, Eltako FWS61]<br>
      <ul>
        <li>T: t/&#176C B: E/lx W: Vs/m IR: yes|no</li>
        <li>brightness: E/lx (Sensor Range: E = 0 lx ... 999 lx)</li>
@@ -21863,6 +22035,7 @@ plugin_b =&gt; {
        <li>sunWest: E/lx (Sensor Range: E = 1 lx ... 150 klx)</li>
        <li>temperature: t/&#176C (Sensor Range: t = -40 &#176C ... 80 &#176C)</li>
        <li>windSpeed: Vs/m (Sensor Range: V = 0 m/s ... 70 m/s)</li>
+       <li>windStrength: B (Sensor Range: B = 0 Beaufort ... 12 Beaufort)</li>
        <li>state:T: t/&#176C B: E/lx W: Vs/m IR: yes|no</li>
      </ul><br>
         Brightness is the strength of the dawn light. SunEast,
@@ -28197,13 +28370,23 @@ Step C0 C1<br>
       </ul><br>
       <br>
       <ul>
-        <u>Synchronizing presence with other ROOMMATE or GUEST devices</u><br>
+        <u>Synchronizing presence with other GUEST, PET or ROOMMATE devices</u><br>
         <br>
         <ul>
-          If you always leave or arrive at your house together with other roommates or guests, you may enable a synchronization of your presence state for certain individuals.<br>
+          If you always leave or arrive at your house together with other roommates, guests or pets, you may enable a synchronization of your presence state for certain individuals.<br>
           By setting attribute rg_passPresenceTo, those individuals will follow your presence state changes to 'home', 'absent' or 'gone' as you do them with your own device.<br>
           <br>
-          Please note that individuals with current state 'none' or 'gone' (in case of roommates) will not be touched.
+          Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Synchronizing state with other GUEST, PET or ROOMMATE devices</u><br>
+        <br>
+        <ul>
+          To sync each and every status change that is _not_ related to leaving or arriving at your house, you may set attribute rg_passStateTo.<br>
+          <br>
+          Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
         </ul>
       </ul><br>
       <br>
@@ -28265,10 +28448,13 @@ Step C0 C1<br>
             <b>rg_noDuration</b> - may be used to disable continuous, non-event driven duration timer calculation (see readings durTimer*)
           </li>
           <li>
-            <b>rg_passPresenceTo</b> - synchronize presence state with other GUEST or GUEST devices; separte devices by space
+            <b>rg_passStateTo</b> - synchronize home state with other GUEST, PET or ROOMMATE devices; separte devices by space
           </li>
           <li>
-            <b>rg_presenceDevices</b> - take over presence state from any other FHEM device. Separate more than one device with comma meaning ALL of them need to be either present or absent to trigger update of this ROOMMATE device. You may optionally add a reading name separated by :, otherwise reading name presence and state will be considered.
+            <b>rg_passPresenceTo</b> - synchronize presence state with other GUEST, PET or ROOMMATE devices; separte devices by space
+          </li>
+          <li>
+            <b>rg_presenceDevices</b> - take over presence state from any other FHEM device. Separate more than one device with comma meaning ALL of them need to be either present or absent to trigger update of this GUEST device. You may optionally add a reading name separated by :, otherwise reading name presence and state will be considered.
           </li>
           <li>
             <b>rg_realname</b> - whenever GUEST wants to use the realname it uses the value of attribute alias or group; defaults to group
@@ -28281,6 +28467,9 @@ Step C0 C1<br>
           </li>
           <li>
             <b>rg_wakeupDevice</b> - reference to enslaved DUMMY devices used as a wake-up timer (part of RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - specifies a specific class of a guest for the device. This will be considered for home alone status calculation. Defaults to "generic"
           </li>
         </ul>
       </ul><br>
@@ -28376,12 +28565,10 @@ Step C0 C1<br>
           <li>
             <b>wayhome</b> - depending on current location, it can become '1' if individual is on his/her way back home
           </li>
-          <li>
-            <br>
-            <br>
-            The following readings will be set to '-' if state was changed to 'none':<br>
-            lastArrival, lastDurAbsence, lastLocation, lastMood, location, mood
-          </li>
+          <br>
+          <br>
+          The following readings will be set to '-' if state was changed to 'none':<br>
+          lastArrival, lastDurAbsence, lastLocation, lastMood, location, mood
         </ul>
       </ul>
     </ul>
@@ -46489,6 +46676,10 @@ MSwitch is an auxiliary module that works both event- and time-controlled. <br /
         <p><code>attr &lt;name&gt; setReading_&lt;reading&gt; [&lt;value&gt;]*</code><br/>configures a reading that can be modified by set-command<br/>e.g.: <code>attr &lt;name&gt; setReading_switch_1 on,off</code></p>
     </li>
     <li>
+        <p><code>attr &lt;name&gt; setExtensionsEvent</code><br/>If set, the event will contain the command implemented by SetExtensions
+      (e.g. on-for-timer 10), else the executed command (e.g. on).
+    </li>
+    <li>
         <p><code>attr &lt;name&gt; mapReading_&lt;reading&gt; &lt;childId&gt; &lt;readingtype&gt; [&lt;value&gt;:&lt;mappedvalue&gt;]*</code><br/>configures the reading-name for a given childId and sensortype<br/>e.g.: <code>attr xxx mapReading_aussentemperatur 123 temperature</code>
     or <code>attr xxx mapReading_leftwindow 10 status 1:closed 0:open</code>. See also mapReadingType for setting defaults for types without predefined defaults</p>
     </li>
@@ -51737,6 +51928,315 @@ See <a href="/fhem/docs/commandref.html#OWX">OWX</a>
   </ul><br>
 </ul>
 
+<p>    <a name="PET" id="PET"></a>
+    <h3>PET</h3>
+<div class='langLinks'>[EN <a href='commandref_DE.html#PET'>DE</a>]</div>
+    <ul>
+      <a name="PETdefine" id="PETdefine"></a> <b>Define</b>
+      <ul>
+        <code>define &lt;rp_PetName&gt; PET [&lt;device name(s) of resident group(s)&gt;]</code><br>
+        <br>
+        Provides a special virtual device to represent a pet in your home.<br>
+        Based on the current state and other readings, you may trigger other actions within FHEM.<br>
+        <br>
+        Used by superior module <a href="#RESIDENTS">RESIDENTS</a> but may also be used stand-alone.<br>
+        <br />
+        Use comma separated list of resident device names for multi-membership (see example below).<br />
+        <br>
+        Example:<br>
+        <ul>
+          <code># Standalone<br>
+          define rp_Pet PET<br>
+          <br>
+          # Typical group member<br>
+          define rp_Pet PET rgr_Residents # to be member of resident group rgr_Residents<br>
+          <br>
+          # Member of multiple groups<br>
+          define rp_Pet PET rgr_Residents,rgr_Pets # to be member of resident group rgr_Residents and rgr_Pets</code>
+        </ul>F&uuml;r gew&ouml;hnlich sind das keine Fische oder Kleintiere in K&auml;figen
+        <br />
+        Note: A pet that is generally "worth" to be represented as a device in FHEM is an animal that usually leaves and re-enters home on a regular basis and that might stay alone at home from time to time. It is supposed to be an animal that you want your home to behave differently based on the pets presence or home status. Usually that is not a fish or small animals in cages, but something more like a dog in particular. Cats might not be worth to be tracked either, depending on their character and your daily family life.
+      </ul><br>
+      <br>
+      <a name="PETset" id="PETset"></a> <b>Set</b>
+      <ul>
+        <code>set &lt;rp_PetName&gt; &lt;command&gt; [&lt;parameter&gt;]</code><br>
+        <br>
+        Currently, the following commands are defined.<br>
+        <ul>
+          <li>
+            <b>location</b> &nbsp;&nbsp;-&nbsp;&nbsp; sets reading 'location'; see attribute rp_locations to adjust list shown in FHEMWEB
+          </li>
+          <li>
+            <b>mood</b> &nbsp;&nbsp;-&nbsp;&nbsp; sets reading 'mood'; see attribute rp_moods to adjust list shown in FHEMWEB
+          </li>
+          <li>
+            <b>state</b> &nbsp;&nbsp;home,gotosleep,asleep,awoken,absent,gone&nbsp;&nbsp; switch between states; see attribute rp_states to adjust list shown in FHEMWEB
+          </li>
+          <li>
+            <b>create</b>
+             <li><i>locationMap</i>&nbsp;&nbsp; add a pre-configured weblink device using showing a Google Map if readings locationLat+locationLong are present.</li>
+             <li><i>wakeuptimer</i>&nbsp;&nbsp; add several pre-configurations provided by RESIDENTS Toolkit. See separate section in <a href="#RESIDENTS">RESIDENTS module commandref</a> for details.</li>
+          </li>
+        </ul>
+        <ul>
+            <u>Note:</u> If you would like to restrict access to admin set-commands (-> create) you may set your FHEMWEB instance's attribute allowedCommands like 'set,set-user'.
+            The string 'set-user' will ensure only non-admin set-commands can be executed when accessing FHEM using this FHEMWEB instance.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Possible states and their meaning</u><br>
+        <br>
+        <ul>
+          This module differs between 6 states:<br>
+          <br>
+          <ul>
+            <li>
+              <b>home</b> - individual is present at home and awake
+            </li>
+            <li>
+              <b>gotosleep</b> - individual is on it's way to bed
+            </li>
+            <li>
+              <b>asleep</b> - individual is currently sleeping
+            </li>
+            <li>
+              <b>awoken</b> - individual just woke up from sleep
+            </li>
+            <li>
+              <b>absent</b> - individual is not present at home but will be back shortly
+            </li>
+            <li>
+              <b>gone</b> - individual is away from home for longer period
+            </li>
+          </ul>
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Presence correlation to location</u><br>
+        <br>
+        <ul>
+          Under specific circumstances, changing state will automatically change reading 'location' as well.<br>
+          <br>
+          Whenever presence state changes from 'absent' to 'present', the location is set to 'home'. If attribute rp_locationHome was defined, first location from it will be used as home location.<br>
+          <br>
+          Whenever presence state changes from 'present' to 'absent', the location is set to 'underway'. If attribute rp_locationUnderway was defined, first location from it will be used as underway location.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Auto Gone</u><br>
+        <br>
+        <ul>
+          Whenever an individual is set to 'absent', a trigger is started to automatically change state to 'gone' after a specific timeframe.<br>
+          Default value is 16 hours.<br>
+          <br>
+          This behaviour can be customized by attribute rp_autoGoneAfter.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Synchronizing presence with other PET, GUEST or ROOMMATE devices</u><br>
+        <br>
+        <ul>
+          If you always leave or arrive at your house together with other roommates, guests or pets, you may enable a synchronization of your presence state for certain individuals.<br>
+          By setting attribute rp_passPresenceTo, those individuals will follow your presence state changes to 'home', 'absent' or 'gone' as you do them with your own device.<br>
+          <br>
+          Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Synchronizing state with other PET, GUEST or ROOMMATE devices</u><br>
+        <br>
+        <ul>
+          To sync each and every status change that is _not_ related to leaving or arriving at your house, you may set attribute rp_passStateTo.<br>
+          <br>
+          Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Location correlation to state</u><br>
+        <br>
+        <ul>
+          Under specific circumstances, changing location will have an effect on the actual state as well.<br>
+          <br>
+          Whenever location is set to 'home', the state is set to 'home' if prior presence state was 'absent'. If attribute rp_locationHome was defined, all of those locations will trigger state change to 'home' as well.<br>
+          <br>
+          Whenever location is set to 'underway', the state is set to 'absent' if prior presence state was 'present'. If attribute rp_locationUnderway was defined, all of those locations will trigger state change to 'absent' as well. Those locations won't appear in reading 'lastLocation'.<br>
+          <br>
+          Whenever location is set to 'wayhome', the reading 'wayhome' is set to '1' if current presence state is 'absent'. If attribute rp_locationWayhome was defined, LEAVING one of those locations will set reading 'wayhome' to '1' as well. So you actually have implicit and explicit options to trigger wayhome.<br>
+          Arriving at home will reset the value of 'wayhome' to '0'.<br>
+          <br>
+          If you are using the <a href="#GEOFANCY">GEOFANCY</a> module, you can easily have your location updated with GEOFANCY events by defining a simple NOTIFY-trigger like this:<br>
+          <br>
+          <code>define n_rp_Pet.location notify geofancy:currLoc_Pet.* set rp_Pet:FILTER=location!=$EVTPART1 location $EVTPART1</code><br>
+          <br>
+          By defining geofencing zones called 'home' and 'wayhome' in the iOS app, you automatically get all the features of automatic state changes described above.
+        </ul>
+      </ul><br>
+      <br>
+      <a name="PETattr" id="PETattr"></a> <b>Attributes</b><br>
+      <ul>
+        <ul>
+          <li>
+            <b>rp_autoGoneAfter</b> - hours after which state should be auto-set to 'gone' when current state is 'absent'; defaults to 16 hours
+          </li>
+          <li>
+            <b>rp_geofenceUUIDs</b> - comma separated list of device UUIDs updating their location via <a href="#GEOFANCY">GEOFANCY</a>. Avoids necessity for additional notify/DOIF/watchdog devices and can make GEOFANCY attribute <i>devAlias</i> obsolete. (using more than one UUID/device might not be a good idea as location my leap)
+          </li>
+          <li>
+            <b>rp_lang</b> - overwrite global language setting; helps to set device attributes to translate FHEMWEB display text
+          </li>
+          <li>
+            <b>rp_locationHome</b> - locations matching these will be treated as being at home; first entry reflects default value to be used with state correlation; separate entries by space; defaults to 'home'
+          </li>
+          <li>
+            <b>rp_locationUnderway</b> - locations matching these will be treated as being underway; first entry reflects default value to be used with state correlation; separate entries by comma or space; defaults to "underway"
+          </li>
+          <li>
+            <b>rp_locationWayhome</b> - leaving a location matching these will set reading wayhome to 1; separate entries by space; defaults to "wayhome"
+          </li>
+          <li>
+            <b>rp_locations</b> - list of locations to be shown in FHEMWEB; separate entries by comma only and do NOT use spaces
+          </li>
+          <li>
+            <b>rp_moodDefault</b> - the mood that should be set after arriving at home or changing state from awoken to home
+          </li>
+          <li>
+            <b>rp_moodSleepy</b> - the mood that should be set if state was changed to gotosleep or awoken
+          </li>
+          <li>
+            <b>rp_moods</b> - list of moods to be shown in FHEMWEB; separate entries by comma only and do NOT use spaces
+          </li>
+          <li>
+            <b>rp_noDuration</b> - may be used to disable continuous, non-event driven duration timer calculation (see readings durTimer*)
+          </li>
+          <li>
+            <b>rp_passStateTo</b> - synchronize home state with other PET, GUEST or ROOMMATE devices; separte devices by space
+          </li>
+          <li>
+            <b>rp_passPresenceTo</b> - synchronize presence state with other PET, GUEST or ROOMMATE devices; separte devices by space
+          </li>
+          <li>
+            <b>rp_presenceDevices</b> - take over presence state from any other FHEM device. Separate more than one device with comma meaning ALL of them need to be either present or absent to trigger update of this PET device. You may optionally add a reading name separated by :, otherwise reading name presence and state will be considered.
+          </li>
+          <li>
+            <b>rp_realname</b> - whenever PET wants to use the realname it uses the value of attribute alias or group; defaults to group
+          </li>
+          <li>
+            <b>rp_showAllStates</b> - states 'asleep' and 'awoken' are hidden by default to allow simple gotosleep process via devStateIcon; defaults to 0
+          </li>
+          <li>
+            <b>rp_states</b> - list of states to be shown in FHEMWEB; separate entries by comma only and do NOT use spaces; unsupported states will lead to errors though
+          </li>
+          <li>
+            <b>rp_wakeupDevice</b> - reference to enslaved DUMMY devices used as a wake-up timer (part of RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - specifies a specific class of a pet for the device. This will be considered for home alone status calculation. Defaults to "generic"
+          </li>
+        </ul>
+      </ul><br>
+      <br>
+      <br>
+      <b>Generated Readings/Events:</b><br>
+      <ul>
+        <ul>
+          <li>
+            <b>durTimerAbsence</b> - timer to show the duration of absence from home in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>durTimerAbsence_cr</b> - timer to show the duration of absence from home in computer readable format (minutes)
+          </li>
+          <li>
+            <b>durTimerPresence</b> - timer to show the duration of presence at home in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>durTimerPresence_cr</b> - timer to show the duration of presence at home in computer readable format (minutes)
+          </li>
+          <li>
+            <b>durTimerSleep</b> - timer to show the duration of sleep in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>durTimerSleep_cr</b> - timer to show the duration of sleep in computer readable format (minutes)
+          </li>
+          <li>
+            <b>lastArrival</b> - timestamp of last arrival at home
+          </li>
+          <li>
+            <b>lastAwake</b> - timestamp of last sleep cycle end
+          </li>
+          <li>
+            <b>lastDeparture</b> - timestamp of last departure from home
+          </li>
+          <li>
+            <b>lastDurAbsence</b> - duration of last absence from home in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>lastDurAbsence_cr</b> - duration of last absence from home in computer readable format (minutes)
+          </li>
+          <li>
+            <b>lastDurPresence</b> - duration of last presence at home in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>lastDurPresence_cr</b> - duration of last presence at home in computer readable format (minutes)
+          </li>
+          <li>
+            <b>lastDurSleep</b> - duration of last sleep in human readable format (hours:minutes:seconds)
+          </li>
+          <li>
+            <b>lastDurSleep_cr</b> - duration of last sleep in computer readable format (minutes)
+          </li>
+          <li>
+            <b>lastLocation</b> - the prior location
+          </li>
+          <li>
+            <b>lastMood</b> - the prior mood
+          </li>
+          <li>
+            <b>lastSleep</b> - timestamp of last sleep cycle begin
+          </li>
+          <li>
+            <b>lastState</b> - the prior state
+          </li>
+          <li>
+            <b>lastWakeup</b> - time of last wake-up timer run
+          </li>
+          <li>
+            <b>lastWakeupDev</b> - device name of last wake-up timer
+          </li>
+          <li>
+            <b>location</b> - the current location
+          </li>
+          <li>
+            <b>mood</b> - the current mood
+          </li>
+          <li>
+            <b>nextWakeup</b> - time of next wake-up program run
+          </li>
+          <li>
+            <b>nextWakeupDev</b> - device name for next wake-up program run
+          </li>
+          <li>
+            <b>presence</b> - reflects the home presence state, depending on value of reading 'state' (can be 'present' or 'absent')
+          </li>
+          <li>
+            <b>state</b> - reflects the current state
+          </li>
+          <li>
+            <b>wakeup</b> - becomes '1' while a wake-up program of this resident is being executed
+          </li>
+          <li>
+            <b>wayhome</b> - depending on current location, it can become '1' if individual is on his/her way back home
+          </li>
+        </ul>
+      </ul>
+    </ul>
+
 <p><a name="PHC"></a>
 <h3>PHC</h3>
 <div class='langLinks'>[EN <a href='commandref_DE.html#PHC'>DE</a>]</div>
@@ -55413,7 +55913,7 @@ See <a href="#PW_Switch">PW_Switch</a>.
         <code>define &lt;rgr_ResidentsName&gt; RESIDENTS</code><br>
         <br>
         Provides a special virtual device to represent a group of individuals living at your home.<br>
-        It locically combines individual states of <a href="#ROOMMATE">ROOMMATE</a> and <a href="#GUEST">GUEST</a> devices and allows state changes for all members.<br>
+        It locically combines individual states of <a href="#ROOMMATE">ROOMMATE</a>, <a href="#GUEST">GUEST</a> and <a href="#PET">PET</a> devices and allows state changes for all members.<br>
         Based on the current state and other readings, you may trigger other actions within FHEM.<br>
         <br>
         Example:<br>
@@ -55433,10 +55933,16 @@ See <a href="#PW_Switch">PW_Switch</a>.
             <b>addGuest</b> &nbsp;&nbsp;-&nbsp;&nbsp; creates a new GUEST device and adds it to the current RESIDENTS group. Just enter the dummy name and there you go.
           </li>
           <li>
+            <b>addPet</b> &nbsp;&nbsp;-&nbsp;&nbsp; creates a new PET device and adds it to the current RESIDENTS group. Just enter the dummy name and there you go.
+          </li>
+          <li>
             <b>addRoommate</b> &nbsp;&nbsp;-&nbsp;&nbsp; creates a new ROOMMATE device and adds it to the current RESIDENTS group. Just enter the first name and there you go.
           </li>
           <li>
             <b>removeGuest</b> &nbsp;&nbsp;-&nbsp;&nbsp; shows all GUEST members and allows to delete their dummy devices easily.
+          </li>
+          <li>
+            <b>removePet</b> &nbsp;&nbsp;-&nbsp;&nbsp; shows all PET members and allows to delete their dummy devices easily.
           </li>
           <li>
             <b>removeRoommate</b> &nbsp;&nbsp;-&nbsp;&nbsp; shows all ROOMMATE members and allows to delete their dummy devices easily.
@@ -55449,7 +55955,7 @@ See <a href="#PW_Switch">PW_Switch</a>.
           </li>
         </ul>
         <ul>
-            <u>Note:</u> If you would like to restrict access to admin set-commands (-> addGuest, addRoommate, removeGuest, create) you may set your FHEMWEB instance's attribute allowedCommands like 'set,set-user'.
+            <u>Note:</u> If you would like to restrict access to admin set-commands (-> addGuest, addPet, addRoommate, removeGuest, removePet, create) you may set your FHEMWEB instance's attribute allowedCommands like 'set,set-user'.
             The string 'set-user' will ensure only non-admin set-commands can be executed when accessing FHEM using this FHEMWEB instance.
         </ul>
       </ul><br>
@@ -55484,13 +55990,19 @@ See <a href="#PW_Switch">PW_Switch</a>.
             </li>
           </ul><br>
           <br>
-          Note: State 'none' cannot explicitly be set. Setting state to 'gone' will be handled as 'none' for GUEST member devices.
+          Note: State 'none' cannot explicitly be set. Setting state to 'gone' will be handled as 'none' for GUEST or PET member devices.
         </ul>
       </ul><br>
       <br>
       <a name="RESIDENTSattr" id="RESIDENTSattr"></a> <b>Attributes</b><br>
       <ul>
         <ul>
+          <li>
+            <b>rgr_homealoneInStatus</b> - if set, state will have a prefix of the value of residentsHomealoneSubtype; In case it is a pet, it will only be copied to state as 'pet'. Defaults to "0"
+          </li>
+          <li>
+            <b>rgr_homealoneSubTypes</b> - a list of subTypes that will trigger home alone status if they are the only ones present at home. The order here will also affect the determination of the person with the most responsibility at home. The sorting order starts with least important to most important.
+          </li>
           <li>
             <b>rgr_lang</b> - overwrite global language setting; helps to set device attributes to translate FHEMWEB display text
           </li>
@@ -55513,6 +56025,12 @@ See <a href="#PW_Switch">PW_Switch</a>.
       <b>Generated Readings/Events:</b><br>
       <ul>
         <ul>
+          <li>
+            <b>homealoneSubtype</b> - subType of the residential object in charge
+          </li>
+          <li>
+            <b>homealoneType</b> - type of the residential object in charge
+          </li>
           <li>
             <b>lastActivity</b> - the last state change of one of the group members
           </li>
@@ -55654,6 +56172,51 @@ See <a href="#PW_Switch">PW_Switch</a>.
           <li>
             <b>residentsTotalGuestsPresentNames</b> - device alias of all active guests who are currently at home
           </li>
+
+
+
+          <li>
+            <b>residentsTotalPeople</b> - number of active people who are currently treated as part of the residents scope
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsent</b> - number of all active people who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsentDevs</b> - device name of all active people who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPeopleAbsentNames</b> - device alias of all active people who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresent</b> - number of all active people who are currently at home
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresentDevs</b> - device name of all active people who are currently at home
+          </li>
+          <li>
+            <b>residentsTotalPeoplePresentNames</b> - device alias of all active people who are currently at home
+          </li>
+          <li>
+            <b>residentsTotalPets</b> - number of pets treated as being a permanent resident
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsent</b> - number of all pets who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsentDevs</b> - device name of all pets who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPetsAbsentNames</b> - device alias of all pets who are currently underway
+          </li>
+          <li>
+            <b>residentsTotalPetsPresent</b> - number of all pets who are currently at home
+          </li>
+          <li>
+            <b>residentsTotalPetsPresentDevs</b> - device name of all pets who are currently at home
+          </li>
+          <li>
+            <b>residentsTotalPetsPresentNames</b> - device alias of all pets who are currently at home
+          </li>
           <li>
             <b>residentsTotalRoommates</b> - number of residents treated as being a permanent resident
           </li>
@@ -55724,7 +56287,7 @@ See <a href="#PW_Switch">PW_Switch</a>.
       <b>RESIDENTS Toolkit</b><br>
       <ul>
         <ul>
-					Using set-command <code>create</code> you may add pre-configured configurations to your RESIDENTS, <a href="#ROOMMATE">ROOMMATE</a> or <a href="#GUEST">GUEST</a> devices for your convenience.<br>
+					Using set-command <code>create</code> you may add pre-configured configurations to your RESIDENTS, <a href="#ROOMMATE">ROOMMATE</a>, <a href="#GUEST">GUEST</a> or <a href="#PET">PET</a> devices for your convenience.<br>
 					The following commands are currently available:<br>
 					<br>
 					<li>
@@ -55762,7 +56325,7 @@ See <a href="#PW_Switch">PW_Switch</a>.
 								<i>wakeupResetdays</i> - if wakeupDefaultTime is set you may restrict timer reset to specific days only. Mon=1,Tue=2,Wed=3,Thu=4,Fri=5,Sat=6,Sun=0 (optional)
 							</li>
 							<li>
-								<i>wakeupUserdevice</i> - backlink to RESIDENTS, ROOMMATE or GUEST device to check it's status (mandatory)
+								<i>wakeupUserdevice</i> - backlink to RESIDENTS, ROOMMATE, GUEST or PET device to check its status (mandatory)
 							</li>
 							<li>
 								<i>wakeupWaitPeriod</i> - waiting period threshold in minutes until wake-up program may be triggered again, e.g. if you manually set an earlier wake-up time than normal while using wakeupDefaultTime. Does not apply in case wake-up time was changed during this period; defaults to 360 minutes / 6h (optional)
@@ -56236,11 +56799,21 @@ attr RFXCOMUSB longids TX3_T,TX3_H</PRE>
       </ul><br>
       <br>
       <ul>
-        <u>Synchronizing presence with other ROOMMATE or GUEST devices</u><br>
+        <u>Synchronizing presence with other ROOMMATE, GUEST or PET devices</u><br>
         <br>
         <ul>
-          If you always leave or arrive at your house together with other roommates or guests, you may enable a synchronization of your presence state for certain individuals.<br>
+          If you always leave or arrive at your house together with other roommates, guests or pets, you may enable a synchronization of your presence state for certain individuals.<br>
           By setting attribute rr_passPresenceTo, those individuals will follow your presence state changes to 'home', 'absent' or 'gone' as you do them with your own device.<br>
+          <br>
+          Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
+        </ul>
+      </ul><br>
+      <br>
+      <ul>
+        <u>Synchronizing state with other ROOMMATE, GUEST or PET devices</u><br>
+        <br>
+        <ul>
+          To sync each and every status change that is _not_ related to leaving or arriving at your house, you may set attribute rr_passStateTo.<br>
           <br>
           Please note that individuals with current state 'gone' or 'none' (in case of guests) will not be touched.
         </ul>
@@ -56304,7 +56877,10 @@ attr RFXCOMUSB longids TX3_T,TX3_H</PRE>
             <b>rr_noDuration</b> - may be used to disable continuous, non-event driven duration timer calculation (see readings durTimer*)
           </li>
           <li>
-            <b>rr_passPresenceTo</b> - synchronize presence state with other ROOMMATE or GUEST devices; separte devices by space
+            <b>rr_passStateTo</b> - synchronize home state with other ROOMMATE, GUEST or PET devices; separte devices by space
+          </li>
+          <li>
+            <b>rr_passPresenceTo</b> - synchronize presence state with other ROOMMATE, GUEST or PET devices; separte devices by space
           </li>
           <li>
             <b>rr_presenceDevices</b> - take over presence state from any other FHEM device. Separate more than one device with comma meaning ALL of them need to be either present or absent to trigger update of this ROOMMATE device. You may optionally add a reading name separated by :, otherwise reading name presence and state will be considered.
@@ -56320,6 +56896,9 @@ attr RFXCOMUSB longids TX3_T,TX3_H</PRE>
           </li>
           <li>
             <b>rr_wakeupDevice</b> - reference to enslaved DUMMY devices used as a wake-up timer (part of RESIDENTS Toolkit's wakeuptimer)
+          </li>
+          <li>
+            <b>subType</b> - specifies a specific class of a roommate for the device. This will be considered for home alone status calculation. Defaults to "adult"
           </li>
         </ul>
       </ul><br>
